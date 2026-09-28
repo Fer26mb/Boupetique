@@ -14,8 +14,8 @@ const productos = [
         "Peso_Valor": 3.8,
         "Peso_Unidad": "kg",
         "Requiere_Receta": 0,
-        "Imagen_URL": "OFP-Grain-Free-Lamb-Kibble-Recipe-1-668x580.webp (720×625)",
-        "product_URL": "https://thefamilypet.store/products/ofrm-d-gf-pasture-lmb-4?variant=43532320309290&country=MX&currency=USD&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&srsltid=AU7gw4X5lNsC0BzPyIHM3fFf4CXQbOrReqZ5sFsbH46zvO7-t_PZvbXzxXg"
+        "Imagen_URL": "https://pettoba.ca/cdn/shop/products/care-sensitive-skin-stomach-hypoallergenic-dog-food-dry-dog-food-nutrience-nutrience-dry-dog-food-015561766067-584243_1800x1800.png?v=1691460014",
+        "product_URL": "https://pettoba.ca/cdn/shop/products/care-sensitive-skin-stomach-hypoallergenic-dog-food-dry-dog-food-nutrience-nutrience-dry-dog-food-015561766067-584243_1800x1800.png?v=1691460014"
     },
     {
         "id": "2",
