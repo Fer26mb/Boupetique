@@ -222,6 +222,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // EVENTOS DE LOS CAMPOS
     // ========================================================
 
+/*
+!REFACTORIZANDO, codigo de Eduardo Alvarez. Dejo el equipo.*/      
     nombre.addEventListener("input", function () {
 
         validarNombre();
