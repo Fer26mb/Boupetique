@@ -12,7 +12,8 @@
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Conexión de BootStrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
     <!-- Conexión a CSS -->
     <link rel="stylesheet" href="../css/styles.css">
@@ -22,24 +23,34 @@
 
 <body data-page="productos">
     <header id="site-header" data-include="../partials/navbar.html"></header>
-
+    <!--! botones para ir a pagina de registro de productos: TEMPORALES mientras se decide como y donde indexar -->
     <main class="container-fluid px-4 py-4">
-        <div class="mb-3">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb small text-muted mb-1">
-                    <li class="breadcrumb-item"><a href="/index.html" class="text-decoration-none text-muted">Inicio</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Catálogo</li>
-                </ol>
-            </nav>
-        </div>
+      <!--  <div class="container-fluid px-4 py-4"> --> <!--? Descomentar si se quita la clase al main-->
+            <div class="mb-3">
+                <div class="d-flex gap-2">
+                    <button type="button" class="btn form-products">
+                        <!--? form products es propuedad css para color verde-->
+                        <a href="./registro_prod.html" class="text-decoration-none text-white">Registro de productos</a>
+                    </button>
+                    <button type="button"
+                        class="btn form-products"><!--? form products es propuedad css para color verde-->
+                        <a href="./productos.html" class="text-decoration-none text-white">Página de productos</a>
+                    </button>
+                </div>
+            </div>
+        <!--</div> --> <!--? Descomentar si se quita la clase al main-->
+        <!--! FIN DE BOTONES: registro productos y productos-->
 
         <!-- BANNER -->
         <div class="catalog-hero-banner mb-4">
             <div class="banner-overlay">
                 <div class="banner-content">
-                    <span class="badge bg-warning text-dark mb-2 px-3 py-2 text-uppercase fw-bold">Ofertón del Mes</span>
+                    <span class="badge bg-warning text-dark mb-2 px-3 py-2 text-uppercase fw-bold">Ofertón del
+                        Mes</span>
                     <h1 class="banner-title">Nutrición Premium & Cuidado Natural</h1>
-                    <p class="banner-subtitle">Hasta 20% de descuento en la línea holística seleccionada. Dale a tu mascota la calidad que merece.</p>
+                    <p class="banner-subtitle">Hasta 20% de descuento en la línea holística seleccionada. Dale a tu
+                        mascota
+                        la calidad que merece.</p>
                     <a href="#productos" class="btn btn-banner">Ver ofertas exclusivas</a>
                 </div>
             </div>
@@ -87,7 +98,7 @@
             </div>
         </div>
         <div class="row g-4">
-            
+
             <!-- BARRA DE FILTROS (IZQUIERDA) -->
             <aside class="col-12 col-lg-3 col-xl-2 border-end pe-lg-4">
                 <div class="d-flex justify-content-between align-items-center mb-3">
@@ -151,43 +162,13 @@
 
             <!-- PRODUCTOS -->
             <section class="col-12 col-lg-9 col-xl-10">
-                <div class="row g-4">
-
-                    <div id="catalogCard2"></div>
-
-                </div>
-
+                <div id="catalogCard2" class="row g-4"></div>
             </section>
         </div>
     </main>
-        <!-- Modal Limpio -->
-    <div class="modal fade" id="modalProducto1" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content border-0 rounded-5 p-4 bg-white shadow-lg">
-                <button type="button" class="btn-close ms-auto" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-                <div class="modal-body">
-                    <div class="row align-items-center g-4">
-                        <div class="col-12 col-md-6 text-center">
-                            <img src="../assets/productos-img/prime-nutrition-20kg.png" class="img-fluid drop-shadow-modal" alt="Producto 1">
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <span class="micro-category">Alimentación Canina</span>
-                            <h2 class="fw-bold text-dark mt-1 mb-2"> Alimento Para Perro Pearl's Prime Nutrition Adult 20 kg</h2>
-                            <p class="text-muted small">Alimento completo Super Premium a base de proteína de pollo de alta calidad. Formulado con vitaminas A, B6, C y E, fortalece el sistema inmunológico, cuida la salud cardiovascular y promueve el desarrollo muscular fuerte y definido de tu perro en su etapa adulta.</p>
-                            
-                            <div class="my-3">
-                                <span class="fs-3 fw-bold text-dark">$1160.00</span>
-                                <span class="text-muted text-decoration-line-through ms-2">$1000.00</span>
-                            </div>
-
-                            <button class="btn btn-dark w-100 rounded-pill py-3 fw-semibold">
-                                Añadir a la bolsa
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- Modal Limpio -->
+    <div id="modal-info">
+        <div class="content"></div>
     </div>
 
     <footer id="site-footer" class="text-light py-5" data-include="../partials/footer.html"></footer>

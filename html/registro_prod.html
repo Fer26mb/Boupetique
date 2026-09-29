@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boupetique</title>
+    <link rel="icon" type="image/png" href="../assets/logo-img/pinguino.png">
+
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Conexión de BootStrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <!-- Conexión a CSS -->
+    <link rel="stylesheet" href="../css/styles.css">
+
+
+</head>
+
+<body data-page="registro-productos">
+    <header id="site-header" data-include="../partials/navbar.html"></header>
+
+    <section class="inicio">
+        <h1>Registro de productos</h1>
+    <!--! botones para ir a pagina de registro de productos: TEMPORALES mientras se decide como y donde indexar -->
+    <div class="container-fluid px-4 py-4">
+        <div class="mb-3">
+            <div class="d-flex gap-2">
+                <button type="button" class="btn form-products"> <!--? form products es propuedad css para color verde-->
+                    <a href="./registro_prod.html" class="text-decoration-none text-white">Registro de productos</a>
+                </button>
+                <button type="button" class="btn form-products"><!--? form products es propuedad css para color verde-->
+                    <a href="./productos.html" class="text-decoration-none text-white">Página de productos</a>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!--! FIN DE BOTONES: registro productos y productos-->
+        <div class="container-fluid py-4">
+            <h1 class="text-center mb-4 fw-bold text-black">Panel de Administración de Productos</h1>
+
+            <div class="row">
+                <!--! COLUMNA IZQUIERDA: FORMULARIO -->
+                <div class="col-lg-5 mb-4">
+                    <div class="card shadow-sm border-0">
+                        <div class="card-header form-products">
+                            <h5 class="mb-0 text-white" id="form-title">Agregar Nuevo Producto</h5>
+                        </div>
+                        <div class="card-body">
+                            <form id="productForm">
+                                <!-- Input oculto para saber si estamos editando -->
+                                <input type="hidden" id="editIndex" value="-1">
+
+                                <div class="mb-3">
+                                    <label for="ID" class="form-label">ID del Producto</label>
+                                    <input type="text" class="form-control" id="ID" required placeholder="Ej. MASC-P1">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="Nombre" class="form-label">Nombre</label>
+                                    <input type="text" class="form-control" id="Nombre" required
+                                        placeholder="Nombre del producto">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="Descripcion_Producto" class="form-label">Descripción</label>
+                                    <textarea class="form-control" id="Descripcion_Producto" rows="2"
+                                        required></textarea>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="Especie" class="form-label">Especie</label>
+                                        <input type="text" class="form-control" id="Especie" required
+                                            placeholder="Ej. Perro">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="Categoria" class="form-label">Categoría</label>
+                                        <input type="text" class="form-control" id="Categoria" required
+                                            placeholder="Ej. Alimentos">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="Subcategoria" class="form-label">Subcategoría</label>
+                                        <input type="text" class="form-control" id="Subcategoria" required
+                                            placeholder="Ej. Alimento Seco">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="Marca" class="form-label">Marca</label>
+                                        <input type="text" class="form-control" id="Marca" required
+                                            placeholder="Ej. Open Farm">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="Etapa_Vida" class="form-label">Etapa de Vida</label>
+                                        <input type="text" class="form-control" id="Etapa_Vida" required
+                                            placeholder="Todas las edades">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="Tamano_Raza" class="form-label">Tamaño de Raza</label>
+                                        <input type="text" class="form-control" id="Tamano_Raza" required
+                                            placeholder="Todas las razas">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-4 mb-3">
+                                        <label for="Precio_Base" class="form-label">Precio ($)</label>
+                                        <input type="number" step="0.01" class="form-control" id="Precio_Base" required
+                                            value="650.28">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label for="Stock" class="form-label">Stock</label>
+                                        <input type="number" class="form-control" id="Stock" required value="20">
+                                    </div>
+                                    <div class="col-md-2 mb-3">
+                                        <label for="Peso_Valor" class="form-label">Peso</label>
+                                        <input type="number" step="0.1" class="form-control" id="Peso_Valor" required
+                                            value="3.8">
+                                    </div>
+                                    <div class="col-md-2 mb-3">
+                                        <label for="Peso_Unidad" class="form-label">Unidad</label>
+                                        <input type="text" class="form-control" id="Peso_Unidad" required value="kg">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="Requiere_Receta" class="form-label">¿Requiere Receta?</label>
+                                        <select class="form-select" id="Requiere_Receta">
+                                            <option value="0">No</option>
+                                            <option value="1">Sí</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="Imagen_URL" class="form-label">Nombre de Imagen</label>
+                                        <input type="text" class="form-control" id="Imagen_URL"
+                                            value="imagen_producto.webp">
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="product_URL" class="form-label">URL del Producto</label>
+                                    <input type="url" class="form-control" id="product_URL" placeholder="https://...">
+                                </div>
+
+                                <div class="d-grid gap-2">
+                                    <button type="submit" class="btn btn-success form-products" id="btnSubmit">Crear
+                                        Producto</button>
+                                    <!--?resetForm() es un manejador de eventos que ejecuta una función de JavaScript cuando el usuario hace clic en ese botón. lo usamos en crud.js para limpiar registros en cancelacion de edicion de productos -->
+                                    <!--! aun sin usar este boton-->
+                                   <button type="button" class="btn btn-secondary d-none form-products" id="btnCancel"
+                                        onclick="resetForm()">Cancelar Edición</button>
+                                    
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div> <!-- Fin col-lg-5 -->
+
+                <!--! COLUMNA DERECHA: VISTA DE PRODUCTOS DADOS DE ALTA -->
+                <div class="col-lg-7">
+                    <div class="card shadow-sm border-0 mb-4">
+                        <div class="card-header form-products">
+                            <h5 class="mb-0 text-white">Productos Ingresados (Vista Previa)</h5>
+                        </div>
+                        <div class="card-body" style="max-height: 500px; overflow-y: auto;">
+                            <div id="productosContainer" class="row">
+                                <!-- Aquí se inyectarán las tarjetas dinámicamente -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sección Work in Progress -->
+                    <div class="text-center mt-3">
+                        <img src="../assets/piwiscont.png" alt="Work in progress" class="img-fluid mx-auto d-block"
+                            style="max-width: 400px;">
+                        <h3 class="text-center mt-2">Trabajo en progreso, regresa pronto... 🐧</h3>
+                    </div>
+                </div> <!-- Fin col-lg-7 -->
+            </div> <!-- Fin row -->
+        </div> <!-- Fin container-fluid -->
+    </section> <!-- Fin section -->
+
+    <footer id="site-footer" class="text-light py-5" data-include="../partials/footer.html"></footer>
+
+    <!-- Script de Javascript: preparanto terreno para la logica JS-->
+
+    <script src="../js/json.js"></script>
+    <script src="../js/crud.js"></script>
+    <script src="../js/app.js"></script>
+
+
+    <!-- Script de BootStrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
