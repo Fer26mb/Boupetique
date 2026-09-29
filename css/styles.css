@@ -572,7 +572,6 @@ font-size: 28px
   color: #333;              /* color */
 }
 
-
 /* COMPARATIVA DE CARDS DEL EQUIPO */
 .team-version-heading {
   max-width: 720px;
@@ -807,6 +806,7 @@ font-size: 28px
   padding: 1.25rem 1.5rem;
   text-align: center;
   color: #FFFFFF;
+  cursor: url('../assets/logo-img/pinguino.png') 0 0, auto;
 }
 
 .techo-banner {
