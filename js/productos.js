@@ -49,7 +49,7 @@ const renderizarProductos = (producto) => {
                 </div>
 
                 <button class="btn-catalog-select info-modal-trigger" data-id="${producto.id}">
-                    Seleccionar opciones ${producto.id}
+                    Seleccionar opciones
                 </button>
             </div>
         </div>
@@ -106,7 +106,7 @@ const showInfo = function (product) {
                             </div>
 
                             <button class="btn btn-dark w-100 rounded-pill py-3 fw-semibold">
-                                Añadir a la bolsa
+                                Añadir al carrito
                             </button>
                         </div>
                     </div>
