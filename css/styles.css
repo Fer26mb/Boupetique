@@ -551,6 +551,27 @@ footer h5 {
   color: var(--boupetique-gris-ceniza) !important;
 }
 
+/*Olan*/
+/*Formulario de registro de usuario titulo y titulo de fehca de nacimiento */
+
+.titleR { 
+font-weight: 600;
+  letter-spacing: -1px;
+  position: relative;
+  display: flex;
+
+  
+font-size: 28px
+
+}
+
+
+.titleF {
+  font-size: 1.2rem;          /* tamaño de letra */
+  font-weight: bold;        /* en negritas */
+  color: #333;              /* color */
+}
+=======
 
 /* COMPARATIVA DE CARDS DEL EQUIPO */
 .team-version-heading {
@@ -796,3 +817,4 @@ footer h5 {
     background-size: auto 300%;
     background-position: top center;
 }
+
