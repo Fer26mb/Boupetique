@@ -572,25 +572,6 @@ function validarReiterarContrasena() {
         return diferencia >= tiempoEspera;
     }
 
-
-    // ========================================================
-    // BLOQUEAR FORMULARIO
-    // ========================================================
-
-    function bloquearFormulario() {
-
-        // TODO . verificar
-       /*
-        nombre.disabled = true;
-        correo.disabled = true;
-        telefono.disabled = true;
-        mensaje.disabled = true;
-*/
-        //btnEnviar.disabled = true;
-
-    }
-
-
     // ========================================================
     // ENVIAR FORMULARIO
     // ========================================================
@@ -646,48 +627,47 @@ function validarReiterarContrasena() {
 
 
         // ====================================================
-        // OBTENER LOS DATOS JSON
+        // TODO OBTENER LOS DATOS JSON PASO 15 - CONTINUACION
         // ====================================================
 
-        const datos = {
-
-            nombre: nombre.value.trim(),
-
-            correo: correo.value.trim(),
-
-            telefono: telefono.value.trim(),
-
-            mensaje: mensaje.value.trim(),
-// se agrega contrasena
-           // contrasena: contrasena.value.trim()
-        };
+       const datos = { 
+    nombre: nombre.value.trim(),
+    apellido: apellido.value.trim(),
+    correo: correo.value.trim(),
+    telefono: telefono.value.trim(),
+    mascota: mascota.value.trim(),
+    tipomascota: tipomascota.value.trim(),
+    anio: anio.value.trim(),
+    mes: mes.value.trim(),
+    dia: dia.value.trim(),
+    edadm: edadm.value.trim(),
+    tamano: tamano.value.trim(),
+    peso: peso.value.trim(),
+    contrasena: contrasena.value.trim(),
+    rcontrasena: repcontrasena.value.trim()
+};
 
 
         // ====================================================
         // GUARDAR HORA DEL ENVÍO
         // ====================================================
+// !! Esta linea se debe retirar!
+        //7localStorage.setItem(
+           // "ultimoEnvio",
+            //Date.now()
+       // );
 
-        localStorage.setItem(
-            "ultimoEnvio",
-            Date.now()
-        );
+        // Todo Esta linea guarda en local storage todo lo que el usuario registra!! paso 16.
+        localStorage.setItem("datosUsuario", JSON.stringify(datos));
 
 
         // ====================================================
         // MOSTRAR DATOS
         // ====================================================
 
-        alert(
-            "¡Gracias por tus comentarios!,\n Uno de nuestros asesores te responderá pronto\n\n" +
-
-            "Nombre: " + datos.nombre + "\n" +
-
-            "Correo: " + datos.correo + "\n" +
-
-            "Teléfono: " + datos.telefono + "\n\n" +
-
-            "Mensaje:\n" + datos.mensaje 
-        );
+        alert( //Todo Paso 18 mensaje de envio en pagina - dar clic en terminos y condiciones.!
+            "¡Gracias por tu registro !,\n" + datos.nombre +" Bienvenido a Boupetique" 
+        );  ///se añade mensaje final de bienvenida a Boupetique!!
 
 
         // ====================================================
@@ -747,11 +727,11 @@ function validarReiterarContrasena() {
 
             telefono.classList.remove("is-valid", "is-invalid", "campo-valido");
 
-            mensaje.classList.remove("is-valid", "is-invalid");
+    
 
             checkMensaje.classList.remove("mostrar");
 
-            contador.textContent = "0 / 30";
+            contador.textContent = "0 / 08";
 
             btnEnviar.disabled = true;
 
