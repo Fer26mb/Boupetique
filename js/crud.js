@@ -20,11 +20,79 @@ if (!Array.isArray(cards)) {
 // 2. Tomamos las opciones del archivo json.js para no repetirlas a mano en el HTML.
 const productsFromJSON = getProductOptions();
 
-const cleanOptions = (values) => {
+//Sinonimos
+
+const sinonimosEspecies = {
+    "Perro": ["perro", "perro "],
+    "Gato": ["gato", "gato ", "gatos"],
+    "Perro y Gato": ["perro & gato", "perro y gato", "perro & gato "]
+};
+
+const sinonimosCategorias = {
+    "Alimentos": ["alimentos", "alimento", "alimento ", "alimento  "],
+    "Higiene": ["higiene", "higiene "],
+    "Accesorios": ["accesorios", "accesorio", "accesorio "],
+    "Juguetes": ["juguetes", "juguete"],
+    "Bienestar": ["bienestar", "bienestar "]
+};
+
+const sinonimosSubcategorias = {
+    "Alimento Seco": ["alimento seco", "seco", " seco ", "alimento  seco", "alimento especializado", "alimento  especializado", "croquetas", "alimento"],
+    "Suplementos": ["suplemento", "suplementos", "premio", "premios", "golosina"],
+    "Shampoo y Aseo": ["shampoo / limpieza", "shampoo y limpieza", "limpieza", "shampoo", "champú", "baño"],
+    "Higiene del Hogar": ["higiene/sanitario", "higiene y sanitario", "sanitario", "arenero", "desinfectante", "limpiador"],
+    "Camas y Descanso": ["camas y descanso", "cama y descanso", "cama", "colchón", "cojín"],
+    "Juguetes": ["caucho interactivo", "estimulación", "estimulacion", "juguete", "juguetes", "mordedor", "pelota"],
+    "Accesorios": ["correa", "correas", "collar", "collares", "bowls", "bowl", "plato", "platos", "comederos", "arnés", "arnes"],
+    "Bienestar": ["difusor ambiental", "difusor  ambiental", "feromonas", "calmante", "anti-estrés", "antiestrés"]
+};
+
+const sinonimosEtapaVida = {
+    "Todas las edades": ["todas las edades", "todas las etapas", "totas las etapas", "todas las edades ", "todas"],
+    "Cachorro": ["cachorro", "kitten", "6 meses +", "6 meses+", "cachorro ", "kitten "],
+    "Adulto": ["adulto", "adulto/cachorro", "adulto ", "adulto  "],
+    "Senior": ["senior", "senior ", "adulto mayor"],
+    "Adulto / Senior": ["adulto / senior", "adulto / senior (7+)", "adulto/senior"]
+};
+
+const sinonimosUnidades = {
+    "g": ["g", "gr", "gramo", "gramos"],
+    "kg": ["kg", "kilo", "kilos", "kilogramo", "kilogramos"],
+    "ml": ["ml", "mililitro", "mililitros"],
+    "pza": ["pza", "pzas", "pieza", "piezas", "unidad", "unidades"]
+};
+
+const sinonimosTamano = {
+    "Todas las razas": ["todas las razas", "todas", "todas las razas ", " todas las razas"],
+    "Pequeña": ["pequeña", "pequeñas", "razas pequeñas y mini", "pequeña "],
+    "Mediana": ["mediana", "raza mediana", "raza mediana "],
+    "Grande": ["grande", "razas grandes", "raza mediana / grande", "mediana / grande", "grande "]
+};
+
+//Funciones normalización
+
+const normalizarValor = (valor, sinonimos) => {
+    if (!valor) return valor;
+    const valorLower = String(valor).trim().toLocaleLowerCase("es-MX");
+    
+    for (const [valorEstandar, variantes] of Object.entries(sinonimos)) {
+        if (variantes.some(v => valorLower === v.toLocaleLowerCase("es-MX"))) {
+            return valorEstandar;
+        }
+    }
+    return valor.trim();
+};
+
+const cleanOptions = (values, sinonimos = null) => {
     const optionsWithoutDuplicates = new Map();
 
     values.forEach((value) => {
-        const cleanValue = String(value ?? "").trim();
+        let cleanValue = String(value ?? "").trim();
+        
+        if (sinonimos) {
+            cleanValue = normalizarValor(cleanValue, sinonimos);
+        }
+        
         const comparisonValue = cleanValue.toLocaleLowerCase("es-MX");
 
         if (cleanValue && !optionsWithoutDuplicates.has(comparisonValue)) {
@@ -37,40 +105,59 @@ const cleanOptions = (values) => {
     );
 };
 
+//ID
+
 const dropdownFields = {
     Especie: {
         datalistId: "listaEspecies",
-        options: ["Perro", "Gato"]
+        options: cleanOptions(["Perro", "Gato", "Perro & Gato"], sinonimosEspecies),
+        sinonimos: sinonimosEspecies
     },
     Categoria: {
         datalistId: "listaCategorias",
-        options: cleanOptions(productsFromJSON.map((product) => product.Categoria))
+        options: cleanOptions(productsFromJSON.map((product) => product.Categoria), sinonimosCategorias),
+        sinonimos: sinonimosCategorias
     },
     Subcategoria: {
         datalistId: "listaSubcategorias",
-        options: cleanOptions(productsFromJSON.map((product) => product.Subcategoria))
+        options: cleanOptions(productsFromJSON.map((product) => product.Subcategoria), sinonimosSubcategorias),
+        sinonimos: sinonimosSubcategorias
+    },
+    Etapa_Vida: {
+        datalistId: "listaEtapas",
+        options: cleanOptions(productsFromJSON.map((product) => product.Etapa_Vida), sinonimosEtapaVida),
+        sinonimos: sinonimosEtapaVida
     },
     Tamano_Raza: {
-        datalistId: "listaTamanos",
-        options: cleanOptions(productsFromJSON.map((product) => product.Tamano_Raza))
+        datalistId: "listaTamanos", // ✅ Corregido
+        options: cleanOptions(productsFromJSON.map((product) => product.Tamano_Raza), sinonimosTamano),
+        sinonimos: sinonimosTamano
     },
     Peso_Unidad: {
-        datalistId: "listaUnidades",
+        datalistId: "listaUnidades", // ✅ Corregido
         options: cleanOptions([
             ...productsFromJSON.map((product) => product.Peso_Unidad),
             "pieza",
             "piezas"
-        ])
+        ], sinonimosUnidades),
+        sinonimos: sinonimosUnidades
     }
 };
 
-// Cada datalist funciona como un dropdown y el navegador filtra al escribir.
+//DATALISTS
+
 Object.values(dropdownFields).forEach(({ datalistId, options }) => {
     const datalistEl = document.getElementById(datalistId);
+
+    if (!datalistEl) {
+        console.warn(`⚠️ No se encontró el elemento con ID: ${datalistId}`);
+        return;
+    }
 
     options.forEach((optionText) => {
         const optionEl = document.createElement("option");
         optionEl.value = optionText;
+        optionEl.textContent = optionText;
         datalistEl.appendChild(optionEl);
     });
 });
@@ -110,11 +197,12 @@ const findOption = (value, options) => {
 
 const validateDropdown = (fieldId) => {
     const inputEl = document.getElementById(fieldId);
+    if (!inputEl) return;
+    
     const validOption = findOption(inputEl.value, dropdownFields[fieldId].options);
 
     inputEl.setCustomValidity(validOption ? "" : "Selecciona una opción de la lista.");
 
-    // También corregimos mayúsculas o espacios para guardar el mismo texto del JSON.
     if (validOption) {
         inputEl.value = validOption;
     }
@@ -122,8 +210,10 @@ const validateDropdown = (fieldId) => {
 
 Object.keys(dropdownFields).forEach((fieldId) => {
     const inputEl = document.getElementById(fieldId);
-    inputEl.addEventListener("input", () => validateDropdown(fieldId));
-    inputEl.addEventListener("change", () => validateDropdown(fieldId));
+    if (inputEl) {
+        inputEl.addEventListener("input", () => validateDropdown(fieldId));
+        inputEl.addEventListener("change", () => validateDropdown(fieldId));
+    }
 });
 
 // 5. Aplicamos los rangos de los campos numéricos y evitamos IDs repetidos.
@@ -197,7 +287,6 @@ formEl.addEventListener("submit", (event) => {
 
     formErrorEl.classList.add("d-none");
 
-    // Conservamos los mismos nombres del JSON para que el catálogo pueda leerlos.
     const cardData = {
         ID: document.getElementById("ID").value,
         Nombre: document.getElementById("Nombre").value,
