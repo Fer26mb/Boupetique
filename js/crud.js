@@ -15,6 +15,11 @@ let cards = getLocalStorage("cards");
 // Si localStorage no tiene una lista válida, comenzamos con una lista vacía.
 if (!Array.isArray(cards)) {
     cards = [];
+} else {
+    cards = cards.map((product) => {
+        const { id, ...productData } = product;
+        return { ...productData, sku: product.sku ?? id };
+    });
 }
 
 // 2. Tomamos las opciones del archivo json.js para no repetirlas a mano en el HTML.
@@ -105,7 +110,7 @@ const cleanOptions = (values, sinonimos = null) => {
     );
 };
 
-//ID
+// SKU
 
 const dropdownFields = {
     Especie: {
@@ -236,23 +241,23 @@ const validateNumbers = () => {
     );
 };
 
-const validateProductId = () => {
-    const idEl = document.getElementById("id");
+const validateProductSku = () => {
+    const skuEl = document.getElementById("sku");
     const allRegisteredProducts = [...productsFromJSON, ...cards];
-    const repeatedId = allRegisteredProducts.some(
-        (card) => String(card.id ?? card.id).toLocaleLowerCase("es-MX") ===
-            idEl.value.trim().toLocaleLowerCase("es-MX")
+    const repeatedSku = allRegisteredProducts.some(
+        (card) => String(card.sku).toLocaleLowerCase("es-MX") ===
+            skuEl.value.trim().toLocaleLowerCase("es-MX")
     );
 
-    idEl.setCustomValidity(repeatedId ? "Ya existe un producto con este ID." : "");
+    skuEl.setCustomValidity(repeatedSku ? "Ya existe un producto con este SKU." : "");
 
-    const feedbackEl = idEl.nextElementSibling;
-    feedbackEl.textContent = repeatedId
-        ? "Ya existe un producto con este ID."
-        : "Escribe un ID usando letras, números, guion o guion bajo.";
+    const feedbackEl = skuEl.nextElementSibling;
+    feedbackEl.textContent = repeatedSku
+        ? "Ya existe un producto con este SKU."
+        : "Escribe un SKU usando letras, números, guion o guion bajo.";
 };
 
-document.getElementById("id").addEventListener("input", validateProductId);
+document.getElementById("sku").addEventListener("input", validateProductSku);
 ["Precio_Base", "Stock", "Peso_Valor"].forEach((fieldId) => {
     document.getElementById(fieldId).addEventListener("input", validateNumbers);
 });
@@ -276,7 +281,7 @@ formEl.addEventListener("submit", (event) => {
 
     Object.keys(dropdownFields).forEach(validateDropdown);
     validateNumbers();
-    validateProductId();
+    validateProductSku();
 
     if (!formEl.checkValidity()) {
         formEl.classList.add("was-validated");
@@ -288,7 +293,7 @@ formEl.addEventListener("submit", (event) => {
     formErrorEl.classList.add("d-none");
 
     const cardData = {
-        id: document.getElementById("id").value,
+        sku: document.getElementById("sku").value,
         Nombre: document.getElementById("Nombre").value,
         Descripcion_Producto: document.getElementById("Descripcion_Producto").value,
         Especie: document.getElementById("Especie").value,
@@ -363,7 +368,7 @@ const addProductCard = (product, htmlElement) => {
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-start">
                         <h5 class="card-title text-black">${escapeHTML(product.Nombre)}</h5>
-                        <span class="badge bg-secondary">${escapeHTML(product.ID ?? product.id)}</span>
+                        <span class="badge bg-secondary">${escapeHTML(product.sku)}</span>
                     </div>
                     <h6 class="card-subtitle mb-2 text-muted">${escapeHTML(product.Marca)} | ${escapeHTML(product.Categoria)} &gt; ${escapeHTML(product.Subcategoria)}</h6>
                     <p class="card-text small mb-1">${escapeHTML(product.Descripcion_Producto)}</p>
