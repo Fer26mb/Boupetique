@@ -51,7 +51,8 @@ body > * {
   cursor: url('../assets/logo-img/pinguino.png') 0 0, auto;
   position: sticky;
   top: 0;
-  z-index: 600;
+  z-index: 1000;
+  width: 100;
 }
 
 a{
@@ -815,6 +816,7 @@ font-size: 28px
     background-repeat: repeat-x;
     background-size: 77%;
     background-position: top center;
+    pointer-events: none;
 }
 
 /* Inputs y Textareas más redondeados */
