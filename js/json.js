@@ -550,10 +550,14 @@ export async function getAllProducts(){
      * }
      * return agregados;
      */
-    for(let i = 0; i <= 10; i++){
-        agregados.push(productos[i]);
-    }
-    return agregados;
+    for(const todosProductos of productos){
+          agregados.push(todosProductos);
+     }
+     return agregados;
+    // for(let i = 0; i <= 13; i++){
+    //     agregados.push(productos[i]);
+    // }
+    // return agregados;
 }
 
 // Esta función solo comparte las opciones que necesita el formulario de registro.

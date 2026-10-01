@@ -124,6 +124,8 @@ const showInfo = function (product) {
     bootstrapModal.show();
 };
 
+console.log(allProducts);
+
 /* ---------------------------------------
 //Productos.js de ANDRES sin modificar
 
