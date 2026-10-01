@@ -9,8 +9,10 @@ const getLocalStorageProducts = () => {
     const stored = localStorage.getItem("cards");
     return stored
         ? JSON.parse(stored).map((product) => {
+            if (product.sku != null) return product;
+
             const { id, ...productData } = product;
-            return { ...productData, sku: product.sku ?? id };
+            return { ...productData, sku: id };
         })
         : [];  //operador ternario
 };

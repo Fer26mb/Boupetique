@@ -10,20 +10,43 @@ const formEl = document.getElementById("productForm");
 const mainEl = document.getElementById("productosContainer");
 const formErrorEl = document.getElementById("formError");
 const cancelButtonEl = document.getElementById("btnCancel");
+const productsFromJSON = getProductOptions();
 let cards = getLocalStorage("cards");
 
 // Si localStorage no tiene una lista válida, comenzamos con una lista vacía.
 if (!Array.isArray(cards)) {
     cards = [];
 } else {
+    const highestStaticId = Math.max(0, ...productsFromJSON.map((product) => product.id));
+    const reservedStoredIds = cards
+        .filter((product) => product.sku != null)
+        .map((product) => Number(product.id))
+        .filter((id) => Number.isSafeInteger(id) && id > highestStaticId);
+    let nextId = Math.max(highestStaticId, ...reservedStoredIds) + 1;
+    const usedIds = new Set(productsFromJSON.map((product) => product.id));
+
     cards = cards.map((product) => {
-        const { id, ...productData } = product;
-        return { ...productData, sku: product.sku ?? id };
+        const { id: storedId, ...productData } = product;
+        const sku = product.sku ?? storedId;
+        const existingId = product.sku != null ? Number(storedId) : NaN;
+
+        if (Number.isSafeInteger(existingId) && existingId > highestStaticId && !usedIds.has(existingId)) {
+            usedIds.add(existingId);
+            return { ...productData, sku, id: existingId };
+        }
+
+        while (usedIds.has(nextId)) {
+            nextId += 1;
+        }
+
+        const id = nextId;
+        nextId += 1;
+        usedIds.add(id);
+        return { ...productData, sku, id };
     });
 }
 
 // 2. Tomamos las opciones del archivo json.js para no repetirlas a mano en el HTML.
-const productsFromJSON = getProductOptions();
 
 //Sinonimos
 
@@ -257,6 +280,19 @@ const validateProductSku = () => {
         : "Escribe un SKU usando letras, números, guion o guion bajo.";
 };
 
+const getNextProductId = () => {
+    const ids = [...productsFromJSON, ...cards]
+        .map((product) => Number(product.id))
+        .filter((id) => Number.isSafeInteger(id) && id >= 0);
+    return Math.max(0, ...ids) + 1;
+};
+
+const updateNextProductId = () => {
+    document.getElementById("id").value = getNextProductId();
+};
+
+updateNextProductId();
+
 document.getElementById("sku").addEventListener("input", validateProductSku);
 ["Precio_Base", "Stock", "Peso_Valor"].forEach((fieldId) => {
     document.getElementById(fieldId).addEventListener("input", validateNumbers);
@@ -291,8 +327,10 @@ formEl.addEventListener("submit", (event) => {
     }
 
     formErrorEl.classList.add("d-none");
+    const id = getNextProductId();
 
     const cardData = {
+        id,
         sku: document.getElementById("sku").value,
         Nombre: document.getElementById("Nombre").value,
         Descripcion_Producto: document.getElementById("Descripcion_Producto").value,
@@ -307,8 +345,7 @@ formEl.addEventListener("submit", (event) => {
         Peso_Valor: Number(document.getElementById("Peso_Valor").value),
         Peso_Unidad: document.getElementById("Peso_Unidad").value,
         Requiere_Receta: Number(document.getElementById("Requiere_Receta").value),
-        Imagen_URL: document.getElementById("Imagen_URL").value,
-        product_URL: document.getElementById("product_URL").value
+        Imagen_URL: document.getElementById("Imagen_URL").value
     };
 
     cards.push(cardData);
@@ -345,6 +382,7 @@ function resetForm() {
             fieldEl.dataset.previousValue = "";
         }
     });
+    updateNextProductId();
 }
 
 cancelButtonEl.addEventListener("click", resetForm);
@@ -368,7 +406,7 @@ const addProductCard = (product, htmlElement) => {
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-start">
                         <h5 class="card-title text-black">${escapeHTML(product.Nombre)}</h5>
-                        <span class="badge bg-secondary">${escapeHTML(product.sku)}</span>
+                        <span class="badge bg-secondary">ID ${escapeHTML(product.id)} | SKU ${escapeHTML(product.sku)}</span>
                     </div>
                     <h6 class="card-subtitle mb-2 text-muted">${escapeHTML(product.Marca)} | ${escapeHTML(product.Categoria)} &gt; ${escapeHTML(product.Subcategoria)}</h6>
                     <p class="card-text small mb-1">${escapeHTML(product.Descripcion_Producto)}</p>

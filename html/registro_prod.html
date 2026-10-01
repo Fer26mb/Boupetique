@@ -66,6 +66,11 @@
                                 </div>
 
                                 <div class="mb-3">
+                                    <label for="id" class="form-label">ID (asignado automáticamente)</label>
+                                    <input type="text" class="form-control" id="id" readonly>
+                                </div>
+
+                                <div class="mb-3">
                                     <label for="sku" class="form-label">SKU del Producto</label>
                                     <input type="text" class="form-control" id="sku" required maxlength="30"
                                         pattern="[A-Za-z0-9_-]+" placeholder="Ej. MASC-P1">
@@ -181,18 +186,12 @@
                                     </div>
                                 </div>
 
-                                <div class="mb-3">
-                                    <label for="product_URL" class="form-label">URL del Producto</label>
-                                    <input type="url" class="form-control" id="product_URL" required placeholder="https://...">
-                                    <div class="invalid-feedback">Escribe una URL completa, por ejemplo: https://...</div>
-                                </div>
-
                                 <div class="d-grid gap-2">
                                     <button type="submit" class="btn btn-success form-products" id="btnSubmit">Crear
                                         Producto</button>
                                     <!--?resetForm() es un manejador de eventos que ejecuta una función de JavaScript cuando el usuario hace clic en ese botón. lo usamos en crud.js para limpiar registros en cancelacion de edicion de productos -->
                                     <!--! aun sin usar este boton-->
-                                   <button type="button" class="btn btn-secondary d-none form-products" id="btnCancel">Cancelar Edición</button>
+                                    <button type="button" class="btn btn-secondary d-none form-products" id="btnCancel">Cancelar Edición</button>
                                 </div>
                             </form>
                         </div>

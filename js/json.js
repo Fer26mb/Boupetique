@@ -14,8 +14,7 @@ const productos = [
         "Peso_Valor": 3.8,
         "Peso_Unidad": "kg",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSKLNItS0THGAYp_jniqS5gsVP7ACnwBEp4IDM7P3m8POIJfFNC5cxMYzCMw48zbAABI7dKgwuvt-Xh3vK7xRhCfGb-rDDyJA",
-        "product_URL": "https://thefamilypet.store/products/ofrm-d-gf-pasture-lmb-4?variant=43532320309290&country=MX&currency=USD&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&srsltid=AU7gw4X5lNsC0BzPyIHM3fFf4CXQbOrReqZ5sFsbH46zvO7-t_PZvbXzxXg"
+        "Imagen_URL": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSKLNItS0THGAYp_jniqS5gsVP7ACnwBEp4IDM7P3m8POIJfFNC5cxMYzCMw48zbAABI7dKgwuvt-Xh3vK7xRhCfGb-rDDyJA"
     },
     {
         "sku": "2",
@@ -32,8 +31,7 @@ const productos = [
         "Peso_Valor": 473.0,
         "Peso_Unidad": "ml",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://liveinthelight.co.uk/cdn/shop/files/Pet-Magic-Shampoo-by-Vermont-Soap_2_580x@2x.jpg?v=1778675960",
-        "product_URL": "https://liveinthelight.co.uk/products/pet-shampoo-16oz?variant=55588972626300&country=AR&currency=GBP&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&srsltid=AU7gw4XxgtBEe3QQWsxcqMRijgU6FBJtAgK_FjnlXJGXIjwpPmw3uZn2az4"
+        "Imagen_URL": "https://liveinthelight.co.uk/cdn/shop/files/Pet-Magic-Shampoo-by-Vermont-Soap_2_580x@2x.jpg?v=1778675960"
     },
     {
         "sku": "3",
@@ -50,8 +48,7 @@ const productos = [
         "Peso_Valor": 1.0,
         "Peso_Unidad": "pza",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://www.dogelthy.com/cdn/shop/files/02_MEDIANA_GRIS_PERRO.png?v=1774471024&width=713",
-        "product_URL": "https://www.dogelthy.com/products/cama-ortopedica-para-perros?variant=47241726001382&country=MX&currency=MXN&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&tw_source=google&tw_adid=&tw_campaign=22178479870&tw_kwdid=&gad_source=1&gad_campaignid=22168258932&gbraid=0AAAAAp8b1Xy9lSXiCTfLnW2QYLpn3bX8j&gclid=Cj0KCQjw8c3VBhCsARIsAA_xJ905mmBbO2Jx90kGzssy5XDcQY17vjgI9Rk6dEi8BveuAdPwrYrYVX4aAuUgEALw_wcB"
+        "Imagen_URL": "https://www.dogelthy.com/cdn/shop/files/02_MEDIANA_GRIS_PERRO.png?v=1774471024&width=713"
     },
     {
         "sku": "4",
@@ -68,8 +65,7 @@ const productos = [
         "Peso_Valor": 1.0,
         "Peso_Unidad": "pza",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://m.media-amazon.com/images/I/718fOhQbuOL._AC_SY300_SX300_QL70_ML2_.jpg",
-        "product_URL": "https://www.petco.com.mx/App/LEADS/Kong-Llanta-de-Caucho-Extreme-Tires-Negra-para-Perro/p/110173?srsltid=AU7gw4V9tYnNWsgv0ld3cFseG_Mn_jMjQ0n6VSHvufzpg2h8fdwPnynszCY"
+        "Imagen_URL": "https://m.media-amazon.com/images/I/718fOhQbuOL._AC_SY300_SX300_QL70_ML2_.jpg"
     },
     {
         "sku": "5",
@@ -86,8 +82,7 @@ const productos = [
         "Peso_Valor": 0.5,
         "Peso_Unidad": "ml",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://m.media-amazon.com/images/I/71OhwbObrnL._AC_SL1500_.jpg",
-        "product_URL": "https://www.amazon.com.mx/DUNKHADEN-sensibles-arom%C3%A1tico-duraci%C3%B3n-puramente/dp/B0D2NWR7RV/ref=sr_1_1_sspa?__mk_es_MX=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=3JOWPMK7BYMZF&dib=eyJ2IjoiMSJ9.gunO0XBpYNbgsj7o4JPc2OLtM2yI8EwMZ7akCERKSQwDcGj8P5k0DouQNWdFeUbRnm1nVpQAOcwQ_9H6tRxOA7ICJFosuCdkCrBC02p0dRoryxS8MYWMvGos2074_Rya6fzu6flM5Sp2opxH5PsJh_hrcb02aY-Sdp4jTTd9TyNNagHuVpw3E-J1rHjGlJPASSsTHyHvJcWtJjpBMIciEejDuRLjK_P_UuIxae0QOi1BX_DTX6KjZ1IeTSaTR2wxAVVuCGnzCqiMchdqRClSsGJc99qT3KSQ-OwvNBm6UdQ.K5M0ML0ge2gaoxxLNXbkKgBOOxASN1ypqaqlrRQCkmg&dib_tag=se&keywords=shampoo+para+gatos+natural&qid=1790201435&sprefix=shampoo+para+gatos+natural%2Caps%2C134&sr=8-1-spons&ufe=app_do%3Aamzn1.fos.de93fa6a-174c-4df7-be7c-5bc8e9c5a71b&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1"
+        "Imagen_URL": "https://m.media-amazon.com/images/I/71OhwbObrnL._AC_SL1500_.jpg"
     },
     {
         "sku": "6",
@@ -104,8 +99,7 @@ const productos = [
         "Peso_Valor": 0.5,
         "Peso_Unidad": "ml",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://alnut.mx/wp-content/uploads/2020/05/300x300_PortadaTe1-1.jpg",
-        "product_URL": "https://alnut.mx/categoria/piel/shampoo/"
+        "Imagen_URL": "https://alnut.mx/wp-content/uploads/2020/05/300x300_PortadaTe1-1.jpg"
     },
     {
         "sku": "7",
@@ -122,8 +116,7 @@ const productos = [
         "Peso_Valor": 14.0,
         "Peso_Unidad": "kg",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://sp345.liverpool.com.mx/i/1184392042_4p.jpg",
-        "product_URL": "https://www.liverpool.com.mx/tienda/pdp/mueble-rascador-para-gato/99989420712?skuid=1184392042"
+        "Imagen_URL": "https://sp345.liverpool.com.mx/i/1184392042_4p.jpg"
     },
     {
         "sku": "8",
@@ -140,8 +133,7 @@ const productos = [
         "Peso_Valor": 40.0,
         "Peso_Unidad": "g",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://kuhu.com.mx/wp-content/uploads/2025/08/Collar-Gato-04.jpg",
-        "product_URL": "https://kuhu.com.mx/tienda/collares/collares-gato/collar-gato-04/"
+        "Imagen_URL": "https://kuhu.com.mx/wp-content/uploads/2025/08/Collar-Gato-04.jpg"
     },
     {
         "sku": "9",
@@ -158,8 +150,7 @@ const productos = [
         "Peso_Valor": 25.0,
         "Peso_Unidad": "g",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHKZgfi77WeubJz02HcOR7wjEryVHzdUZ2kfQRF_kNEQ&s",
-        "product_URL": "https://puntomexicano.com/producto/mazacan-el-mazapan-para-perro/"
+        "Imagen_URL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHKZgfi77WeubJz02HcOR7wjEryVHzdUZ2kfQRF_kNEQ&s"
     },
     {
         "sku": "10",
@@ -176,8 +167,7 @@ const productos = [
         "Peso_Valor": 9.5,
         "Peso_Unidad": "kg",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://purina.com.mx/sites/default/files/styles/webp/public/2022-10/razas-medianas-1-proplan.png.webp?itok=BqxKoAu_",
-        "product_URL": "https://www.amazon.com.mx/Pro-Plan-Adulto-Razas-Medianas/dp/B0F7SHYY47/ref=asc_df_B0F7SHYY47?mcid=6dd3196b040e32bb9e0e0b9769e0ce1f&tag=gledskshopmx-20&linkCode=df0&hvadid=709846066539&hvpos=&hvnetw=g&hvrand=18402475079846045749&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9047086&hvtargid=pla-2440824159990&psc=1&hvocijid=18402475079846045749-B0F7SHYY47-&hvexpln=0&language=es_MX"
+        "Imagen_URL": "https://purina.com.mx/sites/default/files/styles/webp/public/2022-10/razas-medianas-1-proplan.png.webp?itok=BqxKoAu_"
     },
     {
         "sku": "11",
@@ -194,8 +184,7 @@ const productos = [
         "Peso_Valor": 2.0,
         "Peso_Unidad": "kg",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://m.media-amazon.com/images/I/615w1Z6w+EL._AC_SL1500_.jpg",
-        "product_URL": "https://www.amazon.com.mx/Hills-Science-Diet-Alimento-Adulto/dp/B07BHQVVSG?ref_=ast_sto_dp"
+        "Imagen_URL": "https://m.media-amazon.com/images/I/615w1Z6w+EL._AC_SL1500_.jpg"
     },
     {
         "sku": "12",
@@ -212,8 +201,7 @@ const productos = [
         "Peso_Valor": 12.0,
         "Peso_Unidad": "kg",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://i5.walmartimages.com/asr/ac7ee09e-cf2b-4840-b1ff-2673130e4cd3.4890d4d0c75955fa8b268c3b07b69773.png",
-        "product_URL": "https://petco.com.mx/MARCAS/Bravery/Bravery-Alimento-Seco-Natural-Libre-de-Granos-para-Perro-Adulto-Raza-Mediana-Grande-Receta-Salm%C3%B3n%2C-12-kg/p/143658"
+        "Imagen_URL": "https://i5.walmartimages.com/asr/ac7ee09e-cf2b-4840-b1ff-2673130e4cd3.4890d4d0c75955fa8b268c3b07b69773.png"
     },
     {
         "sku": "13",
@@ -230,8 +218,7 @@ const productos = [
         "Peso_Valor": 2.0,
         "Peso_Unidad": "pzas",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://m.media-amazon.com/images/I/61GMAjQCDwL._AC_SL1080_.jpg",
-        "product_URL": "https://www.amazon.com.mx/dp/B0D7N5C8PX/ref=sspa_dk_detail_3?psc=1&pd_rd_i=B0D7N5C8PX&pd_rd_w=J6Xju&content-id=amzn1.sym.c7e6ca62-52cd-4949-a716-1816d2d657e7&pf_rd_p=c7e6ca62-52cd-4949-a716-1816d2d657e7&pf_rd_r=A3H4M7W73NNQASZ2RR7W&pd_rd_wg=e9fZ4&pd_rd_r=a34dea29-7a24-4f33-8a63-ab3bc5cd78b0&sp_csd=d2lkZ2V0TmFtZT1zcF9kZXRhaWwy"
+        "Imagen_URL": "https://m.media-amazon.com/images/I/61GMAjQCDwL._AC_SL1080_.jpg"
     },
     {
         "sku": "14",
@@ -248,8 +235,7 @@ const productos = [
         "Peso_Valor": 1.0,
         "Peso_Unidad": "pza",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://m.media-amazon.com/images/I/510RSrnPY+L._AC_SL1000_.jpg",
-        "product_URL": "https://www.amazon.com.mx/Solutions-Desinfectante-Antibacterial-Superficies-eliminador/dp/B0C252LYDT?pf_rd_p=3583ac43-505d-4bb6-9ce0-270516eac267&pf_rd_r=HPSN5EMD04CBRXPQ7BHV&ref_=sc-beauty250reftag_B0C252LYDT"
+        "Imagen_URL": "https://m.media-amazon.com/images/I/510RSrnPY+L._AC_SL1000_.jpg"
     },
     {
         "sku": "15",
@@ -266,8 +252,7 @@ const productos = [
         "Peso_Valor": 10.0,
         "Peso_Unidad": "kg",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTSgf2P6pevIfhX-pzPd0NDq1tJtZJIV33LOBPlrkN4Nfi3aVZd0_B_0-MtrfIdPMFCo5N9rSoFaS8hQ5b7o_JOa1UhBSWVjYp-cxwkZybS",
-        "product_URL": null
+        "Imagen_URL": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTSgf2P6pevIfhX-pzPd0NDq1tJtZJIV33LOBPlrkN4Nfi3aVZd0_B_0-MtrfIdPMFCo5N9rSoFaS8hQ5b7o_JOa1UhBSWVjYp-cxwkZybS"
     },
     {
         "sku": "16",
@@ -284,8 +269,7 @@ const productos = [
         "Peso_Valor": 1.36,
         "Peso_Unidad": "Kg",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://ss345.liverpool.com.mx/xl/1153094965.jpg",
-        "product_URL": null
+        "Imagen_URL": "https://ss345.liverpool.com.mx/xl/1153094965.jpg"
     },
     {
         "sku": "17",
@@ -302,8 +286,7 @@ const productos = [
         "Peso_Valor": 1.0,
         "Peso_Unidad": "pza",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://image.chewy.com/catalog/general/images/moe/069e0e55-e763-745e-8000-c26833c24d1c._AC_SX500_SY400_QL75_V1_.jpg",
-        "product_URL": "https://ruffwear.eu/products/front-range-flex-harness"
+        "Imagen_URL": "https://image.chewy.com/catalog/general/images/moe/069e0e55-e763-745e-8000-c26833c24d1c._AC_SX500_SY400_QL75_V1_.jpg"
     },
     {
         "sku": "18",
@@ -320,8 +303,7 @@ const productos = [
         "Peso_Valor": 1.0,
         "Peso_Unidad": "pza",
         "Requiere_Receta": 0,
-        "Imagen_URL": 0,
-        "product_URL": "nadota"
+        "Imagen_URL": 0
     },
     {
         "sku": "19",
@@ -338,8 +320,7 @@ const productos = [
         "Peso_Valor": 1.0,
         "Peso_Unidad": "pza",
         "Requiere_Receta": 0,
-        "Imagen_URL": 0,
-        "product_URL": "nadota"
+        "Imagen_URL": 0
     },
     {
         "sku": "20",
@@ -356,8 +337,7 @@ const productos = [
         "Peso_Valor": 100.0,
         "Peso_Unidad": "gr",
         "Requiere_Receta": 0,
-        "Imagen_URL": 0,
-        "product_URL": "nadota"
+        "Imagen_URL": 0
     },
     {
         "sku": "21",
@@ -374,8 +354,7 @@ const productos = [
         "Peso_Valor": 2.72,
         "Peso_Unidad": "kg",
         "Requiere_Receta": 0,
-        "Imagen_URL": 0,
-        "product_URL": "https://www.petngo.com.mx/products/diamond-naturals-gato-indoor-cat"
+        "Imagen_URL": 0
     },
     {
         "sku": "22",
@@ -392,8 +371,7 @@ const productos = [
         "Peso_Valor": 1.5,
         "Peso_Unidad": "kg",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://www.petngo.com.mx/products/nupec-felino-kitten-1-5kg?_pos=15&_fid=1e0dd6013&_ss=c](https://www.petngo.com.mx/products/nupec-felino-kitten-1-5kg?_pos=15&_fid=1e0dd6013&_ss=c",
-        "product_URL": null
+        "Imagen_URL": "https://www.petngo.com.mx/products/nupec-felino-kitten-1-5kg?_pos=15&_fid=1e0dd6013&_ss=c](https://www.petngo.com.mx/products/nupec-felino-kitten-1-5kg?_pos=15&_fid=1e0dd6013&_ss=c"
     },
     {
         "sku": "23",
@@ -410,8 +388,7 @@ const productos = [
         "Peso_Valor": 3.0,
         "Peso_Unidad": "kg",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://bucketjackymollymovil191710-dev.s3.amazonaws.com/seller/369/media/2023/09/20230917075612-saco_indoor-266x450.png",
-        "product_URL": "https://jackymolly.com/products/details/croqueta-gato-adulto-indoor-bulto-de-3-kg?srsltid=AU7gw4Us01hQ2DO7ewcq4hbeLD_B9b3tVrxyHoxS6N3s79mK1RMG7bgCcI0"
+        "Imagen_URL": "https://bucketjackymollymovil191710-dev.s3.amazonaws.com/seller/369/media/2023/09/20230917075612-saco_indoor-266x450.png"
     },
     {
         "sku": "24",
@@ -428,8 +405,7 @@ const productos = [
         "Peso_Valor": 60.0,
         "Peso_Unidad": "ml",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbfFj4o8f9ZVkD2ocjJnP6ubd_LkTzpAJg834Zemsb-blbX7qYqi4GVM4&s=10",
-        "product_URL": "https://www.amazon.com.mx/FELIWAY-Classic-Estr%C3%A9s-Calmante-Feromonas/dp/B089115N2B/ref=asc_df_B089115N2B?mcid=fd8108f428693718937fc95a55f7375a&tag=gledskshopmx-20&linkCode=df0&hvadid=709846036701&hvpos=&hvnetw=g&hvrand=18253009045516745554&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9196359&hvtargid=pla-2485083841171&psc=1&hvocijid=18253009045516745554-B089115N2B-&hvexpln=0&language=es_MX"
+        "Imagen_URL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbfFj4o8f9ZVkD2ocjJnP6ubd_LkTzpAJg834Zemsb-blbX7qYqi4GVM4&s=10"
     },
     {
         "sku": "25",
@@ -446,8 +422,7 @@ const productos = [
         "Peso_Valor": 125.0,
         "Peso_Unidad": "ml",
         "Requiere_Receta": 0,
-        "Imagen_URL": 0,
-        "product_URL": "nadota"
+        "Imagen_URL": 0
     },
     {
         "sku": "26",
@@ -464,8 +439,7 @@ const productos = [
         "Peso_Valor": 2.0,
         "Peso_Unidad": "kg",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcl9X1BNboy2B5fXkc-stGw6FloetINLK72XAFBLqHyA&s=10",
-        "product_URL": "https://www.petco.com.mx/MARCAS/Hill's-Science-Diet/Hill's-Science-Diet-7%2B-Small-%26-Mini-Alimento-Seco-para-Perro-Senior-Raza-Peque%C3%B1a-y-Mini,-2-kg/p/134520?utm_source=google&utm_medium=paid_search&utm_campaign=&utm_content=_747940067453&gad_source=1&gad_campaignid=22475668477&gclid=Cj0KCQjw8c3VBhCsARIsAA_xJ93WQtMIDbHU41lxBRalk_Gb9ZmEHP212b4XClmFfqC-okq-DQLojTMaAqurEALw_wcB"
+        "Imagen_URL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcl9X1BNboy2B5fXkc-stGw6FloetINLK72XAFBLqHyA&s=10"
     },
     {
         "sku": "27",
@@ -482,8 +456,7 @@ const productos = [
         "Peso_Valor": 180.0,
         "Peso_Unidad": "gr",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://laika.com.mx/_next/image?url=https%3A%2F%2Fstatic.laika.digital%2Fproducts%2Ffa1224b0ab1c1beacdfa334a7017b7a4_1772048095.jpg&w=3840&q=75",
-        "product_URL": "https://laika.com.mx/nupec-premios-para-cuidado-de-articulaciones"
+        "Imagen_URL": "https://laika.com.mx/_next/image?url=https%3A%2F%2Fstatic.laika.digital%2Fproducts%2Ffa1224b0ab1c1beacdfa334a7017b7a4_1772048095.jpg&w=3840&q=75"
     },
     {
         "sku": "28",
@@ -500,8 +473,7 @@ const productos = [
         "Peso_Valor": 1.5,
         "Peso_Unidad": "kg",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRQc-97HGMrBhq2XYB9bDOmpZQELAI7pWgfQLY-RCqLg&s=10",
-        "product_URL": "https://www.petco.com.mx/MARCAS/Hill's-Science-Diet/Hill's-Science-Diet-Perfect-Digestion-Alimento-Seco-Cuidado-Digestivo-para-Gato-Adulto,-5-9-kg/p/134535?srsltid=AU7gw4Vyv3Z13TJYU9vUTjacobqg3dJOsBwSn9e_jhedOJ3SlvENJ2LOLf4"
+        "Imagen_URL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRQc-97HGMrBhq2XYB9bDOmpZQELAI7pWgfQLY-RCqLg&s=10"
     },
     {
         "sku": "29",
@@ -518,8 +490,7 @@ const productos = [
         "Peso_Valor": 1.2,
         "Peso_Unidad": "kg",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://www.mercadolibre.com.mx/arenero-cerrado-mediano-para-gatos-gris-con-puerta-y-pala-mascotas-y-accesorios-mx/p/MLM29685475#polycard_client=search-desktop&float_highlight=last_units&be_origin=backend&overlay_label=not_apply&search_layout=grid&position=9&type=product&tracking_id=f28699e1-ae07-46e9-945d-8442e2932f13&wid=MLM5407576752&sid=search",
-        "product_URL": "nadota"
+        "Imagen_URL": "https://www.mercadolibre.com.mx/arenero-cerrado-mediano-para-gatos-gris-con-puerta-y-pala-mascotas-y-accesorios-mx/p/MLM29685475#polycard_client=search-desktop&float_highlight=last_units&be_origin=backend&overlay_label=not_apply&search_layout=grid&position=9&type=product&tracking_id=f28699e1-ae07-46e9-945d-8442e2932f13&wid=MLM5407576752&sid=search"
     },
     {
         "sku": "30",
@@ -536,32 +507,22 @@ const productos = [
         "Peso_Valor": 8.6,
         "Peso_Unidad": "kg",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://maskota.com.mx/collections/gatos-arena-y-limpieza/products/cat-s_best_oko_plus_20_l_",
-        "product_URL": "nadota"
+        "Imagen_URL": "https://maskota.com.mx/collections/gatos-arena-y-limpieza/products/cat-s_best_oko_plus_20_l_"
     }
 ]
 
 export async function getAllProducts(){
-    let agregados = [];
-    /**
-     * Si quieren que traiga todos los productos
-     * for(const todosProductos of productos){
-     *      agregados.push(todosProductos);
-     * }
-     * return agregados;
-     */
-    for(const todosProductos of productos){
-          agregados.push(todosProductos);
-     }
-     return agregados;
-    // for(let i = 0; i <= 13; i++){
-    //     agregados.push(productos[i]);
-    // }
-    // return agregados;
+    return productos.map((producto, index) => ({
+        ...producto,
+        id: index + 1
+    }));
 }
 
 // Esta función solo comparte las opciones que necesita el formulario de registro.
 // Si después agregamos más productos al arreglo, las listas se actualizan solas.
 export function getProductOptions() {
-    return productos;
+    return productos.map((producto, index) => ({
+        ...producto,
+        id: index + 1
+    }));
 }
