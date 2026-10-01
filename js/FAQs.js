@@ -2,21 +2,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const faqData = [
     {
       id: 1,
-      question: "Cuanto tiempo tarda en llegar mi pedido?",
+      question: "¿Cuánto tiempo tarda en llegar mi pedido?",
       answer: "Los tiempos estándar de entrega son de 2 a 3 días hábiles en envíos locales o nacionales, puedes usar tu número de guía para rastreo.",
       icon: "🚚📦",
       iconPosition: "right"
     },
     {
       id: 2,
-      question: "Qué formas de pago aceptan?",
+      question: "¿Qué formas de pago aceptan?",
       answer: "Se aceptan tarjetas de crédito/débito y depósitos bancarios.",
       icon: "💸",
       iconPosition: "right"
     },
     {
       id: 3,
-      question: "Cómo saber qué alimento elegir para mi mascota? ",
+      question: "¿Cómo saber qué alimento elegir para mi mascota? ",
       answer: "Puedes consultar las recomendaciones de nuestro equipo de expertos en nutrición animal o revisar las etiquetas de los productos para elegir el alimento adecuado para tu mascota.",
     },
     
