@@ -49,9 +49,62 @@ function setGitHubPagesBasePath() {
 	});
 }
 
+
+
+function initializeAutoHideHeader() {
+    const header = document.getElementById("site-header");
+
+    if (!header) {
+        return;
+    }
+
+    let previousScrollPosition = window.scrollY;
+    let animationPending = false;
+
+    window.addEventListener(
+        "scroll",
+        () => {
+            if (animationPending) {
+                return;
+            }
+
+            animationPending = true;
+
+            window.requestAnimationFrame(() => {
+                const currentScrollPosition = window.scrollY;
+                const mobileMenu = document.getElementById("navbarScroll");
+                const mobileMenuIsOpen =
+                    mobileMenu?.classList.contains("show");
+
+                if (currentScrollPosition <= 10 || mobileMenuIsOpen) {
+                    header.classList.remove("header-hidden");
+                } else if (
+                    currentScrollPosition > previousScrollPosition &&
+                    currentScrollPosition > header.offsetHeight
+                ) {
+                    header.classList.add("header-hidden");
+                } else if (
+                    currentScrollPosition < previousScrollPosition
+                ) {
+                    header.classList.remove("header-hidden");
+                }
+
+                previousScrollPosition = Math.max(
+                    currentScrollPosition,
+                    0
+                );
+
+                animationPending = false;
+            });
+        },
+        { passive: true }
+    );
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
-	await includePartials();
-	setGitHubPagesBasePath();
-	setActiveNavLink();
+    await includePartials();
+    setGitHubPagesBasePath();
+    setActiveNavLink();
+    initializeAutoHideHeader();
 });
 
