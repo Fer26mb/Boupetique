@@ -1,6 +1,6 @@
 const productos = [
     {
-        "id": "1",
+        "sku": "1",
         "Nombre": "Open Farm Grain-Free Dry Dog Food",
         "Descripcion_Producto": "Alimento seco para perros sin cereales, diseñado para ofrecer una nutrición completa y equilibrada a partir de proteínas de origen ético y ingredientes naturales",
         "Especie": "Perro",
@@ -14,11 +14,10 @@ const productos = [
         "Peso_Valor": 3.8,
         "Peso_Unidad": "kg",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSKLNItS0THGAYp_jniqS5gsVP7ACnwBEp4IDM7P3m8POIJfFNC5cxMYzCMw48zbAABI7dKgwuvt-Xh3vK7xRhCfGb-rDDyJA",
-        "product_URL": "https://thefamilypet.store/products/ofrm-d-gf-pasture-lmb-4?variant=43532320309290&country=MX&currency=USD&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&srsltid=AU7gw4X5lNsC0BzPyIHM3fFf4CXQbOrReqZ5sFsbH46zvO7-t_PZvbXzxXg"
+        "Imagen_URL": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSKLNItS0THGAYp_jniqS5gsVP7ACnwBEp4IDM7P3m8POIJfFNC5cxMYzCMw48zbAABI7dKgwuvt-Xh3vK7xRhCfGb-rDDyJA"
     },
     {
-        "id": "2",
+        "sku": "2",
         "Nombre": "Pet Magic Shampoo Blueberry",
         "Descripcion_Producto": "Champú orgánico certificado y no tóxico para mascotas, formulado especialmente con un suave aroma a arándano y diseñado para pieles sensibles.",
         "Especie": "Perro",
@@ -32,11 +31,10 @@ const productos = [
         "Peso_Valor": 473.0,
         "Peso_Unidad": "ml",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://liveinthelight.co.uk/cdn/shop/files/Pet-Magic-Shampoo-by-Vermont-Soap_2_580x@2x.jpg?v=1778675960",
-        "product_URL": "https://liveinthelight.co.uk/products/pet-shampoo-16oz?variant=55588972626300&country=AR&currency=GBP&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&srsltid=AU7gw4XxgtBEe3QQWsxcqMRijgU6FBJtAgK_FjnlXJGXIjwpPmw3uZn2az4"
+        "Imagen_URL": "https://liveinthelight.co.uk/cdn/shop/files/Pet-Magic-Shampoo-by-Vermont-Soap_2_580x@2x.jpg?v=1778675960"
     },
     {
-        "id": "3",
+        "sku": "3",
         "Nombre": "KONA CAVE Cojín Ortopédico Viscoelástico",
         "Descripcion_Producto": "Cojín ortopédico de espuma viscoelástica para camas de perros y gatos, apoyo extra para perros grandes y viejos.",
         "Especie": "Perro",
@@ -50,11 +48,10 @@ const productos = [
         "Peso_Valor": 1.0,
         "Peso_Unidad": "pza",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://www.dogelthy.com/cdn/shop/files/02_MEDIANA_GRIS_PERRO.png?v=1774471024&width=713",
-        "product_URL": "https://www.dogelthy.com/products/cama-ortopedica-para-perros?variant=47241726001382&country=MX&currency=MXN&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&tw_source=google&tw_adid=&tw_campaign=22178479870&tw_kwdid=&gad_source=1&gad_campaignid=22168258932&gbraid=0AAAAAp8b1Xy9lSXiCTfLnW2QYLpn3bX8j&gclid=Cj0KCQjw8c3VBhCsARIsAA_xJ905mmBbO2Jx90kGzssy5XDcQY17vjgI9Rk6dEi8BveuAdPwrYrYVX4aAuUgEALw_wcB"
+        "Imagen_URL": "https://www.dogelthy.com/cdn/shop/files/02_MEDIANA_GRIS_PERRO.png?v=1774471024&width=713"
     },
     {
-        "id": "4",
+        "sku": "4",
         "Nombre": "Juguete Kong Llanta (Traxx)",
         "Descripcion_Producto": "Juguete para perros con forma de neumático fabricado con caucho natural sumamente resistente, diseñado especialmente para satisfacer el impulso de masticación de los perros y brindarles una experiencia interactiva",
         "Especie": "Perro",
@@ -68,11 +65,10 @@ const productos = [
         "Peso_Valor": 1.0,
         "Peso_Unidad": "pza",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://m.media-amazon.com/images/I/718fOhQbuOL._AC_SY300_SX300_QL70_ML2_.jpg",
-        "product_URL": "https://www.petco.com.mx/App/LEADS/Kong-Llanta-de-Caucho-Extreme-Tires-Negra-para-Perro/p/110173?srsltid=AU7gw4V9tYnNWsgv0ld3cFseG_Mn_jMjQ0n6VSHvufzpg2h8fdwPnynszCY"
+        "Imagen_URL": "https://m.media-amazon.com/images/I/718fOhQbuOL._AC_SY300_SX300_QL70_ML2_.jpg"
     },
     {
-        "id": "5",
+        "sku": "5",
         "Nombre": "Pet Bath Shampoo",
         "Descripcion_Producto": "Nuestro champú para gatos proporciona un cuidado suave para la piel sensible y con picazón con un lavado corporal perfumado de larga duración que tiene propiedades de limpieza antibacterianas. Mata eficazmente las bacterias y elimina los olores, dejando a su amigo peludo sintiéndose fresco y limpio.",
         "Especie": "Gato",
@@ -86,11 +82,10 @@ const productos = [
         "Peso_Valor": 0.5,
         "Peso_Unidad": "ml",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://m.media-amazon.com/images/I/71OhwbObrnL._AC_SL1500_.jpg",
-        "product_URL": "https://www.amazon.com.mx/DUNKHADEN-sensibles-arom%C3%A1tico-duraci%C3%B3n-puramente/dp/B0D2NWR7RV/ref=sr_1_1_sspa?__mk_es_MX=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=3JOWPMK7BYMZF&dib=eyJ2IjoiMSJ9.gunO0XBpYNbgsj7o4JPc2OLtM2yI8EwMZ7akCERKSQwDcGj8P5k0DouQNWdFeUbRnm1nVpQAOcwQ_9H6tRxOA7ICJFosuCdkCrBC02p0dRoryxS8MYWMvGos2074_Rya6fzu6flM5Sp2opxH5PsJh_hrcb02aY-Sdp4jTTd9TyNNagHuVpw3E-J1rHjGlJPASSsTHyHvJcWtJjpBMIciEejDuRLjK_P_UuIxae0QOi1BX_DTX6KjZ1IeTSaTR2wxAVVuCGnzCqiMchdqRClSsGJc99qT3KSQ-OwvNBm6UdQ.K5M0ML0ge2gaoxxLNXbkKgBOOxASN1ypqaqlrRQCkmg&dib_tag=se&keywords=shampoo+para+gatos+natural&qid=1790201435&sprefix=shampoo+para+gatos+natural%2Caps%2C134&sr=8-1-spons&ufe=app_do%3Aamzn1.fos.de93fa6a-174c-4df7-be7c-5bc8e9c5a71b&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1"
+        "Imagen_URL": "https://m.media-amazon.com/images/I/71OhwbObrnL._AC_SL1500_.jpg"
     },
     {
-        "id": "6",
+        "sku": "6",
         "Nombre": "Shampoo Hipoalergenico Artesanal",
         "Descripcion_Producto": "Formulado especialmente para cuidar la piel y pelaje de tu mascota, el Shampoo Alnut Té Verde & Jojoba es hipoalergénico y está libre de siliconas, sulfatos y parabenos. Gracias a sus extractos naturales de té verde y jojoba, ayuda a controlar el exceso de grasa, promueve el crecimiento saludable del pelaje y deja una sensación de frescura duradera.\n\nIdeal para perros y gatos de todas las edades. Elaborado con materias primas de la más alta calidad para un cuidado suave, seguro y eficaz.",
         "Especie": "Perro & Gato",
@@ -104,11 +99,10 @@ const productos = [
         "Peso_Valor": 0.5,
         "Peso_Unidad": "ml",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://alnut.mx/wp-content/uploads/2020/05/300x300_PortadaTe1-1.jpg",
-        "product_URL": "https://alnut.mx/categoria/piel/shampoo/"
+        "Imagen_URL": "https://alnut.mx/wp-content/uploads/2020/05/300x300_PortadaTe1-1.jpg"
     },
     {
-        "id": "7",
+        "sku": "7",
         "Nombre": "Mueble rascador para gato",
         "Descripcion_Producto": "El rascador para gatos multifuncional tipo árbol para gatos ofrece un completo centro de entretenimiento para gatos con diseño de rascador multinivel; cuenta con torre para gatos con 3 plataformas superiores, 2 cuevas acogedoras y una casa para gatos con rampa que facilita el acceso.",
         "Especie": "Gato",
@@ -122,11 +116,10 @@ const productos = [
         "Peso_Valor": 14.0,
         "Peso_Unidad": "kg",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://sp345.liverpool.com.mx/i/1184392042_4p.jpg",
-        "product_URL": "https://www.liverpool.com.mx/tienda/pdp/mueble-rascador-para-gato/99989420712?skuid=1184392042"
+        "Imagen_URL": "https://sp345.liverpool.com.mx/i/1184392042_4p.jpg"
     },
     {
-        "id": "8",
+        "sku": "8",
         "Nombre": "Collar Mexicano para gato",
         "Descripcion_Producto": "Collar para gato hecho 100% a mano por artesanos mexicanos. Trabajado en conjunto por artesanos de Chiapas y Ciudad de México. Para gatos cuyo cuello mide de 18 a 30 cm.",
         "Especie": "Gato",
@@ -140,11 +133,10 @@ const productos = [
         "Peso_Valor": 40.0,
         "Peso_Unidad": "g",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://kuhu.com.mx/wp-content/uploads/2025/08/Collar-Gato-04.jpg",
-        "product_URL": "https://kuhu.com.mx/tienda/collares/collares-gato/collar-gato-04/"
+        "Imagen_URL": "https://kuhu.com.mx/wp-content/uploads/2025/08/Collar-Gato-04.jpg"
     },
     {
-        "id": "9",
+        "sku": "9",
         "Nombre": "Mazacan El Mazapan para Perro",
         "Descripcion_Producto": "Bote con 50 piezas que contiene una golosina rica y nutritiva creada especialmente para ellos. Hecho de manera artesanal, creado a base de cacahuate fresco natural, azúcar sin refinar (muy bajo %) y fortalecido con leche descremada en polvo. Aporta Antioxidantes, Omega 3 y 9, vitaminas E y B, ácido fólico. Sin conservadores. Un sabor que fascina a los perritos.",
         "Especie": "Perro",
@@ -158,11 +150,10 @@ const productos = [
         "Peso_Valor": 25.0,
         "Peso_Unidad": "g",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHKZgfi77WeubJz02HcOR7wjEryVHzdUZ2kfQRF_kNEQ&s",
-        "product_URL": "https://puntomexicano.com/producto/mazacan-el-mazapan-para-perro/"
+        "Imagen_URL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHKZgfi77WeubJz02HcOR7wjEryVHzdUZ2kfQRF_kNEQ&s"
     },
     {
-        "id": "10",
+        "sku": "10",
         "Nombre": "Purina Pro Plan Adulto Raza Mediana Sabor Pollo 9.5Kg",
         "Descripcion_Producto": "Alimento seco formulado para perros de 1 a 7 años de edad que ayuda a mantenerlos fuertes, sanos y llenos de vitalidad",
         "Especie": "Perro",
@@ -176,11 +167,10 @@ const productos = [
         "Peso_Valor": 9.5,
         "Peso_Unidad": "kg",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://purina.com.mx/sites/default/files/styles/webp/public/2022-10/razas-medianas-1-proplan.png.webp?itok=BqxKoAu_",
-        "product_URL": "https://www.amazon.com.mx/Pro-Plan-Adulto-Razas-Medianas/dp/B0F7SHYY47/ref=asc_df_B0F7SHYY47?mcid=6dd3196b040e32bb9e0e0b9769e0ce1f&tag=gledskshopmx-20&linkCode=df0&hvadid=709846066539&hvpos=&hvnetw=g&hvrand=18402475079846045749&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9047086&hvtargid=pla-2440824159990&psc=1&hvocijid=18402475079846045749-B0F7SHYY47-&hvexpln=0&language=es_MX"
+        "Imagen_URL": "https://purina.com.mx/sites/default/files/styles/webp/public/2022-10/razas-medianas-1-proplan.png.webp?itok=BqxKoAu_"
     },
     {
-        "id": "11",
+        "sku": "11",
         "Nombre": "Hills  Science Diet Small Bites Croquetas para Perro Senior Sabor Pollo",
         "Descripcion_Producto": "Cuidado de la salud del corazón y riñones de perros seniors, mantenimiento de piel y pelaje saludables",
         "Especie": "Perro",
@@ -194,11 +184,10 @@ const productos = [
         "Peso_Valor": 2.0,
         "Peso_Unidad": "kg",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://m.media-amazon.com/images/I/615w1Z6w+EL._AC_SL1500_.jpg",
-        "product_URL": "https://www.amazon.com.mx/Hills-Science-Diet-Alimento-Adulto/dp/B07BHQVVSG?ref_=ast_sto_dp"
+        "Imagen_URL": "https://m.media-amazon.com/images/I/615w1Z6w+EL._AC_SL1500_.jpg"
     },
     {
-        "id": "12",
+        "sku": "12",
         "Nombre": "Bravery Alimento Seco Natural Libre de Granos Receta Salmón",
         "Descripcion_Producto": "Bravery Salmón Adult Large Breed son croquetas grain free elaboradas para perros adultos de razas grandes, con salmón como única proteína animal. Su receta hipoalergénica sin cereales ni gluten es útil para perros con sensibilidad al pollo o piel delicada, y el omega 3 del pescado apoya articulaciones y pelaje. Bulto de 12 kg.",
         "Especie": "Perro",
@@ -212,11 +201,10 @@ const productos = [
         "Peso_Valor": 12.0,
         "Peso_Unidad": "kg",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://i5.walmartimages.com/asr/ac7ee09e-cf2b-4840-b1ff-2673130e4cd3.4890d4d0c75955fa8b268c3b07b69773.png",
-        "product_URL": "https://petco.com.mx/MARCAS/Bravery/Bravery-Alimento-Seco-Natural-Libre-de-Granos-para-Perro-Adulto-Raza-Mediana-Grande-Receta-Salm%C3%B3n%2C-12-kg/p/143658"
+        "Imagen_URL": "https://i5.walmartimages.com/asr/ac7ee09e-cf2b-4840-b1ff-2673130e4cd3.4890d4d0c75955fa8b268c3b07b69773.png"
     },
     {
-        "id": "13",
+        "sku": "13",
         "Nombre": "Dogelthy Lick Mat Kit para Perro y Gato, Set de 2 Tapetes para Lamer",
         "Descripcion_Producto": "Tapetes para lamer, promueve la dieta saludable, fomenta la relajación, diseño antideslizante",
         "Especie": "Perro & Gato",
@@ -230,11 +218,10 @@ const productos = [
         "Peso_Valor": 2.0,
         "Peso_Unidad": "pzas",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://m.media-amazon.com/images/I/61GMAjQCDwL._AC_SL1080_.jpg",
-        "product_URL": "https://www.amazon.com.mx/dp/B0D7N5C8PX/ref=sspa_dk_detail_3?psc=1&pd_rd_i=B0D7N5C8PX&pd_rd_w=J6Xju&content-id=amzn1.sym.c7e6ca62-52cd-4949-a716-1816d2d657e7&pf_rd_p=c7e6ca62-52cd-4949-a716-1816d2d657e7&pf_rd_r=A3H4M7W73NNQASZ2RR7W&pd_rd_wg=e9fZ4&pd_rd_r=a34dea29-7a24-4f33-8a63-ab3bc5cd78b0&sp_csd=d2lkZ2V0TmFtZT1zcF9kZXRhaWwy"
+        "Imagen_URL": "https://m.media-amazon.com/images/I/61GMAjQCDwL._AC_SL1080_.jpg"
     },
     {
-        "id": "14",
+        "sku": "14",
         "Nombre": "Lysol Pet Solutions Spay Desinfectante Antibacterial para Superficies y eliminadores de olores",
         "Descripcion_Producto": "Lysol Pet Solutions es un spray desinfectante y eliminador de olores de mascotas. Elimina el 99% de virus y bacterias. Elimina los olores de las heces de las mascotas hasta 24 horas. Spray de amplia cobertura para superficies extensas.",
         "Especie": "Perro & Gato",
@@ -248,11 +235,10 @@ const productos = [
         "Peso_Valor": 1.0,
         "Peso_Unidad": "pza",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://m.media-amazon.com/images/I/510RSrnPY+L._AC_SL1000_.jpg",
-        "product_URL": "https://www.amazon.com.mx/Solutions-Desinfectante-Antibacterial-Superficies-eliminador/dp/B0C252LYDT?pf_rd_p=3583ac43-505d-4bb6-9ce0-270516eac267&pf_rd_r=HPSN5EMD04CBRXPQ7BHV&ref_=sc-beauty250reftag_B0C252LYDT"
+        "Imagen_URL": "https://m.media-amazon.com/images/I/510RSrnPY+L._AC_SL1000_.jpg"
     },
     {
-        "id": "15",
+        "sku": "15",
         "Nombre": "Royal Canin Rottweiler puppy",
         "Descripcion_Producto": "Alimento especializado para Rottweiler cachorro, Formulado específicamente para cachorros de esta raza desde las 8 semanas hasta los 18 meses de edad.",
         "Especie": "Perro",
@@ -266,11 +252,10 @@ const productos = [
         "Peso_Valor": 10.0,
         "Peso_Unidad": "kg",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTSgf2P6pevIfhX-pzPd0NDq1tJtZJIV33LOBPlrkN4Nfi3aVZd0_B_0-MtrfIdPMFCo5N9rSoFaS8hQ5b7o_JOa1UhBSWVjYp-cxwkZybS",
-        "product_URL": null
+        "Imagen_URL": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTSgf2P6pevIfhX-pzPd0NDq1tJtZJIV33LOBPlrkN4Nfi3aVZd0_B_0-MtrfIdPMFCo5N9rSoFaS8hQ5b7o_JOa1UhBSWVjYp-cxwkZybS"
     },
     {
-        "id": "16",
+        "sku": "16",
         "Nombre": "Royal Canin Mother & BabyCat",
         "Descripcion_Producto": "Alimento especializado, es una solución nutricional única adaptada a las elevadas necesidades energéticas de la madre en la fase final de gestación y en periodo de lactancia para favorecer el desarrollo óptimo de los gatitos durante la primera fase de crecimiento.",
         "Especie": "Gato",
@@ -284,11 +269,10 @@ const productos = [
         "Peso_Valor": 1.36,
         "Peso_Unidad": "Kg",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://ss345.liverpool.com.mx/xl/1153094965.jpg",
-        "product_URL": null
+        "Imagen_URL": "https://ss345.liverpool.com.mx/xl/1153094965.jpg"
     },
     {
-        "id": "17",
+        "sku": "17",
         "Nombre": "Front Range® Flex Harness",
         "Descripcion_Producto": "Arnés de tejido técnico diseñado para ofrecer lo último en ajuste, comodidad y movilidad.",
         "Especie": "Perro & Gato",
@@ -302,11 +286,10 @@ const productos = [
         "Peso_Valor": 1.0,
         "Peso_Unidad": "pza",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://image.chewy.com/catalog/general/images/moe/069e0e55-e763-745e-8000-c26833c24d1c._AC_SX500_SY400_QL75_V1_.jpg",
-        "product_URL": "https://ruffwear.eu/products/front-range-flex-harness"
+        "Imagen_URL": "https://image.chewy.com/catalog/general/images/moe/069e0e55-e763-745e-8000-c26833c24d1c._AC_SX500_SY400_QL75_V1_.jpg"
     },
     {
-        "id": "18",
+        "sku": "18",
         "Nombre": "Essentials SlowBowl",
         "Descripcion_Producto": "Plato ecológico diseñado para perros que ayuda a reducir la velocidad al comer, previniendo la indigestión, los vómitos y la hinchazón.",
         "Especie": "Perro & Gato",
@@ -320,11 +303,10 @@ const productos = [
         "Peso_Valor": 1.0,
         "Peso_Unidad": "pza",
         "Requiere_Receta": 0,
-        "Imagen_URL": 0,
-        "product_URL": "nadota"
+        "Imagen_URL": 0
     },
     {
-        "id": "19",
+        "sku": "19",
         "Nombre": "Essentials ArticuMove",
         "Descripcion_Producto": "Suplemento masticable para perros adultos y senior con omega-3, cúrcuma y colágeno hidrolizado, para apoyo articular y brillo del pelaje. Ideal para razas grandes propensas a displasia.",
         "Especie": "Perro",
@@ -338,11 +320,10 @@ const productos = [
         "Peso_Valor": 1.0,
         "Peso_Unidad": "pza",
         "Requiere_Receta": 0,
-        "Imagen_URL": 0,
-        "product_URL": "nadota"
+        "Imagen_URL": 0
     },
     {
-        "id": "20",
+        "sku": "20",
         "Nombre": "Boupetique Essentials PuriGato",
         "Descripcion_Producto": "Suplemento en pasta para gatos con fibra prebiótica y malta natural, apoya el control de bolas de pelo y la digestión. Sabor atún, aplicación directa o mezclado con su alimento. ",
         "Especie": "Gatos",
@@ -356,11 +337,10 @@ const productos = [
         "Peso_Valor": 100.0,
         "Peso_Unidad": "gr",
         "Requiere_Receta": 0,
-        "Imagen_URL": 0,
-        "product_URL": "nadota"
+        "Imagen_URL": 0
     },
     {
-        "id": "21",
+        "sku": "21",
         "Nombre": "Diamond Naturals Indoor Cat",
         "Descripcion_Producto": "Alimento seco holístico formulado con pollo criado en libertad y superalimentos, diseñado especialmente para gatos de interior con necesidades de control de bolas de pelo y control de peso.",
         "Especie": "Gatos",
@@ -374,11 +354,10 @@ const productos = [
         "Peso_Valor": 2.72,
         "Peso_Unidad": "kg",
         "Requiere_Receta": 0,
-        "Imagen_URL": 0,
-        "product_URL": "https://www.petngo.com.mx/products/diamond-naturals-gato-indoor-cat"
+        "Imagen_URL": 0
     },
     {
-        "id": "22",
+        "sku": "22",
         "Nombre": "Nupec Felino Kitten",
         "Descripcion_Producto": "Alimento balanceado para gatitos desde nacidos hasta un año de edad, hembras gestantes y lactantes.",
         "Especie": "Gatos",
@@ -392,11 +371,10 @@ const productos = [
         "Peso_Valor": 1.5,
         "Peso_Unidad": "kg",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://www.petngo.com.mx/products/nupec-felino-kitten-1-5kg?_pos=15&_fid=1e0dd6013&_ss=c](https://www.petngo.com.mx/products/nupec-felino-kitten-1-5kg?_pos=15&_fid=1e0dd6013&_ss=c",
-        "product_URL": null
+        "Imagen_URL": "https://www.petngo.com.mx/products/nupec-felino-kitten-1-5kg?_pos=15&_fid=1e0dd6013&_ss=c](https://www.petngo.com.mx/products/nupec-felino-kitten-1-5kg?_pos=15&_fid=1e0dd6013&_ss=c"
     },
     {
-        "id": "23",
+        "sku": "23",
         "Nombre": "Nupec Felino Adulto Indoor 3 Kg",
         "Descripcion_Producto": "Alimento premium diseñado para gatos adultos que viven en interiores, con proteínas de alta calidad",
         "Especie": "Gato",
@@ -410,11 +388,10 @@ const productos = [
         "Peso_Valor": 3.0,
         "Peso_Unidad": "kg",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://bucketjackymollymovil191710-dev.s3.amazonaws.com/seller/369/media/2023/09/20230917075612-saco_indoor-266x450.png",
-        "product_URL": "https://jackymolly.com/products/details/croqueta-gato-adulto-indoor-bulto-de-3-kg?srsltid=AU7gw4Us01hQ2DO7ewcq4hbeLD_B9b3tVrxyHoxS6N3s79mK1RMG7bgCcI0"
+        "Imagen_URL": "https://bucketjackymollymovil191710-dev.s3.amazonaws.com/seller/369/media/2023/09/20230917075612-saco_indoor-266x450.png"
     },
     {
-        "id": "24",
+        "sku": "24",
         "Nombre": "Feliway Gato Classic Spray ",
         "Descripcion_Producto": "Ayuda a reducir estrés, ansiedad, marcaje con orina y comportamientos relacionados con miedo o inseguridad.",
         "Especie": "Gato",
@@ -428,11 +405,10 @@ const productos = [
         "Peso_Valor": 60.0,
         "Peso_Unidad": "ml",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbfFj4o8f9ZVkD2ocjJnP6ubd_LkTzpAJg834Zemsb-blbX7qYqi4GVM4&s=10",
-        "product_URL": "https://www.amazon.com.mx/FELIWAY-Classic-Estr%C3%A9s-Calmante-Feromonas/dp/B089115N2B/ref=asc_df_B089115N2B?mcid=fd8108f428693718937fc95a55f7375a&tag=gledskshopmx-20&linkCode=df0&hvadid=709846036701&hvpos=&hvnetw=g&hvrand=18253009045516745554&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9196359&hvtargid=pla-2485083841171&psc=1&hvocijid=18253009045516745554-B089115N2B-&hvexpln=0&language=es_MX"
+        "Imagen_URL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbfFj4o8f9ZVkD2ocjJnP6ubd_LkTzpAJg834Zemsb-blbX7qYqi4GVM4&s=10"
     },
     {
-        "id": "25",
+        "sku": "25",
         "Nombre": "Extracto de catnip para gato ",
         "Descripcion_Producto": "Extracto de catnip para gatos en spray de Fancy Pets está recomendado para la aplicación directa sobre los objetos de tu mascota, como auxiliar en procesos conductuales y como método de refuerzo positivo, despertando el interés mediante el juego y favoreciendo la socialización. Su presentación en spray hace más fácil su distribución, además de no dejar residuos.",
         "Especie": "Gato ",
@@ -446,11 +422,10 @@ const productos = [
         "Peso_Valor": 125.0,
         "Peso_Unidad": "ml",
         "Requiere_Receta": 0,
-        "Imagen_URL": 0,
-        "product_URL": "nadota"
+        "Imagen_URL": 0
     },
     {
-        "id": "26",
+        "sku": "26",
         "Nombre": "Science Diet 7+ Small & Mini ",
         "Descripcion_Producto": "nada",
         "Especie": "Perro ",
@@ -464,11 +439,10 @@ const productos = [
         "Peso_Valor": 2.0,
         "Peso_Unidad": "kg",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcl9X1BNboy2B5fXkc-stGw6FloetINLK72XAFBLqHyA&s=10",
-        "product_URL": "https://www.petco.com.mx/MARCAS/Hill's-Science-Diet/Hill's-Science-Diet-7%2B-Small-%26-Mini-Alimento-Seco-para-Perro-Senior-Raza-Peque%C3%B1a-y-Mini,-2-kg/p/134520?utm_source=google&utm_medium=paid_search&utm_campaign=&utm_content=_747940067453&gad_source=1&gad_campaignid=22475668477&gclid=Cj0KCQjw8c3VBhCsARIsAA_xJ93WQtMIDbHU41lxBRalk_Gb9ZmEHP212b4XClmFfqC-okq-DQLojTMaAqurEALw_wcB"
+        "Imagen_URL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcl9X1BNboy2B5fXkc-stGw6FloetINLK72XAFBLqHyA&s=10"
     },
     {
-        "id": "27",
+        "sku": "27",
         "Nombre": "Premios Joint Care",
         "Descripcion_Producto": "nada",
         "Especie": "Perro",
@@ -482,11 +456,10 @@ const productos = [
         "Peso_Valor": 180.0,
         "Peso_Unidad": "gr",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://laika.com.mx/_next/image?url=https%3A%2F%2Fstatic.laika.digital%2Fproducts%2Ffa1224b0ab1c1beacdfa334a7017b7a4_1772048095.jpg&w=3840&q=75",
-        "product_URL": "https://laika.com.mx/nupec-premios-para-cuidado-de-articulaciones"
+        "Imagen_URL": "https://laika.com.mx/_next/image?url=https%3A%2F%2Fstatic.laika.digital%2Fproducts%2Ffa1224b0ab1c1beacdfa334a7017b7a4_1772048095.jpg&w=3840&q=75"
     },
     {
-        "id": "28",
+        "sku": "28",
         "Nombre": "Alimento para Gato Adulto Perfect Digestion",
         "Descripcion_Producto": "nada",
         "Especie": "Gato",
@@ -500,11 +473,10 @@ const productos = [
         "Peso_Valor": 1.5,
         "Peso_Unidad": "kg",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRQc-97HGMrBhq2XYB9bDOmpZQELAI7pWgfQLY-RCqLg&s=10",
-        "product_URL": "https://www.petco.com.mx/MARCAS/Hill's-Science-Diet/Hill's-Science-Diet-Perfect-Digestion-Alimento-Seco-Cuidado-Digestivo-para-Gato-Adulto,-5-9-kg/p/134535?srsltid=AU7gw4Vyv3Z13TJYU9vUTjacobqg3dJOsBwSn9e_jhedOJ3SlvENJ2LOLf4"
+        "Imagen_URL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRQc-97HGMrBhq2XYB9bDOmpZQELAI7pWgfQLY-RCqLg&s=10"
     },
     {
-        "id": "29",
+        "sku": "29",
         "Nombre": "Arenero Cerrado Mediano para Gatos",
         "Descripcion_Producto": "Arenero cerrado tipo domo fabricado en plástico rígido de alta durabilidad que ayuda a contener los malos olores y evita que la arena se esparza. Incluye puerta abatible transparente y pala higiénica integrada.",
         "Especie": "Gato",
@@ -518,11 +490,10 @@ const productos = [
         "Peso_Valor": 1.2,
         "Peso_Unidad": "kg",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://www.mercadolibre.com.mx/arenero-cerrado-mediano-para-gatos-gris-con-puerta-y-pala-mascotas-y-accesorios-mx/p/MLM29685475#polycard_client=search-desktop&float_highlight=last_units&be_origin=backend&overlay_label=not_apply&search_layout=grid&position=9&type=product&tracking_id=f28699e1-ae07-46e9-945d-8442e2932f13&wid=MLM5407576752&sid=search",
-        "product_URL": "nadota"
+        "Imagen_URL": "https://www.mercadolibre.com.mx/arenero-cerrado-mediano-para-gatos-gris-con-puerta-y-pala-mascotas-y-accesorios-mx/p/MLM29685475#polycard_client=search-desktop&float_highlight=last_units&be_origin=backend&overlay_label=not_apply&search_layout=grid&position=9&type=product&tracking_id=f28699e1-ae07-46e9-945d-8442e2932f13&wid=MLM5407576752&sid=search"
     },
     {
-        "id": "30",
+        "sku": "30",
         "Nombre": "Cat’s Best Öko Plus ",
         "Descripcion_Producto": "Arena sanitaria 100% natural, biodegradable y compostable elaborada con fibras vegetales activas de madera que atrapan eficazmente los líquidos y neutralizan los malos olores de forma natural.",
         "Especie": "Gato",
@@ -536,32 +507,22 @@ const productos = [
         "Peso_Valor": 8.6,
         "Peso_Unidad": "kg",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://maskota.com.mx/collections/gatos-arena-y-limpieza/products/cat-s_best_oko_plus_20_l_",
-        "product_URL": "nadota"
+        "Imagen_URL": "https://maskota.com.mx/collections/gatos-arena-y-limpieza/products/cat-s_best_oko_plus_20_l_"
     }
 ]
 
 export async function getAllProducts(){
-    let agregados = [];
-    /**
-     * Si quieren que traiga todos los productos
-     * for(const todosProductos of productos){
-     *      agregados.push(todosProductos);
-     * }
-     * return agregados;
-     */
-    for(const todosProductos of productos){
-          agregados.push(todosProductos);
-     }
-     return agregados;
-    // for(let i = 0; i <= 13; i++){
-    //     agregados.push(productos[i]);
-    // }
-    // return agregados;
+    return productos.map((producto, index) => ({
+        ...producto,
+        id: index + 1
+    }));
 }
 
 // Esta función solo comparte las opciones que necesita el formulario de registro.
 // Si después agregamos más productos al arreglo, las listas se actualizan solas.
 export function getProductOptions() {
-    return productos;
+    return productos.map((producto, index) => ({
+        ...producto,
+        id: index + 1
+    }));
 }
