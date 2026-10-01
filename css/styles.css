@@ -561,13 +561,14 @@ font-weight: 600;
   display: flex;
 
   
-font-size: 28px
+font-size: 30px;
+font-weight: bold;
 
 }
 
 
 .titleF {
-  font-size: 1.2rem;          /* tamaño de letra */
+  font-size: 1.0rem;          /* tamaño de letra */
   font-weight: bold;        /* en negritas */
   color: #333;              /* color */
 }
