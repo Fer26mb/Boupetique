@@ -237,10 +237,10 @@ const validateNumbers = () => {
 };
 
 const validateProductId = () => {
-    const idEl = document.getElementById("ID");
+    const idEl = document.getElementById("id");
     const allRegisteredProducts = [...productsFromJSON, ...cards];
     const repeatedId = allRegisteredProducts.some(
-        (card) => String(card.ID ?? card.id).toLocaleLowerCase("es-MX") ===
+        (card) => String(card.id ?? card.id).toLocaleLowerCase("es-MX") ===
             idEl.value.trim().toLocaleLowerCase("es-MX")
     );
 
@@ -252,7 +252,7 @@ const validateProductId = () => {
         : "Escribe un ID usando letras, números, guion o guion bajo.";
 };
 
-document.getElementById("ID").addEventListener("input", validateProductId);
+document.getElementById("id").addEventListener("input", validateProductId);
 ["Precio_Base", "Stock", "Peso_Valor"].forEach((fieldId) => {
     document.getElementById(fieldId).addEventListener("input", validateNumbers);
 });
@@ -288,7 +288,7 @@ formEl.addEventListener("submit", (event) => {
     formErrorEl.classList.add("d-none");
 
     const cardData = {
-        ID: document.getElementById("ID").value,
+        id: document.getElementById("id").value,
         Nombre: document.getElementById("Nombre").value,
         Descripcion_Producto: document.getElementById("Descripcion_Producto").value,
         Especie: document.getElementById("Especie").value,
