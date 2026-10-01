@@ -665,9 +665,12 @@ document.addEventListener("DOMContentLoaded", function () {
         // MOSTRAR DATOS
         // ====================================================
 
-        alert( //Todo Paso 18 mensaje de envio en pagina - dar clic en terminos y condiciones.!
-            "¡Gracias por tu registro !,\n" + datos.nombre + " Bienvenido a Boupetique"
-        );  ///se añade mensaje final de bienvenida a Boupetique!!
+        Swal.fire({
+            title: "¡Registro exitoso!",
+            text: `${datos.nombre} y ${datos.mascota} ya forman parte de Boupetique.`,
+            icon: "success",
+            draggable: true
+        });
 
 
         // ====================================================
