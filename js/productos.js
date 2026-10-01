@@ -7,7 +7,14 @@ const productsFromJSON = await getAllProducts();
 // 2. Obtener los productos dinámicos del LocalStorage (creados desde el CRUD) [new]
 const getLocalStorageProducts = () => {
     const stored = localStorage.getItem("cards");
-    return stored ? JSON.parse(stored) : [];  //operador ternario
+    return stored
+        ? JSON.parse(stored).map((product) => {
+            if (product.sku != null) return product;
+
+            const { id, ...productData } = product;
+            return { ...productData, sku: id };
+        })
+        : [];  //operador ternario
 };
 // 2.5 obtenemos los productos del local storage [new]
 const productsFromStorage = getLocalStorageProducts();
@@ -36,7 +43,7 @@ const renderizarProductos = (producto) => {
             <div>
                 <span class="brand-subtext">Boupetique Selection</span>
                 
-                <div class="catalog-img-box info-modal-trigger" data-id="${producto.id}" role="button">
+                <div class="catalog-img-box info-modal-trigger" data-sku="${producto.sku}" role="button">
                     <img src="${imagenUrl}" class="catalog-img" alt="${producto.Nombre}">
                 </div>
 
@@ -48,7 +55,7 @@ const renderizarProductos = (producto) => {
                     <span class="price-current">$${producto.Precio_Base}</span>
                 </div>
 
-                <button class="btn-catalog-select info-modal-trigger" data-id="${producto.id}">
+                <button class="btn-catalog-select info-modal-trigger" data-sku="${producto.sku}">
                     Seleccionar opciones
                 </button>
             </div>
@@ -71,14 +78,19 @@ cards.addEventListener("click", (e) => {
     // Si el clic fue en un lugar vacío de la tarjeta, lo ignora
     if (!trigger) return;
 
-    // Prevenir cierre y obtener el ID
+    // Prevenir cierre y obtener el SKU
     e.preventDefault();
-    const productId = trigger.dataset.id;
-    
-    console.log(productId);
-    
-    //logica del modal
-    showInfo(allProducts[productId-1]);
+    const productSku = trigger.dataset.sku;
+    const product = allProducts.find(
+        (item) => String(item.sku) === productSku
+    );
+
+    if (!product) {
+        console.error(`No se encontró el producto con SKU "${productSku}".`);
+        return;
+    }
+
+    showInfo(product);
 
 });
 
@@ -93,7 +105,7 @@ const showInfo = function (product) {
                 <div class="modal-body">
                     <div class="row align-items-center g-4">
                         <div class="col-12 col-md-6 text-center">
-                            <img src="${product.Imagen_URL}" class="img-fluid drop-shadow-modal" alt="Producto ${product.id}">
+                            <img src="${product.Imagen_URL}" class="img-fluid drop-shadow-modal" alt="Producto ${product.sku}">
                         </div>
                         <div class="col-12 col-md-6">
                             <span class="micro-category">${product.Categoria}</span>
@@ -123,6 +135,8 @@ const showInfo = function (product) {
     const bootstrapModal = new bootstrap.Modal(modalElement);
     bootstrapModal.show();
 };
+
+console.log(allProducts);
 
 /* ---------------------------------------
 //Productos.js de ANDRES sin modificar

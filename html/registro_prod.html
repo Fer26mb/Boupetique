@@ -66,10 +66,15 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="ID" class="form-label">ID del Producto</label>
-                                    <input type="text" class="form-control" id="ID" required maxlength="30"
+                                    <label for="id" class="form-label">ID (asignado automáticamente)</label>
+                                    <input type="text" class="form-control" id="id" readonly>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="sku" class="form-label">SKU del Producto</label>
+                                    <input type="text" class="form-control" id="sku" required maxlength="30"
                                         pattern="[A-Za-z0-9_-]+" placeholder="Ej. MASC-P1">
-                                    <div class="invalid-feedback">Escribe un ID usando letras, números, guion o guion bajo.</div>
+                                    <div class="invalid-feedback">Escribe un SKU usando letras, números, guion o guion bajo.</div>
                                 </div>
 
                                 <div class="mb-3">
@@ -174,17 +179,11 @@
                                         </select>
                                     </div>
                                     <div class="col-md-6 mb-3">
-                                        <label for="Imagen_URL" class="form-label">Nombre de Imagen</label>
+                                        <label for="Imagen_URL" class="form-label">URL de la imagen.</label>
                                         <input type="text" class="form-control" id="Imagen_URL" required
                                             value="imagen_producto.webp">
                                         <div class="invalid-feedback">Escribe el nombre o la dirección de la imagen.</div>
                                     </div>
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="product_URL" class="form-label">URL del Producto</label>
-                                    <input type="url" class="form-control" id="product_URL" required placeholder="https://...">
-                                    <div class="invalid-feedback">Escribe una URL completa, por ejemplo: https://...</div>
                                 </div>
 
                                 <div class="d-grid gap-2">
@@ -192,7 +191,7 @@
                                         Producto</button>
                                     <!--?resetForm() es un manejador de eventos que ejecuta una función de JavaScript cuando el usuario hace clic en ese botón. lo usamos en crud.js para limpiar registros en cancelacion de edicion de productos -->
                                     <!--! aun sin usar este boton-->
-                                   <button type="button" class="btn btn-secondary d-none form-products" id="btnCancel">Cancelar Edición</button>
+                                    <button type="button" class="btn btn-secondary d-none form-products" id="btnCancel">Cancelar Edición</button>
                                 </div>
                             </form>
                         </div>
