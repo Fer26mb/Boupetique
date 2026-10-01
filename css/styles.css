@@ -810,6 +810,7 @@ font-weight: bold;
   cursor: url('../assets/logo-img/pinguino.png') 0 0, auto;
 }
 
+/* Techo en banner */
 .techo-banner {
     width: 100%;
     height: 78px;
@@ -999,3 +1000,80 @@ font-weight: bold;
     }
 }
 
+.faq-container {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  box-sizing: border-box;
+}
+
+.faq-chat-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.faq-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Burbuja de Pregunta der */
+.faq-question {
+  align-self: flex-end;
+  background-color: #3b503e; 
+  color: #ffffff;
+  border: none;
+  border-radius: 18px 18px 4px 18px;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  max-width: 85%;
+  text-align: left;
+}
+
+.faq-question:hover {
+  background-color: #2e3e30;
+}
+
+.faq-question:active {
+  transform: scale(0.98);
+}
+
+/* Contenedor de Respuesta colapsable */
+.faq-answer-wrapper {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  align-self: flex-start;
+  width: 100%;
+}
+
+/* Burbuja de Respuesta izq*/
+.faq-answer {
+  background-color: #d5d2c6;
+  color: #333333;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px 18px 18px 4px;
+  padding: 0.85rem 1.25rem;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  display: inline-block;
+  max-width: 85%;
+}
+
+/* Timestamp inferior */
+.faq-timestamp {
+  font-size: 0.78rem;
+  color: #888888;
+  text-align: center;
+  margin-top: 1.5rem;
+}
