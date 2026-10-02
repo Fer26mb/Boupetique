@@ -354,7 +354,7 @@ const productos = [
         "Peso_Valor": 2.72,
         "Peso_Unidad": "kg",
         "Requiere_Receta": 0,
-        "Imagen_URL": 0
+        "Imagen_URL": "https://www.petngo.com.mx/cdn/shop/products/DNindoorcat_rev.jpg?v=1757375233&width=600"
     },
     {
         "sku": "22",
@@ -371,7 +371,7 @@ const productos = [
         "Peso_Valor": 1.5,
         "Peso_Unidad": "kg",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://www.petngo.com.mx/products/nupec-felino-kitten-1-5kg?_pos=15&_fid=1e0dd6013&_ss=c](https://www.petngo.com.mx/products/nupec-felino-kitten-1-5kg?_pos=15&_fid=1e0dd6013&_ss=c"
+        "Imagen_URL": "https://www.petngo.com.mx/cdn/shop/files/imgi_38_83d8ff21-1856-4184-ac35-eae910e30e78.44caa4fd8ee868eb45617d71bfa87a5d.webp?v=1777404311&width=600"
     },
     {
         "sku": "23",
@@ -422,7 +422,7 @@ const productos = [
         "Peso_Valor": 125.0,
         "Peso_Unidad": "ml",
         "Requiere_Receta": 0,
-        "Imagen_URL": 0
+        "Imagen_URL": "https://m.media-amazon.com/images/I/71EjOWYjQ3L.jpg"
     },
     {
         "sku": "26",
@@ -490,7 +490,7 @@ const productos = [
         "Peso_Valor": 1.2,
         "Peso_Unidad": "kg",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://www.mercadolibre.com.mx/arenero-cerrado-mediano-para-gatos-gris-con-puerta-y-pala-mascotas-y-accesorios-mx/p/MLM29685475#polycard_client=search-desktop&float_highlight=last_units&be_origin=backend&overlay_label=not_apply&search_layout=grid&position=9&type=product&tracking_id=f28699e1-ae07-46e9-945d-8442e2932f13&wid=MLM5407576752&sid=search"
+        "Imagen_URL": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR07GqxUZ0OUZADeA5sqJ6O6vMAEI1Vm3CFVxcUz1ELNUSGhQ"
     },
     {
         "sku": "30",
@@ -507,7 +507,7 @@ const productos = [
         "Peso_Valor": 8.6,
         "Peso_Unidad": "kg",
         "Requiere_Receta": 0,
-        "Imagen_URL": "https://maskota.com.mx/collections/gatos-arena-y-limpieza/products/cat-s_best_oko_plus_20_l_"
+        "Imagen_URL": "https://maskota.com.mx/cdn/shop/files/8a4d4fb9-39b7-4eb4-b9a5-d8e4ec13e548.jpg?v=1755744134"
     }
 ]
 
