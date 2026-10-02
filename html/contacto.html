@@ -200,6 +200,33 @@
         crossorigin="anonymous"></script>
         <!-- Script de FAQs -->
     <script src="../js/FAQs.js"></script>
+
+    <!--cajita de mensaje ennviado al enviar el formulario -->
+
+    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" style="max-width: 380px;">
+    <div class="modal-content border-0 rounded-4 shadow-lg p-3">
+      
+      <div class="modal-body text-center p-4">
+        <div class="mx-auto mb-3 d-flex align-items-center justify-content-center rounded-circle" style="width: 52px; height: 52px; background-color: #f0fdf4;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="m9 12 2 2 4-4"></path>
+          </svg>
+        </div>
+        <h5 class="modal-title fw-bold mb-2 text-dark" id="successModalLabel">
+          ¡Mensaje Enviado!
+        </h5>
+        <div id="modalResumenTexto" class="text-secondary small mb-4" style="line-height: 1.5; white-space: pre-line;">
+        </div>
+       <button type="button" class="btn w-100 text-white fw-semibold py-2" style="background-color: #5E7C64; border-radius: 8px;" data-bs-dismiss="modal">
+          Aceptar
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
 </body>
 
 </html>

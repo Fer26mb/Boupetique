@@ -413,20 +413,14 @@ document.addEventListener("DOMContentLoaded", function () {
         // ====================================================
         // MOSTRAR DATOS
         // ====================================================
+        const resumenTexto = document.getElementById("modalResumenTexto");
 
-        alert(
-            "¡Gracias por tus comentarios!,\n Uno de nuestros asesores te responderá pronto\n\n" +
-
-            "Nombre: " + datos.nombre + "\n" +
-
-            "Correo: " + datos.correo + "\n" +
-
-            "Teléfono: " + datos.telefono + "\n\n" +
-
-            "Mensaje:\n" + datos.mensaje
-        );
-
-
+        resumenTexto.textContent = 
+    "¡Gracias por tu mensaje!\nUno de nuestros asesores se pondrá en contacto contigo pronto.\n\n";
+   
+        const modalElement = document.getElementById("successModal");
+        const bootstrapModal = bootstrap.Modal.getOrCreateInstance(modalElement);
+        bootstrapModal.show();
         // ====================================================
         // LIMPIAR FORMULARIO
         // ====================================================

@@ -351,7 +351,12 @@ formEl.addEventListener("submit", (event) => {
     cards.push(cardData);
     setLocalStorage("cards", cards);
     renderCards();
-    resetForm();
+
+    const modalElement = document.getElementById("successModal");
+    if (modalElement && typeof bootstrap !== "undefined") {
+        const bootstrapModal = bootstrap.Modal.getOrCreateInstance(modalElement);
+        bootstrapModal.show();
+    }
 });
 
 // 7. Estas funciones se encargan de guardar y leer los productos locales.
@@ -425,3 +430,4 @@ const addProductCard = (product, htmlElement) => {
 };
 
 renderCards();
+
