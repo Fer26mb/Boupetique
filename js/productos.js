@@ -21,7 +21,8 @@ const productsFromStorage = getLocalStorageProducts();
 
 // 3. Unir ambos arrays en una sola lista [new]
 /**(...) Es un operador de propagación (o Spread Operator en inglés). Su función principal es "desempaquetar" o descomponer los elementos de un array (o las propiedades de un objeto) dentro de otro. para fusionar arrays de forma limpia y plana, sin crear arrays dentro de arrays sin romper el cliclo for o map */
-const allProducts = [...productsFromJSON, ...productsFromStorage];
+//const allProducts = [...productsFromJSON, ...productsFromStorage];
+export const allProducts = [...productsFromJSON, ...productsFromStorage];
 
 // 3.5 Ubicacion donde se inyecta el js con la card dinamica
 const cards = document.querySelector("#catalogCard2");
@@ -31,7 +32,8 @@ const contentDiv = modal.querySelector(".content");
 
 
 // 4. Función para renderizar la card usando la plantilla nativa de tu catálogo
-const renderizarProductos = (producto) => {
+export const renderizarProductos = (producto) => {
+//const renderizarProductos = (producto) => {
     // 4.3 Si el producto registrado no tiene imagen, colocamos una por defecto
     const imagenUrl = producto.Imagen_URL || "../assets/productos-img/default.jpeg";
     const pesoValor = producto.Peso_Valor || "0.0";
