@@ -28,166 +28,166 @@
     </header>
 
     <main class="flex-grow-1">
-    <section class="inicio">
-    <!--! botones para ir a pagina de registro de productos: TEMPORALES mientras se decide como y donde indexar -->
-    <main class="container-fluid px-4 py-4">
-      <!--  <div class="container-fluid px-4 py-4"> --> <!--? Descomentar si se quita la clase al main-->
-            <div class="mb-3">
-                <div class="d-flex gap-2">
-                    <button type="button" class="btn form-products">
-                        <!--? form products es propuedad css para color verde-->
-                        <a href="./registro_prod.html" class="text-decoration-none text-white">Registro de productos</a>
-                    </button>
-                    <button type="button"
-                        class="btn form-products"><!--? form products es propiedad css para color verde-->
-                        <a href="./productos.html" class="text-decoration-none text-white">Página de productos</a>
-                    </button>
+        <section class="inicio">
+            <!--! botones para ir a pagina de registro de productos: TEMPORALES mientras se decide como y donde indexar -->
+            <main class="container-fluid px-4 py-4">
+                <!--  <div class="container-fluid px-4 py-4"> --> <!--? Descomentar si se quita la clase al main-->
+                <div class="mb-3">
+                    <div class="d-flex gap-2">
+                        <a href="./registro_prod.html" class="btn botones-productos ">
+                            Registro de productos
+                        </a>
+                        <a href="./productos.html" class="btn botones-productos ">
+                            Página de productos
+                        </a>
+                    </div>
                 </div>
+                <!--</div> --> <!--? Descomentar si se quita la clase al main-->
+                <!--! FIN DE BOTONES: registro productos y productos-->
+
+                <!-- BANNER -->
+                <div class="catalog-hero-banner mb-4">
+                    <div class="banner-overlay">
+                        <div class="banner-content">
+                            <span class="badge bg-warning text-dark mb-2 px-3 py-2 text-uppercase fw-bold">Ofertón del
+                                Mes</span>
+                            <h1 class="banner-title">Nutrición Premium & Cuidado Natural</h1>
+                            <p class="banner-subtitle">Hasta 20% de descuento en la línea holística seleccionada. Dale a
+                                tu
+                                mascota
+                                la calidad que merece.</p>
+                            <a href="#productos" class="btn btn-banner">Ver ofertas exclusivas</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BARRA DE BENEFICIOS-->
+                <div class="store-features mb-4 p-3 rounded-3 bg-white border">
+                    <div class="row text-center g-3">
+                        <div class="col-6 col-md-3">
+                            <div class="feature-item">
+                                <i class="bi bi-truck fs-4 text-success"></i>
+                                <div class="mt-1">
+                                    <strong class="d-block text-dark small">Envío Gratis</strong>
+                                    <span class="text-muted extra-small">En compras mayores a $899</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="feature-item">
+                                <i class="bi bi-shield-check fs-4 text-success"></i>
+                                <div class="mt-1">
+                                    <strong class="d-block text-dark small">Pago 100% Seguro</strong>
+                                    <span class="text-muted extra-small">Tarjetas, PayPal y OXXO</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="feature-item">
+                                <i class="bi bi-award fs-4 text-success"></i>
+                                <div class="mt-1">
+                                    <strong class="d-block text-dark small">Calidad Garantizada</strong>
+                                    <span class="text-muted extra-small">Ingredientes 100% naturales</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="feature-item">
+                                <i class="bi bi-headset fs-4 text-success"></i>
+                                <div class="mt-1">
+                                    <strong class="d-block text-dark small">Atención al Cliente</strong>
+                                    <span class="text-muted extra-small">Asesoría personalizada</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-4">
+
+                    <!-- BARRA DE FILTROS (IZQUIERDA) -->
+                    <aside class="col-12 col-lg-3 col-xl-2 border-end pe-lg-4">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5 class="fw-bold m-0 text-dark">Filtrar:</h5>
+                            <button class="btn btn-link p-0 text-decoration-none btn-clear-filters">Eliminar
+                                todos</button>
+                        </div>
+
+                        <!-- Filtros Activos -->
+                        <div class="d-flex flex-wrap gap-2 mb-4">
+                            <span class="active-filter-tag">
+                                En existencia <i class="fa-solid fa-xmark ms-1"></i>
+                            </span>
+                        </div>
+
+                        <!-- Sección: Especie -->
+                        <div class="filter-section mb-4">
+                            <h6 class="filter-title d-flex justify-content-between align-items-center">
+                                Especie <i class="fa-solid fa-chevron-down small"></i>
+                            </h6>
+                            <div class="form-check mt-2">
+                                <input class="form-check-input" type="checkbox" id="filterPerro" checked>
+                                <label class="form-check-label d-flex justify-content-between" for="filterPerro">
+                                    <span>Perro</span> <span class="text-muted"></span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="filterGato">
+                                <label class="form-check-label d-flex justify-content-between" for="filterGato">
+                                    <span>Gato</span> <span class="text-muted"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <hr class="my-3">
+
+                        <!-- Sección: Categorías -->
+                        <div class="filter-section mb-4">
+                            <h6 class="filter-title d-flex justify-content-between align-items-center">
+                                Categorías <i class="fa-solid fa-chevron-down small"></i>
+                            </h6>
+                            <div class="form-check mt-2">
+                                <input class="form-check-input" type="checkbox" id="catCroquetas">
+                                <label class="form-check-label d-flex justify-content-between" for="catCroquetas">
+                                    <span>Alimentos</span> <span class="text-muted"></span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="catSnacks">
+                                <label class="form-check-label d-flex justify-content-between" for="catSnacks">
+                                    <span>Snacks</span> <span class="text-muted"></span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="catCuidados">
+                                <label class="form-check-label d-flex justify-content-between" for="catCuidados">
+                                    <span>Salud & Bienestar</span> <span class="text-muted"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </aside>
+
+                    <!-- PRODUCTOS -->
+                    <section class="col-12 col-lg-9 col-xl-10">
+                        <div id="catalogCard2" class="row g-4"></div>
+                    </section>
+                </div>
+            </main>
+            <!-- Modal Limpio -->
+            <div id="modal-info">
+                <div class="content"></div>
             </div>
-        <!--</div> --> <!--? Descomentar si se quita la clase al main-->
-        <!--! FIN DE BOTONES: registro productos y productos-->
 
-        <!-- BANNER -->
-        <div class="catalog-hero-banner mb-4">
-            <div class="banner-overlay">
-                <div class="banner-content">
-                    <span class="badge bg-warning text-dark mb-2 px-3 py-2 text-uppercase fw-bold">Ofertón del
-                        Mes</span>
-                    <h1 class="banner-title">Nutrición Premium & Cuidado Natural</h1>
-                    <p class="banner-subtitle">Hasta 20% de descuento en la línea holística seleccionada. Dale a tu
-                        mascota
-                        la calidad que merece.</p>
-                    <a href="#productos" class="btn btn-banner">Ver ofertas exclusivas</a>
-                </div>
-            </div>
-        </div>
+            <footer id="site-footer" class="text-light py-5" data-include="../partials/footer.html"></footer>
 
-        <!-- BARRA DE BENEFICIOS-->
-        <div class="store-features mb-4 p-3 rounded-3 bg-white border">
-            <div class="row text-center g-3">
-                <div class="col-6 col-md-3">
-                    <div class="feature-item">
-                        <i class="bi bi-truck fs-4 text-success"></i>
-                        <div class="mt-1">
-                            <strong class="d-block text-dark small">Envío Gratis</strong>
-                            <span class="text-muted extra-small">En compras mayores a $899</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div class="feature-item">
-                        <i class="bi bi-shield-check fs-4 text-success"></i>
-                        <div class="mt-1">
-                            <strong class="d-block text-dark small">Pago 100% Seguro</strong>
-                            <span class="text-muted extra-small">Tarjetas, PayPal y OXXO</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div class="feature-item">
-                        <i class="bi bi-award fs-4 text-success"></i>
-                        <div class="mt-1">
-                            <strong class="d-block text-dark small">Calidad Garantizada</strong>
-                            <span class="text-muted extra-small">Ingredientes 100% naturales</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div class="feature-item">
-                        <i class="bi bi-headset fs-4 text-success"></i>
-                        <div class="mt-1">
-                            <strong class="d-block text-dark small">Atención al Cliente</strong>
-                            <span class="text-muted extra-small">Asesoría personalizada</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row g-4">
+            <!-- Script de Javascript -->
+            <script src="../js/app.js"></script>
+            <script type="module" src="../js/productos.js"></script>
+            <script type="module" src="../js/productos/filtros-productos.js"></script>
 
-            <!-- BARRA DE FILTROS (IZQUIERDA) -->
-            <aside class="col-12 col-lg-3 col-xl-2 border-end pe-lg-4">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h5 class="fw-bold m-0 text-dark">Filtrar:</h5>
-                    <button class="btn btn-link p-0 text-decoration-none btn-clear-filters">Eliminar todos</button>
-                </div>
-
-                <!-- Filtros Activos -->
-                <div class="d-flex flex-wrap gap-2 mb-4">
-                    <span class="active-filter-tag">
-                        En existencia <i class="fa-solid fa-xmark ms-1"></i>
-                    </span>
-                </div>
-
-                <!-- Sección: Especie -->
-                <div class="filter-section mb-4">
-                    <h6 class="filter-title d-flex justify-content-between align-items-center">
-                        Especie <i class="fa-solid fa-chevron-down small"></i>
-                    </h6>
-                    <div class="form-check mt-2">
-                        <input class="form-check-input" type="checkbox" id="filterPerro" checked>
-                        <label class="form-check-label d-flex justify-content-between" for="filterPerro">
-                            <span>Perro</span> <span class="text-muted"></span>
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="filterGato">
-                        <label class="form-check-label d-flex justify-content-between" for="filterGato">
-                            <span>Gato</span> <span class="text-muted"></span>
-                        </label>
-                    </div>
-                </div>
-
-                <hr class="my-3">
-
-                <!-- Sección: Categorías -->
-                <div class="filter-section mb-4">
-                    <h6 class="filter-title d-flex justify-content-between align-items-center">
-                        Categorías <i class="fa-solid fa-chevron-down small"></i>
-                    </h6>
-                    <div class="form-check mt-2">
-                        <input class="form-check-input" type="checkbox" id="catCroquetas">
-                        <label class="form-check-label d-flex justify-content-between" for="catCroquetas">
-                            <span>Alimentos</span> <span class="text-muted"></span>
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="catSnacks">
-                        <label class="form-check-label d-flex justify-content-between" for="catSnacks">
-                            <span>Snacks</span> <span class="text-muted"></span>
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="catCuidados">
-                        <label class="form-check-label d-flex justify-content-between" for="catCuidados">
-                            <span>Salud & Bienestar</span> <span class="text-muted"></span>
-                        </label>
-                    </div>
-                </div>
-            </aside>
-
-            <!-- PRODUCTOS -->
-            <section class="col-12 col-lg-9 col-xl-10">
-                <div id="catalogCard2" class="row g-4"></div>
-            </section>
-        </div>
-    </main>
-    <!-- Modal Limpio -->
-    <div id="modal-info">
-        <div class="content"></div>
-    </div>
-
-    <footer id="site-footer" class="text-light py-5" data-include="../partials/footer.html"></footer>
-
-    <!-- Script de Javascript -->
-    <script src="../js/app.js"></script>
-    <script type="module" src="../js/productos.js"></script>
-    <script type="module" src="../js/productos/filtros-productos.js"></script>
-    
-    <!-- Script de BootStrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
+            <!-- Script de BootStrap -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+                crossorigin="anonymous"></script>
 
 </body>
 
