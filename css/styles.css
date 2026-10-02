@@ -41,6 +41,9 @@ body > * {
 }
   /* Controla footer */
 
+.pantalla-completa{
+  height: 100vh;
+}
 #site-footer{ 
   
   margin-top: 5% ;
