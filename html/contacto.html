@@ -4,15 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boupetique</title>
+    <meta name="description" content="Ponte en contacto con Boupetique para resolver tus dudas o solicitar asistencia.">
+    <title>Boupetique | Contáctanos</title>
+
     <link rel="icon" type="image/png" href="../assets/logo-img/pinguino.png">
 
-    <!-- Iconos-->
+    <!-- Iconos FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- Conexión de BootStrap -->
+    <!-- Conexión de Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
@@ -29,204 +31,161 @@
 
     <main class="flex-grow-1">
 
+        <!-- Sección de Contacto -->
+        <section id="contactanos" class="contactanos py-5">
+            <div class="container">
 
-    <!-- Dayana-->
-    <section id="contactanos" class="contactanos py-5">
-        <div class="container">
+                <!-- Encabezado de la sección -->
+                <div class="text-center mb-4">
+                    <span class="text-uppercase fw-bold">¿TIENES DUDAS?</span>
+                    <h1 class="fw-bold my-2">Contáctanos</h1>
+                    <p class="text-muted lead mx-auto" style="max-width: 600px;">
+                        ¿Necesitas asistencia o información sobre nuestros productos? Escríbenos y te responderemos a la
+                        brevedad.
+                    </p>
+                </div>
 
-            <!-- Encabezado de la sección -->
-            <div class="text-center mb-4">
-                <span class="text-uppercase fw-bold">¿TIENES DUDAS?</span>
-                <h1 class="fw-bold my-2">Contáctanos</h1>
-                <p class="text-muted lead mx-auto" style="max-width: 600px;">
-                    ¿Necesitas asistencia o información sobre nuestros productos? Escríbenos y te responderemos a la
-                    brevedad.
-                </p>
-            </div>
+                <!-- Formulario e información -->
+                <div class="row justify-content-center">
+                    <!-- Formulario -->
+                    <div class="form col-md-8 col-lg-6 mb-4 mb-lg-0">
+                        <form id="formulario" action="#" method="POST">
 
-            <!--Formulario -->
-            <div class="row justify-content-center">
-                <div class="form col-md-8 col-lg-6">
-                    <form id="formulario" action="#" method="POST">
+                            <div class="mb-3">
+                                <label for="nombre" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="nombre" name="nombre"
+                                    placeholder="Escribe tu nombre" required>
+                            </div>
 
-                        <div class="mb-3">
-                            <label for="nombre" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" id="nombre" name="nombre"
-                                placeholder="Escribe tu nombre" required>
-                        </div>
+                            <div class="mb-3">
+                                <label for="correo" class="form-label">Correo</label>
+                                <input type="email" class="form-control" id="correo" name="correo"
+                                    placeholder="correo@ejemplo.com" required>
+                            </div>
 
-                        <div class="mb-3">
-                            <label for="correo" class="form-label">Correo</label>
-                            <input type="email" class="form-control" id="correo" name="correo"
-                                placeholder="correo@ejemplo.com" required>
-                        </div>
+                            <div class="mb-3">
+                                <label for="telefono" class="form-label">Teléfono</label>
+                                <input type="tel" class="form-control" id="telefono" name="telefono"
+                                    placeholder="Escribe tu número">
+                            </div>
 
-                        <div class="mb-3">
-                            <label for="telefono" class="form-label">Teléfono</label>
-                            <input type="tel" class="form-control" id="telefono" name="telefono"
-                                placeholder="Escribe tu número">
-                        </div>
+                            <div class="mb-3">
+                                <label for="mensaje" class="form-label">Mensaje</label>
+                                <textarea class="form-control" id="mensaje" name="mensaje" rows="4"
+                                    placeholder="Escribe tu mensaje aquí..." required></textarea>
 
-                        <div class="mb-3">
-                            <label for="mensaje" class="form-label">Mensaje</label>
-                            <textarea class="form-control" id="mensaje" name="mensaje" rows="4"
-                                placeholder="Escribe tu mensaje aquí..." required></textarea>
-
-                            <div class="d-flex justify-content-between mt-1">
-                                <div class="invalid-feedback d-block">
-                                    <!-- Mantén esto según tu lógica de validación CSS -->
+                                <div class="d-flex justify-content-between mt-1">
+                                    <div class="invalid-feedback d-block">
+                                        <!-- Mensajes de validación CSS / JS -->
+                                    </div>
+                                    <small id="contador" class="text-muted">
+                                        0 / mínimo 30
+                                    </small>
                                 </div>
-                                <small id="contador" class="text-muted">
-                                    0 / mínimo 30
-                                </small>
+
+                                <div class="check-text text-success mt-1" id="checkMensaje" style="display: none;">
+                                    ✓ Ok
+                                </div>
                             </div>
 
-                            <div class="check-text text-success mt-1" id="checkMensaje" style="display: none;">
-                                ✓ Ok
+                            <div class="d-flex gap-2">
+                                <button type="reset" class="btn btn-secondary w-50">
+                                    Limpiar
+                                </button>
+
+                                <button type="submit" class="btn btn-success w-50" id="btnEnviar" disabled>
+                                    Enviar formulario
+                                </button>
+                            </div>
+
+                        </form>
+                    </div>
+
+                    <!-- Canales e Información de Contacto -->
+                    <div class="col-md-8 col-lg-6">
+                        <div class="p-4 rounded-4 shadow-sm contact-info-card mb-4">
+                            <ul class="list-unstyled text-muted mb-0 d-flex flex-column gap-2 contact-details-list">
+                                <li><strong>Teléfono:</strong> +52 55 1234 5678</li>
+                                <li><strong>Correo:</strong> info@boupetique.com</li>
+                                <li><strong>Horario:</strong> Lunes a Viernes (9:00 - 18:00)</li>
+                            </ul>
+                        </div>
+
+                        <div class="card-body contact-social-card mb-4">
+                            <h5 class="card-title fw-bold mb-3 social-title">Síguenos en nuestras redes sociales</h5>
+
+                            <div class="d-flex justify-content-start align-items-center gap-3 social-links">
+                                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+                                    class="social-link" aria-label="Instagram">
+                                    <img src="../assets/icons/insta.png" class="social-icon" alt="Instagram">
+                                </a>
+
+                                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
+                                    class="social-link" aria-label="Facebook">
+                                    <img src="../assets/icons/facebook.png" class="social-icon" alt="Facebook">
+                                </a>
+
+                                <a href="https://youtube.com" target="_blank" rel="noopener noreferrer"
+                                    class="social-link" aria-label="YouTube">
+                                    <img src="../assets/icons/yotube.png" class="social-icon" alt="YouTube">
+                                </a>
                             </div>
                         </div>
 
-                        <div class="d-flex gap-2">
-                            <button type="reset" class="btn btn-secondary w-50">
-                                Limpiar
-                            </button>
+                        <div class="card-body contact-social-card">
+                            <h5 class="card-title fw-bold mb-3 social-title">Preguntas Frecuentes</h5>
 
-                            <button type="submit" class="btn btn-success w-50" id="btnEnviar" disabled>
-                                Enviar formulario
-                            </button>
+                            <div class="faq-container">
+                                <div id="faq-accordion" class="faq-chat-list"></div>
+                            </div>
                         </div>
-
-                    </form>
+                    </div>
                 </div>
 
-                <!--Canales-->
-                <div class="col-md-8 col-lg-6">
-                    <div class="p-4 rounded-4 shadow-sm contact-info-card">
-                        <ul class="list-unstyled text-muted mb-0 d-flex flex-column gap-2 contact-details-list">
-                            <li><strong>Teléfono:</strong> +52 55 1747234 5678</li>
-                            <li><strong>Correo:</strong> contacto@ejemplo.com</li>
-                            <li><strong>Horario:</strong> Lunes a Viernes (9:00 - 18:00)</li>
-                        </ul>
-                    </div>
+            </div>
+        </section>
 
-                    <div class="card-body contact-social-card">
-                        <!-- Título -->
-                        <h5 class="card-title fw-bold mb-3 social-title">Síguenos en nuestras redes sociales</h5>
-
-                        <!-- Contenedor de íconos -->
-                        <div class="d-flex justify-content-start align-items-center gap-3 social-links">
-                            <!-- Red Social 1 -->
-                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
-                                class="social-link" aria-label="Instagram">
-                                <img src="../assets/icons/insta.png" class="social-icon" alt="Instagram">
-                            </a>
-
-                            <!-- Red Social 2 -->
-                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-link"
-                                aria-label="Facebook">
-                                <img src="../assets/icons/facebook.png" class="social-icon" alt="Facebook">
-                            </a>
-
-                            <!-- Red Social 3 -->
-                            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-link"
-                                aria-label="YouTube">
-                                <img src="../assets/icons/yotube.png" class="social-icon" alt="YouTube">
-                            </a>
+        <!-- Modal de Confirmación  corregido y acomodado sobre footer-->
+        <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel">
+            <div class="modal-dialog modal-dialog-centered" style="max-width: 380px;">
+                <div class="modal-content border-0 rounded-4 shadow-lg p-3">
+                    <div class="modal-body text-center p-4">
+                        <div class="mx-auto mb-3 d-flex align-items-center justify-content-center rounded-circle"
+                            style="width: 52px; height: 52px; background-color: #f0fdf4;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="m9 12 2 2 4-4"></path>
+                            </svg>
                         </div>
-                    </div>
-                <div class="card-body contact-social-card">
-                        <!-- Título -->
-                        <h5 class="card-title fw-bold mb-3 social-title">Preguntas Frecuentes</h5>
-
-                    <div class="faq-container">
-                    <div id="faq-accordion" class="faq-chat-list"></div>
-                       
-                    </div>
-
-                    
-                            
+                        <h5 class="modal-title fw-bold mb-2 text-dark" id="successModalLabel">
+                            ¡Mensaje Enviado!
+                        </h5>
+                        <div id="modalResumenTexto" class="text-secondary small mb-4"
+                            style="line-height: 1.5; white-space: pre-line;">
                         </div>
+                        <button type="button" class="btn w-100 text-white fw-semibold py-2"
+                            style="background-color: #5E7C64; border-radius: 8px;" data-bs-dismiss="modal">
+                            Aceptar
+                        </button>
                     </div>
                 </div>
             </div>
-
         </div>
-    </section>
+
+    </main> <!-- Cierre correcto del contenedor principal,faltaba esta etiqueta -->
 
     <footer id="site-footer" class="text-light py-5" data-include="../partials/footer.html"></footer>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Script de Javascript -->
+    <!-- Scripts JS -->
     <script src="../js/app.js"></script>
     <script src="../js/scriptF.js"></script>
-    <!-- Script de BootStrap -->
+    <script src="../js/FAQs.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
-        <!-- Script de FAQs -->
-    <script src="../js/FAQs.js"></script>
 
-    <!--cajita de mensaje ennviado al enviar el formulario -->
-
-    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" style="max-width: 380px;">
-    <div class="modal-content border-0 rounded-4 shadow-lg p-3">
-      
-      <div class="modal-body text-center p-4">
-        <div class="mx-auto mb-3 d-flex align-items-center justify-content-center rounded-circle" style="width: 52px; height: 52px; background-color: #f0fdf4;">
-          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <path d="m9 12 2 2 4-4"></path>
-          </svg>
-        </div>
-        <h5 class="modal-title fw-bold mb-2 text-dark" id="successModalLabel">
-          ¡Mensaje Enviado!
-        </h5>
-        <div id="modalResumenTexto" class="text-secondary small mb-4" style="line-height: 1.5; white-space: pre-line;">
-        </div>
-       <button type="button" class="btn w-100 text-white fw-semibold py-2" style="background-color: #5E7C64; border-radius: 8px;" data-bs-dismiss="modal">
-          Aceptar
-        </button>
-      </div>
-
-    </div>
-  </div>
-</div>
 </body>
 
 </html>
