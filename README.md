@@ -19,13 +19,15 @@ Esto activa los estilos visuales de Bootstrap: ilumina en rojo los bordes de los
 Confirmación de Éxito (bootstrap.Modal):
 Una vez superadas todas las validaciones, los datos se guardan en localStorage y JavaScript activa una ventana modal (#successModal) que notifica al usuario el registro exitoso antes de reiniciar el formulario.
 
-**Tarea 9**: Registro de Usuarios (registro.html)
+
+### 📦 Tarea 9: Registro de Usuarios (registro.html)
 Formulario de Registro: Implementado en registro.html con Bootstrap, incluyendo los campos de Nombre completo, Teléfono, Email y Contraseña.
 
 * **`registro.html`**: Vista que contiene el formulario de registro de cuenta de usuario.
 * **`scriptRegis.js`**: Procesa los registros del formulario, valida la información del usuario y gestiona las respuestas en pantalla.
 * **`app.js`**:  Script de integración global para coordinar eventos y componentes de la interfaz.
 
+--------------
 
 # 🐾✨ Boupetique ✨🐾
 
