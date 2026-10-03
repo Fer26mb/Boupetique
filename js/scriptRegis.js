@@ -688,7 +688,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         telefono.classList.remove("is-valid", "campo-valido");
 
-        mensaje.classList.remove("is-valid");
+        // Cambiar 'mensaje' por 'checkMensaje' (o el ID correcto que tengas)
+        const checkMensaje = document.getElementById("checkMensaje");
+        if (checkMensaje) {
+            checkMensaje.classList.remove("is-valid");
+        }
 
         checkMensaje.classList.remove("mostrar");
 
@@ -700,13 +704,6 @@ document.addEventListener("DOMContentLoaded", function () {
         // Deshabilitamos nuevamente el botón
         btnEnviar.disabled = true;
 
-
-        /*
-            Opcionalmente bloqueamos el formulario
-            durante el tiempo de espera.
-        */
-
-        bloquearFormulario();
 
     });
 
