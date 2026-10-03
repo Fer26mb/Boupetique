@@ -1,4 +1,3 @@
-<div align="center">
 
 # 📅  Tareas 8 y 9 (Sprint 5)
 
@@ -28,6 +27,7 @@ Formulario de Registro: Implementado en registro.html con Bootstrap, incluyendo 
 * **`app.js`**:  Script de integración global para coordinar eventos y componentes de la interfaz.
 
 --------------
+<div align="center">
 
 # 🐾✨ Boupetique ✨🐾
 
