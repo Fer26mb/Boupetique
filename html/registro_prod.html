@@ -100,17 +100,17 @@
                                         <div class="col-md-6 mb-3">
                                             <label for="Especie" class="form-label">Especie</label>
                                             <!-- Con la lista se puede escribir para filtrar, pero solo acepta Perro o Gato -->
-                                            <input type="text" class="form-control" id="Especie" list="listaEspecies"
-                                                autocomplete="off" required placeholder="Escribe o selecciona">
-                                            <datalist id="listaEspecies"></datalist>
-                                            <div class="invalid-feedback">Selecciona Perro o Gato.</div>
+                                            <select class="form-select" id="Especie" required placeholder="Selecciona">
+                                                <option value="">Selecciona una especie</option>
+                                            </select>
+                                            <div class="invalid-feedback">Selecciona una especie.</div>
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label for="Categoria" class="form-label">Categoría</label>
-                                            <input type="text" class="form-control" id="Categoria"
-                                                list="listaCategorias" autocomplete="off" required
-                                                placeholder="Escribe o selecciona">
-                                            <datalist id="listaCategorias"></datalist>
+                                            <select class="form-select" id="Categoria" required
+                                                placeholder="Selecciona">
+                                                <option value="">Selecciona una categoría</option>
+                                            </select>
                                             <div class="invalid-feedback">Selecciona una categoría de la lista.</div>
                                         </div>
                                     </div>
@@ -118,10 +118,10 @@
                                     <div class="row">
                                         <div class="col-md-6 mb-3">
                                             <label for="Subcategoria" class="form-label">Subcategoría</label>
-                                            <input type="text" class="form-control" id="Subcategoria"
-                                                list="listaSubcategorias" autocomplete="off" required
-                                                placeholder="Escribe o selecciona">
-                                            <datalist id="listaSubcategorias"></datalist>
+                                            <select class="form-select" id="Subcategoria" required
+                                                placeholder="Selecciona">
+                                                <option value="">Selecciona una subcategoría</option>
+                                            </select>
                                             <div class="invalid-feedback">Selecciona una subcategoría de la lista.</div>
                                         </div>
                                         <div class="col-md-6 mb-3">
@@ -136,18 +136,20 @@
                                         <div class="col-md-6 mb-3">
                                             <label for="Etapa_Vida" class="form-label">Etapa de Vida</label>
                                             <!--?Datalist agregado para Etapa de Vida (se llena dinámicamente desde JS) -->
-                                            <input type="text" class="form-control" id="Etapa_Vida" list="listaEtapas"
-                                                autocomplete="off" required placeholder="Escribe o selecciona">
-                                            <datalist id="listaEtapas"></datalist>
+                                            <select class="form-select" id="Etapa_Vida" required
+                                                placeholder="Selecciona">
+                                                <option value="">Selecciona una etapa de vida</option>
+                                            </select>
                                             <div class="invalid-feedback">Selecciona una etapa de vida de la lista.
                                             </div>
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label for="Tamano_Raza" class="form-label">Tamaño de Raza</label>
                                             <!--?Cambiado a <input> con <datalist> para mantener estilo visual uniforme con los demás campos -->
-                                            <input type="text" class="form-control" id="Tamano_Raza" list="listaTamanos"
-                                                autocomplete="off" required placeholder="Escribe o selecciona">
-                                            <datalist id="listaTamanos"></datalist>
+                                            <select class="form-select" id="Tamano_Raza" required
+                                                placeholder="Selecciona">
+                                                <option value="">Selecciona un tamaño de raza</option>
+                                            </select>
                                             <div class="invalid-feedback">Selecciona un tamaño de raza de la lista.
                                             </div>
                                         </div>
@@ -176,10 +178,10 @@
                                         <div class="col-md-2 mb-3">
                                             <label for="Peso_Unidad" class="form-label">Unidad</label>
                                             <!--?Cambiado a <input> con <datalist> para mantener estilo visual uniforme con los demás campos -->
-                                            <input type="text" class="form-control" id="Peso_Unidad"
-                                                list="listaUnidades" autocomplete="off" required
-                                                placeholder="Escribe o selecciona">
-                                            <datalist id="listaUnidades"></datalist>
+                                            <select class="form-select" id="Peso_Unidad"
+                                                required placeholder="Selecciona">
+                                                <option value="">Selecciona una unidad</option>
+                                            </select>
                                             <div class="invalid-feedback">Selecciona una unidad de la lista.</div>
                                         </div>
                                     </div>
@@ -271,7 +273,7 @@
 
     <script type="module" src="../js/crud.js"></script>
     <script src="../js/app.js"></script>
-    
+
 </body>
 
 </html>
