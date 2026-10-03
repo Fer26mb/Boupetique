@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css" />
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carrito</title>
+</head>
+
+<body>
+    <!-- Encabezado con la ubicación actual y los enlaces de navegación -->
+    <header class="container d-flex align-items-center justify-content-between">
+        <div class="location">
+            <div class="description">
+                <span class="text">Estás en el carrito de venta de Boupetique</span>
+                <img src="assets/mexico-flag.png" alt="" class="location-flag" />
+            </div>
+        </div>
+
+        <div class="nav-actions d-flex gap-5">
+            <a href="../html/productos.html" class="main">Regresar a la página de productos</a>
+            <a href="../html/login.html" class="login">Log In</a>
+    </div>
+    </header>
+
+    <main class="cart-container p-5">
+        <!-- Sección del catálogo con los productos disponibles -->
+      
+            <!-- Sección del carrito con los productos seleccionados -->
+            
+            
+
+            <section class="cart-section">
+                
+                        <!-- Resumen del pedido y formulario de entrega 
+
+                    <h1 class="cart-title">Ticket de venta</h1>
+
+--> 
+        <!-- Resumen del pedido y formulario de entrega -->
+<div id="payment-container" class="m-0 p-0 rounded p-4 m-4">
+
+            <div class="receipt">
+      <p class="shop-name">Ticket de venta</p>
+      <p class="info">
+    Boupetique <br />
+    Castillo de Chapultepec, 2da Sección, 16059<br />
+    Date: 02/10/2026<br />
+    Time: 08:38 PM
+     </p>
+
+     <table>
+    <thead>
+      <tr>
+        <th>Producto</th>
+        <th>Unidad</th>
+        <th>Precio</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Item 1</td>
+        <td>2</td>
+        <td>$20.00 MXN</td>
+      </tr>
+      <tr>
+        <td>Item 2</td>
+        <td>1</td>
+        <td>$10.00 MXN</td>
+      </tr>
+      <tr>
+        <td>Item 3</td>
+        <td>3</td>
+        <td>$15.00 MXN</td>
+      </tr>
+    </tbody>
+    </table>
+
+    <div class="total">
+    <p>Total:</p>
+    <p>$45.00 MXN</p>
+    </div>
+    <div id="submit-btns">
+                        <button type="submit" class="btn btn-danger p-3">Cancelar</button>
+                        <button type="submit" class="btn btn-dark p-3">Pagar</button>
+                    </div>
+      <p class="thanks">!Muchas Gracias por comprar con nostros!</p>
+      <div id="user-form" class="hide">
+
+                    <!-- Formulario para introducir los datos de entrega -->
+
+                <h3 class="text">Datos de entrega</h3>
+                <form>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Correo electrónico</label>
+                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="name" name="name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="direccion" class="form-label">Dirección</label>
+                        <input type="text" class="form-control" id="direccion" name="address">
+                    </div>
+
+                    <div id="submit-btns">
+                        <button type="submit" class="btn btn-danger p-3">Cancelar</button>
+                        <button type="submit" class="btn btn-dark p-3">Enviar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+        </section>
+    </main>
+
+
+
+        
+    <!-- Scripts para cargar el carrito y gestionar sus acciones -->
+    <script src="js"></script>
+    <script src="js"></script>
+</body>
+
+</html>
