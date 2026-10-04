@@ -528,3 +528,21 @@ document.addEventListener("DOMContentLoaded", function () {
 revisarTiempoEspera();
 
 });
+
+/*
+? Se corrige el problema de que al cerrar el modal de contactos, 
+? el foco se queda en el botón que lo abrió, 
+? lo que puede causar problemas de accesibilidad y usabilidad.  
+*/
+document.addEventListener('DOMContentLoaded', () => {
+    const successModalEl = document.getElementById('successModal');
+    
+    if (successModalEl) {
+        // Quitar el foco activo antes de ocultar el modal
+        successModalEl.addEventListener('hide.bs.modal', () => {
+            if (document.activeElement) {
+                document.activeElement.blur();
+            }
+        });
+    }
+});

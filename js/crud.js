@@ -102,7 +102,7 @@ const sinonimosTamano = {
 const normalizarValor = (valor, sinonimos) => {
     if (!valor) return valor;
     const valorLower = String(valor).trim().toLocaleLowerCase("es-MX");
-    
+
     for (const [valorEstandar, variantes] of Object.entries(sinonimos)) {
         if (variantes.some(v => valorLower === v.toLocaleLowerCase("es-MX"))) {
             return valorEstandar;
@@ -116,11 +116,11 @@ const cleanOptions = (values, sinonimos = null) => {
 
     values.forEach((value) => {
         let cleanValue = String(value ?? "").trim();
-        
+
         if (sinonimos) {
             cleanValue = normalizarValor(cleanValue, sinonimos);
         }
-        
+
         const comparisonValue = cleanValue.toLocaleLowerCase("es-MX");
 
         if (cleanValue && !optionsWithoutDuplicates.has(comparisonValue)) {
@@ -137,32 +137,32 @@ const cleanOptions = (values, sinonimos = null) => {
 
 const dropdownFields = {
     Especie: {
-        datalistId: "listaEspecies",
+        selectId: "Especie",
         options: cleanOptions(["Perro", "Gato", "Perro & Gato"], sinonimosEspecies),
         sinonimos: sinonimosEspecies
     },
     Categoria: {
-        datalistId: "listaCategorias",
+        selectId: "Categoria",
         options: cleanOptions(productsFromJSON.map((product) => product.Categoria), sinonimosCategorias),
         sinonimos: sinonimosCategorias
     },
     Subcategoria: {
-        datalistId: "listaSubcategorias",
+        selectId: "Subcategoria",
         options: cleanOptions(productsFromJSON.map((product) => product.Subcategoria), sinonimosSubcategorias),
         sinonimos: sinonimosSubcategorias
     },
     Etapa_Vida: {
-        datalistId: "listaEtapas",
+        selectId: "Etapa_Vida",
         options: cleanOptions(productsFromJSON.map((product) => product.Etapa_Vida), sinonimosEtapaVida),
         sinonimos: sinonimosEtapaVida
     },
     Tamano_Raza: {
-        datalistId: "listaTamanos", // ✅ Corregido
+        selectId: "Tamano_Raza",
         options: cleanOptions(productsFromJSON.map((product) => product.Tamano_Raza), sinonimosTamano),
         sinonimos: sinonimosTamano
     },
     Peso_Unidad: {
-        datalistId: "listaUnidades", // ✅ Corregido
+        selectId: "Peso_Unidad", // ✅ Corregido
         options: cleanOptions([
             ...productsFromJSON.map((product) => product.Peso_Unidad),
             "pieza",
@@ -174,11 +174,11 @@ const dropdownFields = {
 
 //DATALISTS
 
-Object.values(dropdownFields).forEach(({ datalistId, options }) => {
-    const datalistEl = document.getElementById(datalistId);
+Object.values(dropdownFields).forEach(({ selectId, options }) => {
+    const selectEl = document.getElementById(selectId);
 
-    if (!datalistEl) {
-        console.warn(`⚠️ No se encontró el elemento con ID: ${datalistId}`);
+    if (!selectEl) {
+        console.warn(`⚠️ No se encontró el elemento con ID: ${selectId}`);
         return;
     }
 
@@ -186,7 +186,7 @@ Object.values(dropdownFields).forEach(({ datalistId, options }) => {
         const optionEl = document.createElement("option");
         optionEl.value = optionText;
         optionEl.textContent = optionText;
-        datalistEl.appendChild(optionEl);
+        selectEl.appendChild(optionEl);
     });
 });
 
@@ -216,31 +216,59 @@ document.querySelectorAll(".campo-entero").forEach((inputEl) => {
 });
 
 // 4. Revisamos que el valor escrito sí exista dentro de su dropdown.
-const findOption = (value, options) => {
-    const comparisonValue = value.trim().toLocaleLowerCase("es-MX");
-    return options.find(
-        (option) => option.toLocaleLowerCase("es-MX") === comparisonValue
+// const findOption = (value, options) => {
+//     const comparisonValue = value.trim().toLocaleLowerCase("es-MX");
+//     return options.find(
+//         (option) => option.toLocaleLowerCase("es-MX") === comparisonValue
+//     );
+// };
+
+// const validateDropdown = (fieldId) => {
+//     const inputEl = document.getElementById(fieldId);
+//     if (!inputEl) return;
+
+//     const validOption = findOption(inputEl.value, dropdownFields[fieldId].options);
+
+//     inputEl.setCustomValidity(validOption ? "" : "Selecciona una opción de la lista.");
+
+//     if (validOption) {
+//         inputEl.value = validOption;
+//     }
+// };
+
+// Object.keys(dropdownFields).forEach((fieldId) => {
+//     const inputEl = document.getElementById(fieldId);
+//     if (inputEl) {
+//         inputEl.addEventListener("input", () => validateDropdown(fieldId));
+//         inputEl.addEventListener("change", () => validateDropdown(fieldId));
+//     }
+// });
+// * Cambio a select 
+// * 4. Validamos que se haya seleccionado una opción válida.
+
+const validateDropdown = (fieldId) => {
+
+    const selectEl = document.getElementById(fieldId);
+
+    if (!selectEl) return;
+
+    const validOption = dropdownFields[fieldId].options.includes(selectEl.value);
+
+    selectEl.setCustomValidity(
+        validOption
+            ? ""
+            : "Selecciona una opción de la lista."
     );
 };
 
-const validateDropdown = (fieldId) => {
-    const inputEl = document.getElementById(fieldId);
-    if (!inputEl) return;
-    
-    const validOption = findOption(inputEl.value, dropdownFields[fieldId].options);
-
-    inputEl.setCustomValidity(validOption ? "" : "Selecciona una opción de la lista.");
-
-    if (validOption) {
-        inputEl.value = validOption;
-    }
-};
-
 Object.keys(dropdownFields).forEach((fieldId) => {
-    const inputEl = document.getElementById(fieldId);
-    if (inputEl) {
-        inputEl.addEventListener("input", () => validateDropdown(fieldId));
-        inputEl.addEventListener("change", () => validateDropdown(fieldId));
+
+    const selectEl = document.getElementById(fieldId);
+
+    if (selectEl) {
+        selectEl.addEventListener("change", () => {
+            validateDropdown(fieldId);
+        });
     }
 });
 

@@ -1,3 +1,32 @@
+
+# 📅  Tareas 8 y 9 (Sprint 5)
+
+### 📦 Tarea 8: Formulario de Creación de objeto del modelo (Publicación o Producto)
+Desarrollo e integración del módulo para dar de alta nuevos productos en el catálogo utilizando localStorage y validación en el lado del cliente.
+* **`producto.html`**: Interfaz para la visualización del catálogo de productos.
+* **`json.js`**: Carga de la estructura de datos base e inventario inicial.
+* **`productos.js`**: Renderizado e interacción con las tarjetas del catálogo.
+* **`registro_prod.html`**: Formulario interactivo para la captura de nuevos productos.
+* **`crud.js`**: Lógica del módulo (cálculo de ID, restricciones numéricas, validaciones y guardado en `localStorage`).
+
+Para garantizar una experiencia de usuario y evitar envíos con datos erróneos, se implementó:
+
+Validación Individual por Campo (.was-validated y .invalid-feedback):
+Al procesar el evento submit en crud.js, se invoca formEl.checkValidity(). Si la validación no pasa, se añade la clase .was-validated al formulario.
+Esto activa los estilos visuales de Bootstrap: ilumina en rojo los bordes de los campos vacíos o inválidos y muestra el mensaje de error.
+
+Confirmación de Éxito (bootstrap.Modal):
+Una vez superadas todas las validaciones, los datos se guardan en localStorage y JavaScript activa una ventana modal (#successModal) que notifica al usuario el registro exitoso antes de reiniciar el formulario.
+
+
+### 📦 Tarea 9: Registro de Usuarios (registro.html)
+Formulario de Registro: Implementado en registro.html con Bootstrap, incluyendo los campos de Nombre completo, Teléfono, Email y Contraseña.
+
+* **`registro.html`**: Vista que contiene el formulario de registro de cuenta de usuario.
+* **`scriptRegis.js`**: Procesa los registros del formulario, valida la información del usuario y gestiona las respuestas en pantalla.
+* **`app.js`**:  Script de integración global para coordinar eventos y componentes de la interfaz.
+
+--------------
 <div align="center">
 
 # 🐾✨ Boupetique ✨🐾

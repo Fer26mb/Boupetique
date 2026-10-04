@@ -29,301 +29,251 @@
     <main class="flex-grow-1">
 
 
-    <section class="inicio">
-        <h1>Registro de productos</h1>
-        
-        <!--! botones para ir a pagina de registro de productos: TEMPORALES mientras se decide como y donde indexar -->
-        <div class="container-fluid px-4 py-4">
-            <div class="mb-3">
-                <div class="d-flex gap-2">
-                    <!-- CORRECCIÓN: Enlace directo con clase de botón (HTML válido, evita conflictos de clic) -->
-                    <a href="./registro_prod.html" class="btn form-products text-decoration-none text-white">Registro de productos</a>
-                    <a href="./productos.html" class="btn form-products text-decoration-none text-white">Página de productos</a>
+        <section class="inicio">
+            <h1>Registro de productos</h1>
+
+            <!--! botones para ir a pagina de registro de productos: TEMPORALES mientras se decide como y donde indexar -->
+            <div class="container-fluid px-4 py-4">
+                <div class="mb-3">
+                    <div class="d-flex gap-2">
+                        <a href="./registro_prod.html" class="btn botones-productos ">
+                            Registro de productos
+                        </a>
+                        <a href="./productos.html" class="btn botones-productos ">
+                            Página de productos
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!--! FIN DE BOTONES: registro productos y productos-->
-        
-        <div class="container-fluid py-4">
-            <h1 class="text-center mb-4 fw-bold text-black">Panel de Administración de Productos</h1>
+            <!--! FIN DE BOTONES: registro productos y productos-->
 
-            <div class="row">
-                <!--! COLUMNA IZQUIERDA: FORMULARIO -->
-                <div class="col-lg-5 mb-4">
-                    <div class="card shadow-sm border-0">
-                        <div class="card-header form-products">
-                            <h5 class="mb-0 text-white" id="form-title">Agregar Nuevo Producto</h5>
-                        </div>
-                        <div class="card-body">
-                            <!-- Usamos novalidate para mostrar nuestros mensajes con Bootstrap -->
-                            <form id="productForm" novalidate>
-                                <!-- Input oculto para saber si estamos editando -->
-                                <input type="hidden" id="editIndex" value="-1">
+            <div class="container-fluid py-4">
+                <h1 class="text-center mb-4 fw-bold text-black">Panel de Administración de Productos</h1>
 
-                                <!-- Este mensaje aparece cuando hay uno o más campos por corregir -->
-                                <div class="alert alert-danger d-none" id="formError" role="alert" tabindex="-1">
-                                    Revisa las casillas marcadas antes de guardar el producto.
-                                </div>
+                <div class="row">
+                    <!--! COLUMNA IZQUIERDA: FORMULARIO -->
+                    <div class="col-lg-5 mb-4">
+                        <div class="card shadow-sm border-0">
+                            <div class="card-header form-products">
+                                <h5 class="mb-0 text-white" id="form-title">Agregar Nuevo Producto</h5>
+                            </div>
+                            <div class="card-body">
+                                <!-- Usamos novalidate para mostrar nuestros mensajes con Bootstrap -->
+                                <form id="productForm" novalidate>
+                                    <!-- Input oculto para saber si estamos editando -->
+                                    <input type="hidden" id="editIndex" value="-1">
 
-                                <div class="mb-3">
-                                    <label for="id" class="form-label">ID (asignado automáticamente)</label>
-                                    <input type="text" class="form-control" id="id" readonly>
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="sku" class="form-label">SKU del Producto</label>
-                                    <input type="text" class="form-control" id="sku" required maxlength="30"
-                                        pattern="[A-Za-z0-9_-]+" placeholder="Ej. MASC-P1">
-                                    <div class="invalid-feedback">Escribe un SKU usando letras, números, guion o guion bajo.</div>
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="Nombre" class="form-label">Nombre</label>
-                                    <input type="text" class="form-control" id="Nombre" required minlength="2" maxlength="100"
-                                        placeholder="Nombre del producto">
-                                    <div class="invalid-feedback">Escribe el nombre del producto.</div>
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="Descripcion_Producto" class="form-label">Descripción</label>
-                                    <textarea class="form-control" id="Descripcion_Producto" rows="2" required
-                                        minlength="10" maxlength="500"></textarea>
-                                    <div class="invalid-feedback">Agrega una descripción de al menos 10 caracteres.</div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-6 mb-3">
-                                        <label for="Especie" class="form-label">Especie</label>
-                                        <!-- Con la lista se puede escribir para filtrar, pero solo acepta Perro o Gato -->
-                                        <input type="text" class="form-control" id="Especie" list="listaEspecies"
-                                            autocomplete="off" required placeholder="Escribe o selecciona">
-                                        <datalist id="listaEspecies"></datalist>
-                                        <div class="invalid-feedback">Selecciona Perro o Gato.</div>
+                                    <!-- Este mensaje aparece cuando hay uno o más campos por corregir -->
+                                    <div class="alert alert-danger d-none" id="formError" role="alert" tabindex="-1">
+                                        Revisa las casillas marcadas antes de guardar el producto.
                                     </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label for="Categoria" class="form-label">Categoría</label>
-                                        <input type="text" class="form-control" id="Categoria" list="listaCategorias"
-                                            autocomplete="off" required placeholder="Escribe o selecciona">
-                                        <datalist id="listaCategorias"></datalist>
-                                        <div class="invalid-feedback">Selecciona una categoría de la lista.</div>
-                                    </div>
-                                </div>
 
-                                <div class="row">
-                                    <div class="col-md-6 mb-3">
-                                        <label for="Subcategoria" class="form-label">Subcategoría</label>
-                                        <input type="text" class="form-control" id="Subcategoria" list="listaSubcategorias"
-                                            autocomplete="off" required placeholder="Escribe o selecciona">
-                                        <datalist id="listaSubcategorias"></datalist>
-                                        <div class="invalid-feedback">Selecciona una subcategoría de la lista.</div>
+                                    <div class="mb-3">
+                                        <label for="id" class="form-label">ID (asignado automáticamente)</label>
+                                        <input type="text" class="form-control" id="id" readonly>
                                     </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label for="Marca" class="form-label">Marca</label>
-                                        <input type="text" class="form-control" id="Marca" required minlength="2" maxlength="60"
-                                            placeholder="Ej. Open Farm">
-                                        <div class="invalid-feedback">Escribe la marca del producto.</div>
-                                    </div>
-                                </div>
 
-                                <div class="row">
-                                    <div class="col-md-6 mb-3">
-                                        <label for="Etapa_Vida" class="form-label">Etapa de Vida</label>
-                                        <!--?Datalist agregado para Etapa de Vida (se llena dinámicamente desde JS) -->
-                                        <input type="text" class="form-control" id="Etapa_Vida" list="listaEtapas" autocomplete="off" required placeholder="Escribe o selecciona">
-                                        <datalist id="listaEtapas"></datalist>
-                                        <div class="invalid-feedback">Selecciona una etapa de vida de la lista.</div>
+                                    <div class="mb-3">
+                                        <label for="sku" class="form-label">SKU del Producto</label>
+                                        <input type="text" class="form-control" id="sku" required maxlength="30"
+                                            pattern="[A-Za-z0-9_\-]+" placeholder="Ej. MASC-P1">
+                                        <div class="invalid-feedback">Escribe un SKU usando letras, números, guion o
+                                            guion bajo.</div>
                                     </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label for="Tamano_Raza" class="form-label">Tamaño de Raza</label>
-                                        <!--?Cambiado a <input> con <datalist> para mantener estilo visual uniforme con los demás campos -->
-                                        <input type="text" class="form-control" id="Tamano_Raza" list="listaTamanos" autocomplete="off" required placeholder="Escribe o selecciona">
-                                        <datalist id="listaTamanos"></datalist>
-                                        <div class="invalid-feedback">Selecciona un tamaño de raza de la lista.</div>
-                                    </div>
-                                </div>
 
-                                <div class="row">
-                                    <div class="col-md-4 mb-3">
-                                        <label for="Precio_Base" class="form-label">Precio ($)</label>
-                                        <input type="text" inputmode="decimal" class="form-control campo-decimal"
-                                            id="Precio_Base" required placeholder="0.00">
-                                        <div class="invalid-feedback">Escribe un precio válido mayor o igual a 0.</div>
+                                    <div class="mb-3">
+                                        <label for="Nombre" class="form-label">Nombre</label>
+                                        <input type="text" class="form-control" id="Nombre" required minlength="2"
+                                            maxlength="100" placeholder="Nombre del producto">
+                                        <div class="invalid-feedback">Escribe el nombre del producto.</div>
                                     </div>
-                                    <div class="col-md-4 mb-3">
-                                        <label for="Stock" class="form-label">Stock</label>
-                                        <input type="text" inputmode="numeric" class="form-control campo-entero"
-                                            id="Stock" required placeholder="0">
-                                        <div class="invalid-feedback">Escribe el stock con números enteros.</div>
+
+                                    <div class="mb-3">
+                                        <label for="Descripcion_Producto" class="form-label">Descripción</label>
+                                        <textarea class="form-control" id="Descripcion_Producto" rows="2" required
+                                            minlength="10" maxlength="500"></textarea>
+                                        <div class="invalid-feedback">Agrega una descripción de al menos 10 caracteres.
+                                        </div>
                                     </div>
-                                    <div class="col-md-2 mb-3">
-                                        <label for="Peso_Valor" class="form-label">Peso</label>
-                                        <input type="text" inputmode="decimal" class="form-control campo-decimal"
-                                            id="Peso_Valor" required placeholder="0.0">
-                                        <div class="invalid-feedback">Escribe un peso válido mayor que 0.</div>
+
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="Especie" class="form-label">Especie</label>
+                                            <!-- Con la lista se puede escribir para filtrar, pero solo acepta Perro o Gato -->
+                                            <select class="form-select" id="Especie" required placeholder="Selecciona">
+                                                <option value="">Selecciona una especie</option>
+                                            </select>
+                                            <div class="invalid-feedback">Selecciona una especie.</div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="Categoria" class="form-label">Categoría</label>
+                                            <select class="form-select" id="Categoria" required
+                                                placeholder="Selecciona">
+                                                <option value="">Selecciona una categoría</option>
+                                            </select>
+                                            <div class="invalid-feedback">Selecciona una categoría de la lista.</div>
+                                        </div>
                                     </div>
-                                    <div class="col-md-2 mb-3">
-                                        <label for="Peso_Unidad" class="form-label">Unidad</label>
-                                        <!--?Cambiado a <input> con <datalist> para mantener estilo visual uniforme con los demás campos -->
-                                        <input type="text" class="form-control" id="Peso_Unidad" list="listaUnidades" autocomplete="off" required placeholder="Escribe o selecciona">
-                                        <datalist id="listaUnidades"></datalist>
-                                        <div class="invalid-feedback">Selecciona una unidad de la lista.</div>
+
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="Subcategoria" class="form-label">Subcategoría</label>
+                                            <select class="form-select" id="Subcategoria" required
+                                                placeholder="Selecciona">
+                                                <option value="">Selecciona una subcategoría</option>
+                                            </select>
+                                            <div class="invalid-feedback">Selecciona una subcategoría de la lista.</div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="Marca" class="form-label">Marca</label>
+                                            <input type="text" class="form-control" id="Marca" required minlength="2"
+                                                maxlength="60" placeholder="Ej. Open Farm">
+                                            <div class="invalid-feedback">Escribe la marca del producto.</div>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="row">
-                                    <div class="col-md-6 mb-3">
-                                        <label for="Requiere_Receta" class="form-label">¿Requiere Receta?</label>
-                                        <select class="form-select" id="Requiere_Receta">
-                                            <option value="0">No</option>
-                                            <option value="1">Sí</option>
-                                        </select>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="Etapa_Vida" class="form-label">Etapa de Vida</label>
+                                            <!--?Datalist agregado para Etapa de Vida (se llena dinámicamente desde JS) -->
+                                            <select class="form-select" id="Etapa_Vida" required
+                                                placeholder="Selecciona">
+                                                <option value="">Selecciona una etapa de vida</option>
+                                            </select>
+                                            <div class="invalid-feedback">Selecciona una etapa de vida de la lista.
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="Tamano_Raza" class="form-label">Tamaño de Raza</label>
+                                            <!--?Cambiado a <input> con <datalist> para mantener estilo visual uniforme con los demás campos -->
+                                            <select class="form-select" id="Tamano_Raza" required
+                                                placeholder="Selecciona">
+                                                <option value="">Selecciona un tamaño de raza</option>
+                                            </select>
+                                            <div class="invalid-feedback">Selecciona un tamaño de raza de la lista.
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label for="Imagen_URL" class="form-label">URL de la imagen.</label>
-                                        <input type="text" class="form-control" id="Imagen_URL" required
-                                            value="imagen_producto.webp">
-                                        <div class="invalid-feedback">Escribe el nombre o la dirección de la imagen.</div>
+
+                                    <div class="row">
+                                        <div class="col-md-4 mb-3">
+                                            <label for="Precio_Base" class="form-label">Precio ($)</label>
+                                            <input type="text" inputmode="decimal" class="form-control campo-decimal"
+                                                id="Precio_Base" required placeholder="0.00">
+                                            <div class="invalid-feedback">Escribe un precio válido mayor o igual a 0.
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label for="Stock" class="form-label">Stock</label>
+                                            <input type="text" inputmode="numeric" class="form-control campo-entero"
+                                                id="Stock" required placeholder="0">
+                                            <div class="invalid-feedback">Escribe el stock con números enteros.</div>
+                                        </div>
+                                        <div class="col-md-2 mb-3">
+                                            <label for="Peso_Valor" class="form-label">Peso</label>
+                                            <input type="text" inputmode="decimal" class="form-control campo-decimal"
+                                                id="Peso_Valor" required placeholder="0.0">
+                                            <div class="invalid-feedback">Escribe un peso válido mayor que 0.</div>
+                                        </div>
+                                        <div class="col-md-2 mb-3">
+                                            <label for="Peso_Unidad" class="form-label">Unidad</label>
+                                            <!--?Cambiado a <input> con <datalist> para mantener estilo visual uniforme con los demás campos -->
+                                            <select class="form-select" id="Peso_Unidad"
+                                                required placeholder="Selecciona">
+                                                <option value="">Selecciona una unidad</option>
+                                            </select>
+                                            <div class="invalid-feedback">Selecciona una unidad de la lista.</div>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="d-grid gap-2">
-                                    <button type="submit" class="btn btn-success form-products" id="btnSubmit">Crear
-                                        Producto</button>
-                                    <!--?resetForm() es un manejador de eventos que ejecuta una función de JavaScript cuando el usuario hace clic en ese botón. lo usamos en crud.js para limpiar registros en cancelacion de edicion de productos -->
-                                    <!--! aun sin usar este boton-->
-                                    <button type="button" class="btn btn-secondary d-none form-products" id="btnCancel">Cancelar Edición</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div> 
-                 <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" style="max-width: 380px;">
-    <div class="modal-content border-0 rounded-4 shadow-lg p-3">
-      
-      <div class="modal-body text-center p-4">
-        <!-- Ícono circular verde -->
-        <div class="mx-auto mb-3 d-flex align-items-center justify-content-center rounded-circle" style="width: 52px; height: 52px; background-color: #f0fdf4;">
-          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <path d="m9 12 2 2 4-4"></path>
-          </svg>
-        </div>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="Requiere_Receta" class="form-label">¿Requiere Receta?</label>
+                                            <select class="form-select" id="Requiere_Receta">
+                                                <option value="0">No</option>
+                                                <option value="1">Sí</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="Imagen_URL" class="form-label">URL de la imagen.</label>
+                                            <input type="text" class="form-control" id="Imagen_URL" required
+                                                placeholder="Ej. https://ejemplo.com/imagen.jpg">
+                                            <div class="invalid-feedback">Escribe el nombre o la dirección de la imagen.
+                                            </div>
+                                        </div>
+                                    </div>
 
-        <!-- Título -->
-        <h5 class="modal-title fw-bold mb-2 text-dark" id="successModalLabel">
-          ¡Producto Guardado!
-        </h5>
-
-        <!-- Leyenda / Resumen dinámico -->
-        <div id="modalResumenTexto" class="text-secondary small mb-4" style="line-height: 1.5; white-space: pre-line;">
-        </div>
-
-        <!-- Botón Aceptar -->
-        <button type="button" class="btn w-100 text-white fw-semibold py-2" style="background-color: #5E7C64; border-radius: 8px;" data-bs-dismiss="modal">
-          Aceptar
-        </button>
-      </div>
-
-    </div>
-      </div>
-    </div>
-         <!-- Fin col-lg-5 -->
-                <!--! COLUMNA DERECHA: VISTA DE PRODUCTOS DADOS DE ALTA -->
-                <div class="col-lg-7">
-                    <div class="card shadow-sm border-0 mb-4">
-                        <div class="card-header form-products">
-                            <h5 class="mb-0 text-white">Productos Ingresados (Vista Previa)</h5>
-                        </div>
-                        <div class="card-body" style="max-height: 500px; overflow-y: auto;">
-                            <div id="productosContainer" class="row">
-                                <!-- Aquí se inyectarán las tarjetas dinámicamente -->
+                                    <div class="d-grid gap-2">
+                                        <button type="submit" class="btn btn-success form-products" id="btnSubmit">Crear
+                                            Producto</button>
+                                        <!--?resetForm() es un manejador de eventos que ejecuta una función de JavaScript cuando el usuario hace clic en ese botón. lo usamos en crud.js para limpiar registros en cancelacion de edicion de productos -->
+                                        <!--! aun sin usar este boton-->
+                                        <button type="button" class="btn btn-secondary d-none form-products"
+                                            id="btnCancel">Cancelar Edición</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
-                </div>
-                
-                    <!-- Sección Work in Progress -->
-                    <div class="text-center mt-3">
-                        <img src="../assets/piwiscont.png" alt="Work in progress" class="img-fluid mx-auto d-block"
-                            style="max-width: 400px;">
-                        <h3 class="text-center mt-2">Trabajo en progreso, regresa pronto... 🐧</h3>
+                    <!--! MODAL EXITO 1-->
+                    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" style="max-width: 380px;">
+                            <div class="modal-content border-0 rounded-4 shadow-lg p-3">
+                                <div class="modal-body text-center p-4">
+                                    <div class="mx-auto mb-3 d-flex align-items-center justify-content-center rounded-circle"
+                                        style="width: 52px; height: 52px; background-color: #f0fdf4;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                                            viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="12" r="10"></circle>
+                                            <path d="m9 12 2 2 4-4"></path>
+                                        </svg>
+                                    </div>
+                                    <h5 class="modal-title fw-bold mb-2 text-dark" id="successModalLabel">
+                                        ¡Éxito!
+                                    </h5>
+                                    <p class="text-secondary small mb-4">
+                                        Producto registrado correctamente.
+                                    </p>
+                                    <button type="button" class="btn w-100 text-white fw-semibold py-2"
+                                        style="background-color: #5E7C64; border-radius: 8px;" data-bs-dismiss="modal"
+                                        onclick="document.activeElement.blur();">
+                                        Aceptar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    <!--! COLUMNA DERECHA: VISTA DE PRODUCTOS DADOS DE ALTA -->
+                    <div class="col-lg-7">
+                        <div class="card shadow-sm border-0 mb-4">
+                            <div class="card-header form-products">
+                                <h5 class="mb-0 text-white">Productos Ingresados (Vista Previa)</h5>
+                            </div>
+                            <div class="card-body" style="max-height: 500px; overflow-y: auto;">
+                                <div id="productosContainer" class="row">
+                                    <!-- Aquí se inyectarán las tarjetas dinámicamente -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div> <!-- Fin col-lg-7 -->
             </div> <!-- Fin row -->
-        </div> <!-- Fin container-fluid -->
-    </section> <!-- Fin section -->
+            </div> <!-- Fin container-fluid -->
+        </section> <!-- Fin section -->
+    </main>
 
     <footer id="site-footer" class="text-light py-5" data-include="../partials/footer.html"></footer>
-
-    <!-- Script de Javascript: preparanto terreno para la logica JS-->
-    <script type="module" src="../js/crud.js"></script>
-    <script src="../js/app.js"></script>
-
-    <!-- Script de BootStrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
-
-    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" style="max-width: 380px;">
-            <div class="modal-content border-0 rounded-4 shadow-lg p-3">
-                <div class="modal-body text-center p-4">
-                    <div class="mx-auto mb-3 d-flex align-items-center justify-content-center rounded-circle" style="width: 52px; height: 52px; background-color: #f0fdf4;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <path d="m9 12 2 2 4-4"></path>
-                        </svg>
-                    </div>
-                    <h5 class="modal-title fw-bold mb-2 text-dark" id="successModalLabel">
-                        ¡Éxito!
-                    </h5>
-                    <p class="text-secondary small mb-4">
-                        Producto registrado correctamente.
-                    </p>
-                    <button type="button" class="btn w-100 text-white fw-semibold py-2" style="background-color: #5E7C64; border-radius: 8px;" data-bs-dismiss="modal">
-                        Aceptar
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--cajita de notifcación-->
-    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" style="max-width: 380px;">
-            <div class="modal-content border-0 rounded-4 shadow-lg p-3">
-                <div class="modal-body text-center p-4">
-                    <div class="mx-auto mb-3 d-flex align-items-center justify-content-center rounded-circle" style="width: 52px; height: 52px; background-color: #f0fdf4;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <path d="m9 12 2 2 4-4"></path>
-                        </svg>
-                    </div>
-                    <h5 class="modal-title fw-bold mb-2 text-dark" id="successModalLabel">
-                        ¡Éxito!
-                    </h5>
-                    <p class="text-secondary small mb-4">
-                        Producto registrado correctamente.
-                    </p>
-                    <button type="button" class="btn w-100 text-white fw-semibold py-2" style="background-color: #5E7C64; border-radius: 8px;" data-bs-dismiss="modal">
-                        Aceptar
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <footer id="site-footer" class="text-light py-5" data-include="../partials/footer.html"></footer>
-
     <!-- Script de BootStrap PRIMERO para asegurar disponibilidad en módulos -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
 
-
     <script type="module" src="../js/crud.js"></script>
     <script src="../js/app.js"></script>
-    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+
 </body>
+
 </html>
