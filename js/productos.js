@@ -1,5 +1,6 @@
 // 0. importamos los productos del json
 import { getAllProducts } from "./json.js";
+import { contarProductosAgregados } from "./productos/counterProducts.js";
 
 // 1. Obtener los productos estáticos del JSON
 const productsFromJSON = await getAllProducts();
@@ -150,6 +151,17 @@ const showInfo = function (product) {
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 console.log(cart);
 
+//Toast para mostrar cuando se agreguen productos al carrito
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  customClass:{
+    popup:'colored-toast',
+  },
+  showConfirmButton: false,
+  timer: 3000,
+});
+
 function addToCart(product) {
     // Verificar si el producto ya existe en el carrito
     const productId = product.id || product.sku;
@@ -172,10 +184,19 @@ function addToCart(product) {
     saveCartToLocalStorage();
 
     console.log("Carrito actualizado:", cart);
+    //Muestro la alerta en pantalla
+    Toast.fire({
+        iconHtml: '<img src="https://www.gifsanimados.org/data/media/218/pinguino-imagen-animada-0082.gif" style="width: 40px; height: 40px; border: none;" alt="pinguino" />',
+        title: 'Producto agregado al carrito',
+        customClass: {
+            icon: 'border-0' // Quito los bordes circulares por defecto del icono de SweetAlert 
+        }
+    });
 }
 
 function saveCartToLocalStorage() {
     localStorage.setItem("cart", JSON.stringify(cart));
+    contarProductosAgregados();
 }
 
 console.log(allProducts);
