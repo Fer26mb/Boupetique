@@ -185,6 +185,10 @@ shippingContainer.addEventListener("click", (e) => {
         switch(action){
             case "Enviar":
                 alert("Tus productos seran enviados, gracias por comprar con nosotros");
+                localStorage.setItem("cart", JSON.stringify([]));
+                userForm.classList.toggle('hide');
+                renderCart();
+                renderTicket(); 
                 break;
             case "Cancelar":
                 userForm.classList.toggle('hide');
