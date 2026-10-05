@@ -63,12 +63,13 @@
     
                     <div class="receipt">
                         <p class="shop-name">Ticket de venta</p>
-                        <p class="info">
-                            Boupetique <br />
-                            Castillo de Chapultepec, 2da Sección, 16059<br />
-                            Date: 02/10/2026<br />
-                            Time: 08:38 PM
-                        </p>
+
+                       <p class="info"> <!---Se utiliza span para colocar un id , funcionando como contenedor y por ende utilizarlo en carrito.js mediante DOM-->
+                        Boupetique <br />
+                        Castillo de Chapultepec, 2da Sección, 16059<br />
+                        Fecha: <span id="ticketFecha"></span><br />
+                        Hora: <span id="ticketHora"></span>
+                       </p>
     
                         <table>
                             <thead>
@@ -91,7 +92,7 @@
                             <button type="button" class="btn btn-dark p-3 btn-change-option" data-action="Pagar">Pagar</button>
                             <button type="button" class="btn btn-danger p-3 btn-change-option" data-action="Cancelar">Cancelar</button>
                         </div>
-                        <p class="thanks">!Muchas Gracias por comprar con nosotros!</p>
+                        <p class="thanks">¡ Muchas Gracias por comprar con nosotros !</p>
                         <div id="user-form" class="hide">
                             <!-- Formulario para introducir los datos de entrega -->
                             <h3 class="text">Datos de entrega</h3>
