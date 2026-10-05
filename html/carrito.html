@@ -12,6 +12,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Carrito</title>
+    <link rel="icon" type="image/png" href="../assets/logo-img/pinguino.png">
 </head>
 
 <body>
@@ -89,8 +90,8 @@
                             <p>$<span id="cartTotal">0.00</span> MXN</p>
                         </div>
                         <div class="d-flex justify-content-center gap-3" id="submit-btns">
-                            <button type="button" class="btn btn-dark p-3 btn-change-option" data-action="Pagar">Pagar</button>
-                            <button type="button" class="btn btn-danger p-3 btn-change-option" data-action="Cancelar">Cancelar</button>
+                            <button type="button" class="btn btn-dark p-3 btn-change-option" id="btn-pagar" data-action="Pagar">Pagar</button>
+                            <button type="button" class="btn btn-danger p-3 btn-change-option d-none" id="btn-cancelar" data-action="Cancelar">Cancelar</button>
                         </div>
                         <p class="thanks">¡ Muchas Gracias por comprar con nosotros !</p>
                         <div id="user-form" class="hide">
@@ -113,7 +114,7 @@
     
                                 <div class="d-flex justify-content-center gap-3" id="shipping-btns">
                                     <button type="button" class="btn btn-dark p-3 btn-change-option" data-action="Enviar">Enviar</button>
-                                    <button type="button" class="btn btn-danger p-3 btn-change-option" data-action="Cancelar">Cancelar</button>
+                                    <!-- <button type="button" class="btn btn-danger p-3 btn-change-option" data-action="Cancelar">Cancelar</button> -->
                                 </div>
                             </form>
                         </div>
