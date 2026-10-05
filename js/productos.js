@@ -119,7 +119,7 @@ const showInfo = function (product) {
                                 <span class="text-muted text-decoration-line-through ms-2">$1000.00</span> 
                             </div>
 
-                            <button class="btn btn-dark w-100 rounded-pill py-3 fw-semibold">
+                            <button id="btnAddToCart" class="btn btn-dark w-100 rounded-pill py-3 fw-semibold" data-id="${product.id}">
                                 Añadir al carrito
                             </button>
                         </div>
@@ -136,7 +136,47 @@ const showInfo = function (product) {
     const modalElement = document.getElementById("modalProducto");
     const bootstrapModal = new bootstrap.Modal(modalElement);
     bootstrapModal.show();
+
+    // Captura del clic en el botón "Añadir al carrito"
+    const btnAddToCart = document.getElementById("btnAddToCart");
+    btnAddToCart.addEventListener("click", () => {
+        // const producto = product;
+        // console.log("ID del producto añadido al carrito:", producto);
+        addToCart(product);
+        bootstrapModal.hide();
+    });
 };
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+console.log(cart);
+
+function addToCart(product) {
+    // Verificar si el producto ya existe en el carrito
+    const productId = product.id || product.sku;
+    const existingProductIndex = cart.findIndex(
+        (item) => (item.id || item.sku) === productId
+    );
+
+    if (existingProductIndex !== -1) {
+        // Si ya existe, incrementamos la cantidad
+        cart[existingProductIndex].quantity += 1;
+    } else {
+        // Si es un producto nuevo, lo agregamos con cantidad inicial = 1
+        cart.push({
+            ...product,
+            quantity: 1
+        });
+    }
+
+    // Guardar el estado actualizado en localStorage
+    saveCartToLocalStorage();
+
+    console.log("Carrito actualizado:", cart);
+}
+
+function saveCartToLocalStorage() {
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
 
 console.log(allProducts);
 

@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/carrito.css" />
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,119 +15,119 @@
 </head>
 
 <body>
+    <!-- Esto es para saber el tamaño de la pantalla -->
+    <!-- <div class="position-fixed top-0 start-0 ms-5 m-2 p-1 text-white rounded shadow z-3 ver-tamaño">
+        <span class="fw-bold fs-6 d-block d-sm-none">XS</span>
+        <span class="fw-bold fs-6 d-none d-sm-block d-md-none">SM</span>
+        <span class="fw-bold fs-6 d-none d-md-block d-lg-none">MD</span>
+        <span class="fw-bold fs-6 d-none d-lg-block d-xl-none">LG</span>
+        <span class="fw-bold fs-6 d-none d-xl-block d-xxl-none">XL</span>
+        <span class="fw-bold fs-6 d-none d-xxl-block">XXL</span>
+    </div> -->
     <!-- Encabezado con la ubicación actual y los enlaces de navegación -->
     <header class="container d-flex align-items-center justify-content-between">
         <div class="location">
             <div class="description">
-                <span class="text">Estás en el carrito de venta de Boupetique</span>
-                <img src="assets/mexico-flag.png" alt="" class="location-flag" />
+                <span class="text">Carrito</span>
+                <img src="../assets/logo-img/logo-boupetique.png" alt="" class="location-flag" />
             </div>
         </div>
 
         <div class="nav-actions d-flex gap-5">
             <a href="../html/productos.html" class="main">Regresar a la página de productos</a>
             <a href="../html/login.html" class="login">Log In</a>
-    </div>
+        </div>
     </header>
 
-    <main class="cart-container p-5">
-        <!-- Sección del catálogo con los productos disponibles -->
-      
+    <main class="p-3">
+        <section class="row">
+
             <!-- Sección del carrito con los productos seleccionados -->
-            
-            
-
-            <section class="cart-section">
+            <section class="col-12 col-md-6  p-4 mt-4">
+                <!-- <h1 class="text-center">Carrito</h1> -->
+                <div id="cartItemsContainer" class="row g-3"></div>
+                <!-- <div class="mt-4 p-3 bg-light rounded-4">
+                    <h4>Total: $<span id="cartTotal">0.00</span></h4>
+                    <button id="btnClearCart" class="btn btn-outline-danger btn-sm mt-2">Vaciar Carrito</button>
+                </div> -->
+            </section>
+    
+    
+            <section class="col-12 col-md-6 cart-section">
+    
+                <!-- Resumen del pedido y formulario de entrega 
                 
-                        <!-- Resumen del pedido y formulario de entrega 
-
-                    <h1 class="cart-title">Ticket de venta</h1>
-
---> 
-        <!-- Resumen del pedido y formulario de entrega -->
-<div id="payment-container" class="m-0 p-0 rounded p-4 m-4">
-
-            <div class="receipt">
-      <p class="shop-name">Ticket de venta</p>
-      <p class="info">
-    Boupetique <br />
-    Castillo de Chapultepec, 2da Sección, 16059<br />
-    Date: 02/10/2026<br />
-    Time: 08:38 PM
-     </p>
-
-     <table>
-    <thead>
-      <tr>
-        <th>Producto</th>
-        <th>Unidad</th>
-        <th>Precio</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Item 1</td>
-        <td>2</td>
-        <td>$20.00 MXN</td>
-      </tr>
-      <tr>
-        <td>Item 2</td>
-        <td>1</td>
-        <td>$10.00 MXN</td>
-      </tr>
-      <tr>
-        <td>Item 3</td>
-        <td>3</td>
-        <td>$15.00 MXN</td>
-      </tr>
-    </tbody>
-    </table>
-
-    <div class="total">
-    <p>Total:</p>
-    <p>$45.00 MXN</p>
-    </div>
-    <div id="submit-btns">
-                        <button type="submit" class="btn btn-danger p-3">Cancelar</button>
-                        <button type="submit" class="btn btn-dark p-3">Pagar</button>
+                        <h1 class="cart-title">Ticket de venta</h1> -->
+                <!-- Resumen del pedido y formulario de entrega -->
+                <div id="payment-container" class="m-0 p-0 rounded p-4 m-4">
+    
+                    <div class="receipt">
+                        <p class="shop-name">Ticket de venta</p>
+                        <p class="info">
+                            Boupetique <br />
+                            Castillo de Chapultepec, 2da Sección, 16059<br />
+                            Date: 02/10/2026<br />
+                            Time: 08:38 PM
+                        </p>
+    
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Producto</th>
+                                    <th>Unidad</th>
+                                    <th>Precio</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ticketItemsContainer">
+                                <!-- Aquí se agregarán los productos del carrito dinámicamente -->
+                            </tbody>
+                        </table>
+    
+                        <div class="total">
+                            <p>Total:</p>
+                            <p>$<span id="cartTotal">0.00</span> MXN</p>
+                        </div>
+                        <div class="d-flex justify-content-center gap-3" id="submit-btns">
+                            <button type="button" class="btn btn-dark p-3 btn-change-option" data-action="Pagar">Pagar</button>
+                            <button type="button" class="btn btn-danger p-3 btn-change-option" data-action="Cancelar">Cancelar</button>
+                        </div>
+                        <p class="thanks">!Muchas Gracias por comprar con nosotros!</p>
+                        <div id="user-form" class="hide">
+                            <!-- Formulario para introducir los datos de entrega -->
+                            <h3 class="text">Datos de entrega</h3>
+                            <form>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Correo electrónico</label>
+                                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                                        name="email">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Nombre</label>
+                                    <input type="text" class="form-control" id="name" name="name">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="direccion" class="form-label">Dirección</label>
+                                    <input type="text" class="form-control" id="direccion" name="address">
+                                </div>
+    
+                                <div id="shipping-btns">
+                                    <button type="button" class="btn btn-danger p-3 btn-change-option" data-action="Cancelar">Cancelar</button>
+                                    <button type="button" class="btn btn-dark p-3 btn-change-option" data-action="Enviar">Enviar</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-      <p class="thanks">!Muchas Gracias por comprar con nostros!</p>
-      <div id="user-form" class="hide">
-
-                    <!-- Formulario para introducir los datos de entrega -->
-
-                <h3 class="text">Datos de entrega</h3>
-                <form>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Correo electrónico</label>
-                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email">
-                    </div>
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Nombre</label>
-                        <input type="text" class="form-control" id="name" name="name">
-                    </div>
-                    <div class="mb-3">
-                        <label for="direccion" class="form-label">Dirección</label>
-                        <input type="text" class="form-control" id="direccion" name="address">
-                    </div>
-
-                    <div id="submit-btns">
-                        <button type="submit" class="btn btn-danger p-3">Cancelar</button>
-                        <button type="submit" class="btn btn-dark p-3">Enviar</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+                </div>
+            </section>
         </section>
     </main>
 
 
 
-        
+
     <!-- Scripts para cargar el carrito y gestionar sus acciones -->
-    <script src="js"></script>
-    <script src="js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script type="module" src="../js/carrito.js"></script>
 </body>
 
 </html>
