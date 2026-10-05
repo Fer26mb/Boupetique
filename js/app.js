@@ -101,10 +101,85 @@ function initializeAutoHideHeader() {
     );
 }
 
+/*aqui inicia la cajita de los precios de subscripción */
+
+function animateCount(el, start, end, duration = 300) {
+    const startTime = performance.now();
+
+    function update(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const currentVal = Math.round(start + (end - start) * progress);
+
+        el.textContent = currentVal;
+
+        if (progress < 1) {
+            requestAnimationFrame(update);
+        }
+    }
+
+    requestAnimationFrame(update);
+}
+
+function setBilling(mode) {
+    const pill = document.getElementById("switchPill");
+    const monthlyBtn = document.getElementById("monthlyBtn");
+    const yearlyBtn = document.getElementById("yearlyBtn");
+    const priceElements = document.querySelectorAll(".price-val");
+    const periodLabels = document.querySelectorAll(".price-period");
+
+    const isYearly = mode === "yearly";
+
+    if (pill) {
+        pill.style.transform = isYearly ? "translateX(100%)" : "translateX(0%)";
+    }
+
+    if (monthlyBtn && yearlyBtn) {
+        monthlyBtn.classList.toggle("active", !isYearly);
+        yearlyBtn.classList.toggle("active", isYearly);
+    }
+
+    priceElements.forEach((el) => {
+        const free = el.getAttribute("free");
+
+        if (free) {
+            el.textContent = "Gratis";
+            return;
+        }
+
+        const monthlyValue = Number.parseInt(el.getAttribute("data-monthly") || "0", 10) || 0;
+        const yearlyValue = Number.parseInt(el.getAttribute("data-yearly") || String(monthlyValue * 12), 10) || 0;
+        const targetVal = isYearly ? yearlyValue : monthlyValue;
+
+        const startVal = Number.parseInt(String(el.textContent).replace(/[^\d]/g, ""), 10) || 0;
+
+        animateCount(el, startVal, targetVal);
+    });
+
+    periodLabels.forEach((label) => {
+        label.textContent = isYearly ? "/año" : "/mes";
+    });
+}
+
+
+window.setBilling = setBilling;
+
+function initializePricing() {
+    const monthlyBtn = document.getElementById("monthlyBtn");
+    const yearlyBtn = document.getElementById("yearlyBtn");
+
+    if (monthlyBtn && yearlyBtn) {
+        monthlyBtn.addEventListener("click", () => setBilling("monthly"));
+        yearlyBtn.addEventListener("click", () => setBilling("yearly"));
+    }
+}
+
+
 document.addEventListener("DOMContentLoaded", async () => {
     await includePartials();
     setGitHubPagesBasePath();
     setActiveNavLink();
     initializeAutoHideHeader();
+    initializePricing();
+    setBilling("monthly");
 });
-
