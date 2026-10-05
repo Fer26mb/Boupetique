@@ -211,7 +211,143 @@
 
 
     </section>
-</main>
+     <!-- empieza sección de sub boupetique -->
+    <section id="precios" class="pricing-section py-5">
+            <div class="pricing-container">
+               
+                <article class="pricing-header">
+                    <div class="header-text">
+                        <h2>Planes y Precios</h2>
+                        <p>Elige la experiencia Boupetique que mejor se adapte a su día a día.</p>
+                    </div>
+
+                    <!-- boton mes o año-->
+                    <div class="switch-wrapper">
+    <div class="switch-pill" id="switchPill"></div>
+    <button type="button" class="switch-btn active" id="monthlyBtn" onclick="setBilling('monthly')">
+        Mensual
+    </button>
+    <button type="button" class="switch-btn" id="yearlyBtn" onclick="setBilling('yearly')">
+        Anual <span class="badge-save">Ahorra 20%</span>
+    </button>
+</div>
+                </article>
+
+     <!-- empieza Tarjetas de sub boupetique -->
+                <div class="plans-grid">
+                    <div class="card">
+                        <div>
+                            <div class="price-row">
+                                <span class="price-amount"><span class="price-val" free="1">Gratis</span></span>
+                            </div>
+                            <h3 class="plan-title">Plan Básico</h3>
+                            <p class="plan-desc">Perfecto para probar Boupetique y comprar lo esencial para tu mascota.</p>
+                            
+                            <div class="features-section">
+                                <h4 class="features-header">Incluye:</h4>
+                                <ul class="features-list">
+                                    <li>
+                                        <span class="check-icon">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg>
+                                        </span>
+                                        3 productos favoritos guardados
+                                    </li>
+                                    <li>
+                                        <span class="check-icon">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg>
+                                        </span>
+                                        Acceso a compra
+                                    </li>
+                                    <li>
+                                        <span class="check-icon">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg>
+                                        </span>
+                                        Recordatorios de compra personalizados
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <button type="button" class="plan-btn btn-dark">Empezar gratis</button>
+                    </div>
+
+                  
+                    <div class="card">
+                        <div>
+                            <div class="price-row">
+                                <span class="price-amount">$<span class="price-val" data-monthly="300" data-yearly="3000">300</span></span>
+                                <span class="price-period">/mes</span>
+                            </div>
+                            <h3 class="plan-title">Plan Premium</h3>
+                            <p class="plan-desc">Ideal para dueños que quieren bienestar diario, alimentación y productos premium.</p>
+
+                            <div class="features-section">
+                                <h4 class="features-header">Todo lo de plan básico, más:</h4>
+                                <ul class="features-list">
+                                    <li>
+                                        <span class="check-icon">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg>
+                                        </span>
+                                        Envío gratis en pedidos mayores a $500
+                                    </li>
+                                    <li>
+                                        <span class="check-icon">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg>
+                                        </span>
+                                        Recomendaciones personalizadas por mascota
+                                    </li>
+                                    <li>
+                                        <span class="check-icon">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg>
+                                        </span>
+                                        Descuentos del 5% en marcas seleccionadas
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <button type="button" class="plan-btn btn-dark">Elegir Premiun</button>
+                    </div>
+
+                   
+                    <div class="card popular">
+                        <div>
+                            <span class="badge-popular">El más pedido</span>
+                            <div class="price-row">
+                                <span class="price-amount">$<span class="price-val" data-monthly="599" data-yearly="5990">599</span></span>
+                                <span class="price-period">/mes</span>
+                            </div>
+                            <h3 class="plan-title">Plan Pro</h3>
+                            <p class="plan-desc">La experiencia completa para tu mascota con atención personalizada y beneficios exclusivos.</p>
+
+                            <div class="features-section">
+                                <h4 class="features-header">Todo lo de plan básico, más:</h4>
+                                <ul class="features-list">
+                                    <li>
+                                        <span class="check-icon">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg>
+                                        </span>
+                                        Kit de bienvenida con acceso a promociones exclusivas
+                                    </li>
+                                    <li>
+                                        <span class="check-icon">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg>
+                                        </span>
+                                        Prioridad en pedidos y envíos express
+                                    </li>
+                                    <li>
+                                        <span class="check-icon">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg>
+                                        </span>
+                                        Descuentos del 10% en marcas seleccionadas
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <button type="button" class="plan-btn btn-light">Elegir Pro</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
 <!-- SECCIÓN NUESTROS FAVORITOS-->
 <section class="container py-5">
