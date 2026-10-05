@@ -24,6 +24,7 @@ function renderCart() {
 
     // Generar el HTML para cada producto en el carrito
     const cartHTML = cart.map((product) => {
+        const imagenUrl = product.Imagen_URL || "../assets/productos-img/default.jpeg";
         const id = product.id || product.sku;
         const subtotal = product.Precio_Base * product.quantity;
 
@@ -33,7 +34,7 @@ function renderCart() {
                 <div class="row align-items-center g-3">
                     <!-- Imagen del producto -->
                     <div class="col-3 col-md-2 text-center">
-                        <img src="${product.Imagen_URL}" class="img-fluid rounded-3" alt="${product.Nombre}">
+                        <img src="${imagenUrl}" class="img-fluid rounded-3" alt="${product.Nombre}">
                     </div>
 
                     <!-- Detalles del producto -->
@@ -178,13 +179,31 @@ payContainer.addEventListener("click", (e) => {
     }
 });
 
+//Toast para mostrar cuando se agreguen productos al carrito
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  customClass:{
+    popup:'colored-toast',
+  },
+  showConfirmButton: false,
+  timer: 3000,
+});
+
 shippingContainer.addEventListener("click", (e) => {
     const optionBtn = e.target.closest(".btn-change-option");
     if(optionBtn){
         const action = optionBtn.dataset.action;
         switch(action){
             case "Enviar":
-                alert("Tus productos seran enviados, gracias por comprar con nosotros");
+                //Muestro la alerta en pantalla
+                Toast.fire({
+                    iconHtml: '<img src="https://www.gifsanimados.org/data/media/218/pinguino-imagen-animada-0082.gif" style="width: 40px; height: 40px; border: none;" alt="pinguino" />',
+                    title: 'Se han enviado los datos, gracias por comprar con nosotros',
+                    customClass: {
+                        icon: 'border-0' // Quito los bordes circulares por defecto del icono de SweetAlert 
+                    }
+                });
                 localStorage.setItem("cart", JSON.stringify([]));
                 userForm.classList.toggle('hide');
                 renderCart();
