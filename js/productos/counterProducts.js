@@ -1,7 +1,7 @@
 export function contarProductosAgregados (){
-    const contador = document.getElementById("contador");
+    const contado = document.getElementById("contado");
     
-    if (!contador) {
+    if (!contado) {
         setTimeout(contarProductosAgregados, 100);
         return;
     }
@@ -9,10 +9,10 @@ export function contarProductosAgregados (){
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
     if(cart.length == 0){
-        contador.innerHTML = ``;
+        contado.innerHTML = ``;
     }else{
-        contador.innerHTML = 
-        `<span class="position-absolute start-100 translate-middle badge rounded-pill" style="top: 18%; font-size: 0.5em;">
+        contado.innerHTML = 
+        `<span class="position-absolute start-50 translate-middle badge rounded-pill" style="top: 30%; font-size: 1rem;">
             ${cart.length}
         </span>`;
     }
@@ -21,4 +21,5 @@ export function contarProductosAgregados (){
 }
 
 contarProductosAgregados();
+
 // document.addEventListener("DOMContentLoaded", contarProductosAgregados);
