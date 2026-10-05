@@ -199,3 +199,33 @@ shippingContainer.addEventListener("click", (e) => {
 
 // Inicializar la vista cuando se cargue la página
 document.addEventListener("DOMContentLoaded", renderCart);
+
+
+//Realizamos una funcion que se llame actualizarFechaHora para que cuando uno entre a ver la fecha del ticket
+
+
+function actualizarFechaHora() {
+       const ahora = new Date(); //Date() Obtiene la fehca y hora actual.
+
+    // Formatear fecha en formato DD/MM/YYYY, usamos dos variables constantes, y mediante la siguiente definicion para cada una (fecha y horario)
+
+    const opcionesFecha = { day: '2-digit', month: '2-digit', year: 'numeric' };
+    const fecha = ahora.toLocaleDateString('es-MX', opcionesFecha);
+//ToLocaleDateString convierte la fehca al formato mexicano (es-MX) de acuerdo a bibliografia.
+
+//Misma lógica y uso para la variable pero con la hora.
+    // Formatear hora en formato HH:MM AM/PM
+    const opcionesHora = { hour: '2-digit', minute: '2-digit', hour12: true };
+    const hora = ahora.toLocaleTimeString('es-MX', opcionesHora);
+
+
+
+    // Insertar en el ticket mediante getElementByID
+    document.getElementById("ticketFecha").textContent = fecha; //Constantes que usan ToLocal y usamos lo id de span
+    document.getElementById("ticketHora").textContent = hora;
+
+
+} // fin de la funcion actualizarFechaHora
+
+//Cuando veamos el ticket por primera vez se cargará la fecha y hora al entrar.
+window.onload = actualizarFechaHora;
