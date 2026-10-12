@@ -3,7 +3,7 @@
 
 ### 📦 Tarea 10: Inicio de Sesión de Usuarios con LocalStorage
 Creación del formulario de inicio de sesión para que los usuarios puedan ingresar a la página validando sus datos guardados en el navegador.
-* **`pages/login.html`**: Pantalla de inicio de sesión con diseño adaptable para celulares y computadoras.
+* **`html/login.html`**: Pantalla de inicio de sesión con diseño adaptable para celulares y computadoras.
 * **`js/login.js`**: Código para revisar que los campos no estén vacíos, verificar que el correo y la contraseña sean correctos y mostrar los mensajes de alerta o éxito.
 
 ### 🗄️ Tarea 11: Estructura de la Base de Datos en MySQL
