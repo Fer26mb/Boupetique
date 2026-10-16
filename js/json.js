@@ -511,18 +511,22 @@ const productos = [
     }
 ]
 
-export async function getAllProducts(){
+function getProductsWithResolvedImages() {
     return productos.map((producto, index) => ({
         ...producto,
-        id: index + 1
+        id: index + 1,
+        Imagen_URL: producto.Imagen_URL?.startsWith("/")
+            ? new URL(`..${producto.Imagen_URL}`, import.meta.url).href
+            : producto.Imagen_URL
     }));
+}
+
+export async function getAllProducts(){
+    return getProductsWithResolvedImages();
 }
 
 // Esta función solo comparte las opciones que necesita el formulario de registro.
 // Si después agregamos más productos al arreglo, las listas se actualizan solas.
 export function getProductOptions() {
-    return productos.map((producto, index) => ({
-        ...producto,
-        id: index + 1
-    }));
+    return getProductsWithResolvedImages();
 }
