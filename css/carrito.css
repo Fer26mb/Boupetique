@@ -81,3 +81,22 @@ justify-content: center;
 .hide {
   display: none !important;
 }
+
+#submit-btns .btn-change-option,
+#shipping-btns .btn-change-option {
+  width: 120px;
+  height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#btn-pagar {
+  background-color: #d96b27;
+  border-color: #d96b27;
+}
+
+#btn-pagar:hover {
+  background-color: #315c43;
+  border-color: #315c43;
+}

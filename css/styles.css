@@ -1374,6 +1374,9 @@ div.total {
   font-weight: bold;
 }
 
+body[data-page="carrito"] .cart-icon .bi-cart4 {
+  color: #d4af37 !important;
+}
 
 
 
