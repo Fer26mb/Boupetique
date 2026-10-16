@@ -117,7 +117,6 @@ const showInfo = function (product) {
 
                             <div class="my-3">
                                 <span class="fs-3 fw-bold text-dark">$${product.Precio_Base}</span>
-                                <span class="text-muted text-decoration-line-through ms-2">$1000.00</span> 
                             </div>
 
                             <button id="btnAddToCart" class="btn btn-dark w-100 rounded-pill py-3 fw-semibold" data-id="${product.id}">
