@@ -7,7 +7,7 @@
   --boupetique-olive-clear: #5e7c64;
   --boupetique-gris: #34483d;
   --boupetique-gris-ceniza: #a8b5a0;
-  --boupetique-chocolat: #d96b27;
+  --boupetique-chocolat: rgb(217, 107, 39);
   --boupetique-crema-almendras: #e7d8c9;
   --boupetique-cremita: #f6f0e3;
   --boupetique-negro-azabache: #2f3a3d;
@@ -572,6 +572,14 @@ footer h5 {
   color: var(--boupetique-gris-ceniza);
 }
 
+/* Campos del formulario de registro de productos */
+#productForm .form-control,
+#productForm .form-select,
+#productForm .form-control:focus,
+#productForm .form-select:focus {
+  background-color: var(--boupetique-gris-alabastro);
+}
+
 /*botón*/
 .btn-primary {
   background-color: var(--boupetique-chocolat);
@@ -588,7 +596,7 @@ footer h5 {
 
 /*canales*/
 .contact-info-card {
-  background-color: var(--boupetique-crema-almendras);
+  background-color: #ffffff;
   border: none;
   border-radius: 24px !important;
   text-align: center;
@@ -909,6 +917,10 @@ footer h5 {
   pointer-events: none;
 }
 
+body[data-page="inicio"] #site-header .techo-banner {
+  height: min(78px, 2.79vw);
+}
+
 /* Inputs y Textareas más redondeados */
 .form-control,
 .form-select {
@@ -985,6 +997,16 @@ footer h5 {
   background: linear-gradient(135deg, #3f5946 0%, #2f3a3d 100%);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(94, 124, 100, 0.4);
+}
+
+body[data-page="proximamente"] #btnSubmit {
+  background: #d96b2777;
+  border-color: #d96b2777;
+}
+
+body[data-page="proximamente"] #btnSubmit:hover {
+  background: #d96b27;
+  border-color: #d96b27;
 }
 
 .btn-secondary {
@@ -1198,9 +1220,9 @@ body[data-page="login"] {
 
 /* Entradas a formulario */
 .custom-input {
-  background-color: var(--boupetique-olive-clear) !important;
+  background-color: var(--boupetique-gris-alabastro) !important;
   border: 1px solid transparent;
-  color: #faf6f6;
+  color: var(--boupetique-negro-azabache);
   border-radius: 0.75rem;
   padding: 0.75rem 1.25rem;
   font-size: 0.875rem;
@@ -1208,20 +1230,20 @@ body[data-page="login"] {
 }
 
 .custom-input::placeholder {
-  color: var(--boupetique-gris-ceniza);
+  color: var(--boupetique-olive-clear);
   opacity: 0.7;
 }
 
 .custom-input:focus {
-  background-color: rgb(34, 60, 11);
-  color: #ffffff;
+  background-color: var(--boupetique-gris-alabastro);
+  color: var(--boupetique-negro-azabache);
   border-color: rgba(255, 255, 255, 0.3);
   box-shadow: none;
 }
 
 /* Botón */
 .btn-custom-signin {
-  background-color: rgba(20, 51, 4, 0.683);
+  background-color: #d96b2777;
   color: #ffffff;
   border: none;
   border-radius: 50rem;
@@ -1232,7 +1254,7 @@ body[data-page="login"] {
 }
 
 .btn-custom-signin:hover {
-  background-color: rgba(34, 60, 11, 0.32);
+  background-color: var(--boupetique-chocolat);
   color: #ffffff;
 }
 
@@ -2142,3 +2164,51 @@ div.total {
   .gradient-overlay {
     width: 60px;
   }
+}
+.signin {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--boupetique-negro-azabache);
+}
+/* Contenedor general del toggle   */
+.auth-toggle-container {
+  display: flex;
+  background: linear-gradient(to right, #324738, #324738);
+  border: 1px solid #e2e8f0;
+  border-radius: 50px;
+  padding: 4px;
+  width: 380px;
+  max-width: calc(100vw - 32px);
+  box-sizing: border-box;
+  margin: 20px auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Estilo base para los botones del toggle */
+.auth-toggle-container .toggle-btn {
+  margin-left: 2px;
+  margin-right: 2px;
+  flex: 1;
+  text-align: center;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: #ffffff;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+/* Estilo cuando el botón está activo (seleccionado) */
+.auth-toggle-container .toggle-btn.active {
+  background-color: var(--boupetique-chocolat);
+  color: #ffffff;
+  /* Texto blanco */
+  box-shadow: 0 4px 10px rgba(11, 25, 44, 0.2);
+}
+
+/* Efecto al pasar el cursor por encima del inactivo */
+.auth-toggle-container .toggle-btn:hover:not(.active) {
+  background-color: rgba(255, 228, 196, 0.185);
+  box-shadow: 0 4px 5px rgba(11, 25, 44, 0.2);
+}

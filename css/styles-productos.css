@@ -1,4 +1,8 @@
 /* Estilos para mostrar los productos */
+body[data-page="productos"] main > .inicio {
+  padding: 24px clamp(16px, 4vw, 48px);
+}
+
 /* Asegura que las tarjetas en la misma fila tengan exactamente la misma altura */
 .catalog-card {
   background: #ffffff;
