@@ -1,4 +1,17 @@
 
+# 📅 Tareas 10 y 11 (Sprint 6)
+
+### 📦 Tarea 10: Inicio de Sesión de Usuarios con LocalStorage
+Creación del formulario de inicio de sesión para que los usuarios puedan ingresar a la página validando sus datos guardados en el navegador.
+* **`html/login.html`**: Pantalla de inicio de sesión con diseño adaptable para celulares y computadoras.
+* **`js/login.js`**: Código para revisar que los campos no estén vacíos, verificar que el correo y la contraseña sean correctos y mostrar los mensajes de alerta o éxito.
+
+### 🗄️ Tarea 11: Estructura de la Base de Datos en MySQL
+Diseño de la base de datos en MySQL para guardar la información de la e-commerce.
+* **`MySQL/`**: Carpeta donde se guardan los archivos de la base de datos:
+  * **Evidencia_Piwibabys_Base_Datos_Boupetique.pdf**: Evidencia de diagrama E-R, creación de tablas e inserts creados en MySQL Workbench.
+  * **Boupetique.sql**: Script SQL que contiene la creación de la base de datos y los bloques de inserción (INSERT INTO) con registros de prueba por cada tabla.
+
 # 📅  Tareas 8 y 9 (Sprint 5)
 
 ### 📦 Tarea 8: Formulario de Creación de objeto del modelo (Publicación o Producto)

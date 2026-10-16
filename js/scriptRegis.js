@@ -5,9 +5,9 @@
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    // ========================================================
+    //
     // SE REUTILIZA PARTE DEL CODIGO REALIZADO EN LA PAGINA DE CONTACTO.HTML PARA ADECUARLO A REGISTROS.HTML (REGISTROS.JS)
-    // ========================================================
+    //
     // id
     const formulario = document.getElementById("formulario");
 

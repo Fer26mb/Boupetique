@@ -1,0 +1,138 @@
+.form {
+
+  background: linear-gradient(to right, #324738, #324738);
+
+  color: #ffffff;
+
+}
+
+/*
+.custom-input { TRAIDO DE PROPIEDADES DE TABLA LOGIN
+  background-color: rgb(34, 60, 11);
+  border: 1px solid transparent;
+  color: #ffffff;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+}
+*/
+
+.titleR {
+  font-weight: 600;
+  letter-spacing: -1px;
+  position: relative;
+  display: flex;
+
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.signin {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+body[data-page="registro"] .signin {
+  color: var(--boupetique-negro-azabache);
+}
+
+
+
+.titleF {
+  font-size: 1rem;
+
+  font-weight: bold;
+
+  color: #ffffff;
+
+}
+
+/* Color de letra*/
+
+#formulario .form-label {
+
+  color: #ffffff;
+
+
+}
+
+#formulario .form-control,
+#formulario .form-select {
+  background-color: var(--boupetique-gris-alabastro) ;
+  /* usar tono de boupetique */
+
+}
+
+
+.form-control::placeholder {
+  color: var(--boupetique-olive-clear) ;
+}
+
+#contador {
+  color: #ffffff ;
+}
+
+#repcontador {
+  color: #ffffff ;
+}
+
+body[data-page="registro"] #formulario button[type="reset"].btn-secondary:hover {
+  color: #dc3545;
+}
+
+body[data-page="registro"] #formulario #btnEnviar.btn-success {
+  background: #d96b2777;
+  border-color: #d96b2777;
+  color: #ffffff;
+}
+
+body[data-page="registro"] #formulario #btnEnviar.btn-success:hover {
+  background: #d96b27;
+  border-color: #d96b27;
+  color: #ffffff;
+}
+
+
+/* Contenedor general del toggle  */
+.auth-toggle-container {
+  display: flex;
+  background: linear-gradient(to right, #324738, #324738);
+  border: 1px solid #e2e8f0;
+  border-radius: 50px;
+  padding: 4px;
+  width: 380px;
+  max-width: calc(100vw - 32px);
+  box-sizing: border-box;
+  margin: 20px auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Estilo base para los botones del toggle */
+body[data-page="registro"] .auth-toggle-container .toggle-btn {
+  margin-left: 2px;
+  margin-right: 2px;
+  flex: 1;
+  text-align: center;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: #ffffff;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+/* Estilo cuando el botón está activo (seleccionado) */
+body[data-page="registro"] .auth-toggle-container .toggle-btn.active {
+  background-color: var(--boupetique-chocolat);
+  color: #ffffff;
+  /* Texto blanco */
+  box-shadow: 0 4px 10px rgba(11, 25, 44, 0.2);
+}
+
+/* Efecto al pasar el cursor por encima del inactivo */
+body[data-page="registro"] .auth-toggle-container .toggle-btn:hover:not(.active) {
+  background-color: rgba(255, 228, 196, 0.185);
+  box-shadow: 0 4px 10px rgba(11, 25, 44, 0.2);
+}

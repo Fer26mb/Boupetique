@@ -1,4 +1,8 @@
 /* Estilos para mostrar los productos */
+body[data-page="productos"] main > .inicio {
+  padding: 24px clamp(16px, 4vw, 48px);
+}
+
 /* Asegura que las tarjetas en la misma fila tengan exactamente la misma altura */
 .catalog-card {
   background: #ffffff;
@@ -169,4 +173,11 @@
 .colored-toast.swal2-icon-success {
   background-color: #3f5946 !important;
   color: #ffffff !important;
+}
+
+/*? Botón "Añadir al carrito" */
+#btnAddToCart {
+    background-color:  #3f5946 !important; /* Reemplaza #000000 por el código HEX de tu preferencia */
+    color: #ffffff !important;
+    border: none !important;
 }

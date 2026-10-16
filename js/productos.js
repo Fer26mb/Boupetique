@@ -34,7 +34,7 @@ const contentDiv = modal.querySelector(".content");
 
 // 4. Función para renderizar la card usando la plantilla nativa de tu catálogo
 export const renderizarProductos = (producto) => {
-//const renderizarProductos = (producto) => {
+    //const renderizarProductos = (producto) => {
     // 4.3 Si el producto registrado no tiene imagen, colocamos una por defecto
     const imagenUrl = producto.Imagen_URL || "../assets/productos-img/default.jpeg";
     const pesoValor = producto.Peso_Valor || "0.0";
@@ -59,7 +59,7 @@ export const renderizarProductos = (producto) => {
                 </div>
 
                 <button class="btn-catalog-select info-modal-trigger" data-sku="${producto.sku}">
-                    Seleccionar opciones
+                    Ver para agregar al carrito
                 </button>
             </div>
         </div>
@@ -144,6 +144,9 @@ const showInfo = function (product) {
         // const producto = product;
         // console.log("ID del producto añadido al carrito:", producto);
         addToCart(product);
+        // Cierra el modal y quita el foco del botón
+        btnAddToCart.blur();
+        // Oculta el modal de Bootstrap
         bootstrapModal.hide();
     });
 };
@@ -153,13 +156,13 @@ console.log(cart);
 
 //Toast para mostrar cuando se agreguen productos al carrito
 const Toast = Swal.mixin({
-  toast: true,
-  position: 'top-end',
-  customClass:{
-    popup:'colored-toast',
-  },
-  showConfirmButton: false,
-  timer: 3000,
+    toast: true,
+    position: 'top-end',
+    customClass: {
+        popup: 'colored-toast',
+    },
+    showConfirmButton: false,
+    timer: 3000,
 });
 
 function addToCart(product) {
@@ -200,47 +203,3 @@ function saveCartToLocalStorage() {
 }
 
 console.log(allProducts);
-
-/* ---------------------------------------
-//Productos.js de ANDRES sin modificar
-
-import {getAllProducts} from "./json.js";  //0
-const products = await getAllProducts();  //1 mod
-
-const cards = document.querySelector("#catalogCard2"); //3.5
-
-//4
-const renderizarProductos = ({Nombre,Imagen_URL,Precio_Base,Peso_Valor,Peso_Unidad}) => {
-    //4..5
-	const productCard = ` 
-    <div class="col-12 col-sm-6 col-md-4 col-xl-3">
-        <div class="catalog-card text-center">
-            <div>
-                <span class="brand-subtext">Boupetique Selection</span>
-                
-                <div class="catalog-img-box" data-bs-toggle="modal" data-bs-target="#modalProducto1">
-                    <img src="${Imagen_URL}" 
-                            class="catalog-img" alt="Alimento">
-                </div>
-
-                <p class="catalog-title">${Nombre}${Peso_Valor}${Peso_Unidad}</p>
-            </div>
-
-            <div>
-                <div class="price-box">
-                    <span class="price-current">$${Precio_Base}</span>
-                </div>
-
-                <button class="btn-catalog-select" data-bs-toggle="modal" data-bs-target="#modalProducto1">
-                    Seleccionar opciones
-                </button>
-            </div>
-        </div>
-    </div>
-    `;
-    cards.insertAdjacentHTML("afterend", productCard);
-}
-//5
-products.map((product) => renderizarProductos(product))
-
-*/

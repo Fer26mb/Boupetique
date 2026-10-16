@@ -1,5 +1,5 @@
 import { allProducts, renderizarProductos } from "../productos.js";
- 
+
 
 // Obtener filtros
 const filterPerro = document.getElementById("filterPerro");
@@ -24,7 +24,7 @@ function aplicarFiltros() {
         //filtro de categoria
         let categoriaCorrecta = true;
         if (catAlimentos.checked || catSnacks.checked || catCuidados.checked) {
-            categoriaCorrecta = (catAlimentos.checked && producto.Categoria === "Alimentos") ||(catSnacks.checked && producto.Categoria === "Snacks") || (catCuidados.checked && producto.Categoria === "Salud & Bienestar");
+            categoriaCorrecta = (catAlimentos.checked && producto.Categoria === "Alimentos") || (catSnacks.checked && producto.Categoria === "Snacks") || (catCuidados.checked && producto.Categoria === "Salud & Bienestar");
         }
         return especieCorrecta && categoriaCorrecta;
     });
@@ -41,8 +41,8 @@ function aplicarFiltros() {
 
 // Escuchar cambios en los filtros
 document.querySelectorAll("aside input[type='checkbox']").forEach(input => {
-        input.addEventListener("change", aplicarFiltros);
-    });
+    input.addEventListener("change", aplicarFiltros);
+});
 
 // Eliminar todos
 btnClear.addEventListener("click", () => {
@@ -53,3 +53,20 @@ btnClear.addEventListener("click", () => {
     catCuidados.checked = false;
     aplicarFiltros();
 });
+
+// Botones perro y gato (pág. Próximamente)
+// Detectar especie seleccionada desde la URL
+const parametros = new URLSearchParams(window.location.search);
+const especieSeleccionada = parametros.get("especie");
+
+if (especieSeleccionada === "Perro") {
+    filterPerro.checked = true;
+    filterGato.checked = false;
+    aplicarFiltros();
+}
+
+if (especieSeleccionada === "Gato") {
+    filterPerro.checked = false;
+    filterGato.checked = true;
+    aplicarFiltros();
+}

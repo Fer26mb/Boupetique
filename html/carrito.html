@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -12,9 +12,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Carrito</title>
+    <link rel="icon" type="image/png" href="../assets/logo-img/pinguino.png">
 </head>
 
-<body>
+<body data-page="carrito">
     <!-- Esto es para saber el tamaño de la pantalla -->
     <!-- <div class="position-fixed top-0 start-0 ms-5 m-2 p-1 text-white rounded shadow z-3 ver-tamaño">
         <span class="fw-bold fs-6 d-block d-sm-none">XS</span>
@@ -24,19 +25,9 @@
         <span class="fw-bold fs-6 d-none d-xl-block d-xxl-none">XL</span>
         <span class="fw-bold fs-6 d-none d-xxl-block">XXL</span>
     </div> -->
-    <!-- Encabezado con la ubicación actual y los enlaces de navegación -->
-    <header class="container d-flex align-items-center justify-content-between">
-        <div class="location">
-            <div class="description">
-                <span class="text">Carrito</span>
-                <img src="../assets/logo-img/logo-boupetique.png" alt="" class="location-flag" />
-            </div>
-        </div>
-
-        <div class="nav-actions d-flex gap-5">
-            <a href="../html/productos.html" class="main">Regresar a la página de productos</a>
-            <a href="../html/login.html" class="login">Log In</a>
-        </div>
+    <header id="site-header">
+        <div data-include="../partials/navbar.html"></div>
+        <div class="techo-banner"></div>
     </header>
 
     <main class="p-3">
@@ -89,8 +80,8 @@
                             <p>$<span id="cartTotal">0.00</span> MXN</p>
                         </div>
                         <div class="d-flex justify-content-center gap-3" id="submit-btns">
-                            <button type="button" class="btn btn-dark p-3 btn-change-option" data-action="Pagar">Pagar</button>
-                            <button type="button" class="btn btn-danger p-3 btn-change-option" data-action="Cancelar">Cancelar</button>
+                            <button type="button" class="btn btn-dark p-3 btn-change-option" id="btn-pagar" data-action="Pagar">Pagar</button>
+                            <button type="button" class="btn btn-danger p-3 btn-change-option d-none" id="btn-cancelar" data-action="Cancelar">Cancelar</button>
                         </div>
                         <p class="thanks">¡ Muchas Gracias por comprar con nosotros !</p>
                         <div id="user-form" class="hide">
@@ -113,7 +104,7 @@
     
                                 <div class="d-flex justify-content-center gap-3" id="shipping-btns">
                                     <button type="button" class="btn btn-dark p-3 btn-change-option" data-action="Enviar">Enviar</button>
-                                    <button type="button" class="btn btn-danger p-3 btn-change-option" data-action="Cancelar">Cancelar</button>
+                                    <!-- <button type="button" class="btn btn-danger p-3 btn-change-option" data-action="Cancelar">Cancelar</button> -->
                                 </div>
                             </form>
                         </div>
@@ -127,6 +118,7 @@
 
 
     <!-- Scripts para cargar el carrito y gestionar sus acciones -->
+    <script src="../js/app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script type="module" src="../js/carrito.js"></script>
     <!-- Scripts SweetAlert-->

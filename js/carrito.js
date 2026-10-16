@@ -164,19 +164,21 @@ cartItemsContainer.addEventListener("click", (e) => {
     }
 });
 
+const btnPagar = document.getElementById("btn-pagar");
+const btnCancelar = document.getElementById("btn-cancelar");
+
 payContainer.addEventListener("click", (e) => {
     const optionBtn = e.target.closest(".btn-change-option");
-    if(optionBtn){
-        const action = optionBtn.dataset.action;
-        switch(action){
-            case "Pagar":
-                userForm.classList.toggle('hide');
-                break;
-            case "Cancelar":
-                userForm.classList.toggle('hide');
-                break;
-        }
-    }
+    if (!optionBtn) return;
+
+    const action = optionBtn.dataset.action;
+
+    // Alternar el formulario
+    userForm.classList.toggle('hide');
+
+    // Alternar visibilidad de los botones
+    btnPagar.classList.toggle('d-none');
+    btnCancelar.classList.toggle('d-none');
 });
 
 //Toast para mostrar cuando se agreguen productos al carrito
