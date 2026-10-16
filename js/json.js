@@ -303,7 +303,7 @@ const productos = [
         "Peso_Valor": 1.0,
         "Peso_Unidad": "pza",
         "Requiere_Receta": 0,
-        "Imagen_URL": 0
+        "Imagen_URL": "/assets/productosIA/EssentialsSlowBowl.png"
     },
     {
         "sku": "19",
@@ -320,7 +320,7 @@ const productos = [
         "Peso_Valor": 1.0,
         "Peso_Unidad": "pza",
         "Requiere_Receta": 0,
-        "Imagen_URL": 0
+        "Imagen_URL": "/assets/productosIA/EssentialsArticuMove.png"
     },
     {
         "sku": "20",
@@ -337,7 +337,7 @@ const productos = [
         "Peso_Valor": 100.0,
         "Peso_Unidad": "gr",
         "Requiere_Receta": 0,
-        "Imagen_URL": 0
+        "Imagen_URL": "/assets/productosIA/BoupetiqueEssentialsPuriGato.png"
     },
     {
         "sku": "21",
