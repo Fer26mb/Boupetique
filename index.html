@@ -54,135 +54,133 @@
     <!-- Fin Carousel -->
 
     <main class="flex-grow-1">
-        <!-- =====================================================
-         HERO / LANDING
-    ====================================================== -->
 
-        <section id="inicio" class="hero">
+    <!-- =====================================================
+    HERO / LANDING
+====================================================== -->
 
-            <div class="container">
+<section id="inicio" class="hero">
 
-                <div class="row align-items-center py-5">
+    <div class="container">
 
-                    <!-- TEXTO -->
-                    <div class="col-lg-6 text-center text-lg-start">
+        <div class="row align-items-center py-5">
 
-                        <p class="small-title">
-                            EL MUNDO DE TU MASCOTA
-                        </p>
+            <!-- TEXTO -->
+            <div class="col-lg-6 text-center text-lg-start">
 
-                        <h1>
-                            Siempre innovando para tu
-                            <span>Mascota.</span>
-                        </h1>
+                <p class="small-title">
+                    EL MUNDO DE TU MASCOTA
+                </p>
 
-                        <p class="hero-text">
-                            En Boupetique encontrarás productos, servicios
-                            y experiencias pensadas para consentir
-                            a quienes hacen nuestros días más felices.
-                        </p>
+                <h1>
+                    Siempre innovando para tu
+                    <span>Mascota.</span>
+                </h1>
 
-                        <div class="mt-4">
+                <p class="hero-text">
+                    En Boupetique encontrarás productos, servicios
+                    y experiencias pensadas para consentir
+                    a quienes hacen nuestros días más felices.
+                </p>
 
-                            <a href="html/productos.html" class="btn btn-bouti me-2">
-                                Ver productos
-                            </a>
+                <div class="mt-4">
+                    <a href="html/productos.html" class="btn btn-bouti me-2">
+                        Ver productos
+                    </a>
 
-                        <a href="html/acerca.html"
-                           class="btn btn-bouti me-2">
-                            Conocer más
-                        </a>
+                    <a href="html/acerca.html" class="btn btn-bouti">
+                        Conocer más
+                    </a>
+                </div>
 
+            </div> 
+
+
+            <!-- PERRITO -->
+            <div class="col-lg-6">
+
+                <div class="dog-container">
+
+                    <!-- Círculo de fondo -->
+                    <div class="dog-background"></div>
+
+
+                    <!-- PERRITO SVG -->
+                    <svg id="dog" viewBox="0 0 500 500" class="dog-svg">
+
+                        <!-- Oreja izquierda -->
+                        <ellipse cx="145" cy="170" rx="70" ry="110" class="ear" />
+
+                        <!-- Oreja derecha -->
+                        <ellipse cx="355" cy="170" rx="70" ry="110" class="ear" />
+
+
+                        <!-- Cabeza -->
+                        <ellipse cx="250" cy="245" rx="155" ry="145" class="dog-head" />
+
+
+                        <!-- Mancha -->
+                        <ellipse cx="315" cy="180" rx="65" ry="80" class="spot" />
+
+
+                        <!-- OJO IZQUIERDO -->
+
+                        <circle cx="190" cy="230" r="35" class="eye" />
+
+                        <!-- Pupila izquierda -->
+                        <circle id="pupil-left" cx="190" cy="230" r="15" class="pupil" />
+
+
+                        <!-- OJO DERECHO -->
+
+                        <circle cx="310" cy="230" r="35" class="eye" />
+
+                        <!-- Pupila derecha -->
+                        <circle id="pupil-right" cx="310" cy="230" r="15" class="pupil" />
+
+
+                        <!-- Hocico -->
+                        <ellipse cx="250" cy="315" rx="65" ry="50" class="muzzle" />
+
+
+                        <!-- Nariz -->
+                        <ellipse cx="250" cy="300" rx="25" ry="18" class="nose" />
+
+
+                        <!-- Boca -->
+                        <path d="M250 318
+                        C250 345 220 350 205 335
+                        M250 318
+                        C250 345 280 350 295 335" class="mouth" />
+
+                    </svg>
+
+
+                    <!-- Texto decorativo -->
+                    <div class="floating-card card-one">
+                        🦴 Amor
                     </div>
 
+                    <div class="floating-card card-two">
+                        ❤️ Cuidado
+                    </div>
 
-                    <!-- PERRITO -->
-                    <div class="col-lg-6">
-
-                        <div class="dog-container">
-
-                            <!-- Círculo de fondo -->
-                            <div class="dog-background"></div>
-
-
-                            <!-- PERRITO SVG -->
-                            <svg id="dog" viewBox="0 0 500 500" class="dog-svg">
-
-                                <!-- Oreja izquierda -->
-                                <ellipse cx="145" cy="170" rx="70" ry="110" class="ear" />
-
-                                <!-- Oreja derecha -->
-                                <ellipse cx="355" cy="170" rx="70" ry="110" class="ear" />
-
-
-                                <!-- Cabeza -->
-                                <ellipse cx="250" cy="245" rx="155" ry="145" class="dog-head" />
-
-
-                                <!-- Mancha -->
-                                <ellipse cx="315" cy="180" rx="65" ry="80" class="spot" />
-
-
-                                <!-- OJO IZQUIERDO -->
-
-                                <circle cx="190" cy="230" r="35" class="eye" />
-
-                                <!-- Pupila izquierda -->
-                                <circle id="pupil-left" cx="190" cy="230" r="15" class="pupil" />
-
-
-                                <!-- OJO DERECHO -->
-
-                                <circle cx="310" cy="230" r="35" class="eye" />
-
-                                <!-- Pupila derecha -->
-                                <circle id="pupil-right" cx="310" cy="230" r="15" class="pupil" />
-
-
-                                <!-- Hocico -->
-                                <ellipse cx="250" cy="315" rx="65" ry="50" class="muzzle" />
-
-
-                                <!-- Nariz -->
-                                <ellipse cx="250" cy="300" rx="25" ry="18" class="nose" />
-
-
-                                <!-- Boca -->
-                                <path d="M250 318
-                                C250 345 220 350 205 335
-                                M250 318
-                                C250 345 280 350 295 335" class="mouth" />
-
-                            </svg>
-
-
-                            <!-- Texto decorativo -->
-                            <div class="floating-card card-one">
-                                🦴 Amor
-                            </div>
-
-                            <div class="floating-card card-two">
-                                ❤️ Cuidado
-                            </div>
-
-                            <div class="floating-card card-three">
-                                🐾 Bienestar
-                            </div>
-
-                        </div>
-
+                    <div class="floating-card card-three">
+                        🐾 Bienestar
                     </div>
 
                 </div>
 
-            </div>
+            </div> <!-- Fin de col-lg-6 de perrito -->
 
+        </div>
 
-        </section>
-    </main>
-    <!-- Fin perrito -->
+    </div>
 
-    <!-- HTML PROXIMAMENTE (debajo de la sección que quiera) -->
+</section>
+
+ <!-- Fin de Perrito-->
+  
     <!-- =====================================================
          SECCIÓN DE CATEGORÍAS DE MASCOTAS
     ====================================================== -->
