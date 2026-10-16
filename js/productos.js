@@ -59,7 +59,7 @@ export const renderizarProductos = (producto) => {
                 </div>
 
                 <button class="btn-catalog-select info-modal-trigger" data-sku="${producto.sku}">
-                    Seleccionar opciones
+                    Ver para agregar al carrito
                 </button>
             </div>
         </div>

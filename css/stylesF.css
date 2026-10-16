@@ -6,6 +6,11 @@ body {
     background-color: var(--boupetique-cremita);
 }
 
+body[data-page="contacto"] #formulario .form-control,
+body[data-page="contacto"] #formulario .form-control:focus {
+    background-color: var(--boupetique-gris-alabastro);
+}
+
 
 /* =========================================================
    ICONOS DE VALIDACIÓN
