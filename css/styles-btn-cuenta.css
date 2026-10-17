@@ -1,0 +1,59 @@
+/* Color del botón principal dentro del menú desplegable */
+.btn-boupetique {
+    background-color: #0b3c26; 
+    color: #ffffff !important;
+    border-radius: 8px;
+    border: none;
+}
+
+/* Estado al pasar el cursor o dar clic */
+.btn-boupetique:hover {
+    background-color: #072719; 
+    color: #ffffff !important;
+    outline: none;
+}
+
+.btn-boupetique:focus,
+.btn-boupetique:active {
+  background-color: #1e362d;
+  color: #ffffff !important;
+  outline: none;
+  box-shadow: none; 
+}
+
+.text-boupetique {
+    color: #0b3c26;
+    text-decoration: underline;
+}
+
+/* Contenedor*/
+.custom-account-dropdown {
+    position: relative !important;
+}
+
+/* Tarjeta flotante centrada justo debajo del boton */
+.custom-account-card {
+    min-width: 230px;
+    border-radius: 12px !important;
+    margin-top: 10px !important;
+    position: absolute !important;
+    top: 100% !important;
+    left: 50% !important; /* Mueve el borde izquierdo al centro del botón */
+    right: auto !important;
+    transform: translateX(-50%) !important; 
+    /* Empuja la tarjeta hacia la izquierda la mitad de su propio ancho para centrarla */
+}
+
+/* Flecha centrada en la tarjeta */
+.custom-account-card::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg); /* Centrado */
+    width: 12px;
+    height: 12px;
+    background: #ffffff;
+    border-top: 1px solid rgba(0,0,0,0.05); /*Borde en la flecha*/
+    border-left: 1px solid rgba(0,0,0,0.05);
+}
