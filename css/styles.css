@@ -19,6 +19,13 @@
   /* TIPOGRAFIAS */
   --font-titulo: "Crimson Pro", Georgia, serif;
   --font-cuerpo: "Poppins", system-ui, -apple-system, sans-serif;
+
+  /* CARRUSEL */
+  --fp-bg: transparent;
+  --fp-h: 50vh; 
+  --fp-w: min(max(85vw, 320px), 1200px); 
+  --fp-aspect: 2.5 / 1; 
+  --fp-radius: 16px;
 }
 
 body {
@@ -2214,4 +2221,101 @@ body[data-page="carrito"] .cart-icon .bi-cart4 {
 .auth-toggle-container .toggle-btn:hover:not(.active) {
   background-color: rgba(255, 228, 196, 0.185);
   box-shadow: 0 4px 5px rgba(11, 25, 44, 0.2);
+}
+
+/* --- CARRUSEL  --- */
+.fp-root {
+    position: relative;
+    width: 100%;
+    height: var(--fp-h);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--fp-bg);
+    outline: none;
+}
+
+.fp-track {
+    display: flex;
+    align-items: center;
+    gap: clamp(12px, 2vw, 28px);
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    padding-inline: calc(50% - var(--fp-w) / 2);
+    scrollbar-width: none;
+    cursor: grab;
+    touch-action: pan-x pan-y;
+}
+
+.fp-track::-webkit-scrollbar {
+    display: none;
+}
+
+.fp-track.dragging {
+    scroll-snap-type: none;
+    cursor: grabbing;
+}
+
+.fp-card {
+    flex: 0 0 var(--fp-w);
+    aspect-ratio: var(--fp-aspect);
+    max-height: none;
+    scroll-snap-align: center;
+    position: relative;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    will-change: transform, filter;
+    transform-origin: center;
+}
+
+.fp-card img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    display: block;
+    border-radius: var(--fp-radius);
+    pointer-events: none;
+}
+/* --- CONTROLES DEL CARRUSEL --- */
+.fp-nav {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    padding: 0 3vw;
+    box-sizing: border-box;
+    pointer-events: none; 
+    z-index: 10;
+}
+
+.fp-btn {
+    pointer-events: auto; 
+    background-color: var(--boupetique-olive);
+    color: #ffffff;
+    border: none;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.fp-btn:hover {
+    background-color: var(--boupetique-chocolat);
+    transform: scale(1.1);
 }
