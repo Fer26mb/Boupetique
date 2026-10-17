@@ -348,6 +348,15 @@ document.addEventListener("DOMContentLoaded", function () {
     // VALIDAR TODO EL FORMULARIO
     // ========================================================
 
+    const camposFormulario = [nombre, apellido, mascota, correo, telefono, tipomascota, anio, mes, dia, edadm, tamano, peso, contrasena, repcontrasena];
+    const tocados = new Set();
+
+    ["input", "change"].forEach((tipoEvento) => {
+        formulario.addEventListener(tipoEvento, (e) => {
+            if (camposFormulario.includes(e.target)) tocados.add(e.target);
+        }, true);
+    });
+
     function validarFormulario() {
 
         /*
@@ -404,6 +413,10 @@ document.addEventListener("DOMContentLoaded", function () {
             vTerminos;
         //contrasenaValida;
         // se agrega contrasena
+
+        camposFormulario.forEach((campo) => {
+            if (!tocados.has(campo)) campo.classList.remove("is-invalid", "is-valid", "campo-valido");
+        });
 
         // Habilitamos o deshabilitamos el botón (paso 10)
         btnEnviar.disabled = !formularioValido;
@@ -516,67 +529,71 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-    //!!PASO 13 AQUI ME QUEDÉ DE ACUERDO A LA REUTILIZACIÓN DE CODIGO.
-
     // ========================================================
-    // FUNCIÓN PARA VERIFICAR TIEMPO ENTRE ENVÍOS
     // ========================================================
 
-    function puedeEnviar() {
+    const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio",
+        "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 
-        /*
-            Buscamos en localStorage
-            cuándo fue el último envío.
-        */
+    async function cargarTiposMascota() {
+        try {
+            const response = await fetch(`${API_URL}/pet-types`);
+            const tipos = await response.json();
+            tipos.forEach((tipo) => {
+                tipomascota.insertAdjacentHTML("beforeend",
+                    `<option value="${tipo.petTypeId}">${tipo.petType}</option>`);
+            });
+        } catch (error) {
+            console.error("No se pudieron cargar los tipos de mascota.", error);
+        }
+    }
 
-        const ultimoEnvio =
-            localStorage.getItem("ultimoEnvio");
+    cargarTiposMascota();
 
+    async function registrarUsuario(datos) {
+        const mes = String(meses.indexOf(datos.mes) + 1).padStart(2, "0");
 
-        /*
-            Si nunca ha enviado,
-            puede hacerlo.
-        */
-
-        if (!ultimoEnvio) {
-            return true;
+        const responseUsuario = await fetch(`${API_URL}/users`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                userName: datos.nombre,
+                surNames: datos.apellido,
+                phoneNumber: datos.telefono,
+                email: datos.correo,
+                birthDate: `${datos.anio}-${mes}-${datos.dia}`,
+                passwordSite: datos.contrasena
+            })
+        });
+        if (responseUsuario.status === 409) {
+            throw new Error("Ya existe una cuenta con ese correo.");
+        }
+        if (!responseUsuario.ok) {
+            throw new Error("Revisa tus datos e intenta de nuevo.");
         }
 
+        const usuario = await responseUsuario.json();
 
-        // Tiempo actual
-        const ahora = Date.now();
+        await fetch(`${API_URL}/users/${usuario.id}/pets`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                petName: datos.mascota,
+                petAge: datos.edadm,
+                petWeight: datos.peso,
+                petSize: datos.tamano,
+                petTypeId: Number(datos.tipomascota)
+            })
+        });
 
-
-        // Convertimos el valor guardado a número
-        const tiempoAnterior = Number(ultimoEnvio);
-
-
-        /*
-            Diferencia entre el envío actual
-            y el envío anterior.
-        */
-
-        const diferencia =
-            ahora - tiempoAnterior;
-
-
-        /*
-            60 segundos = 60 * 1000 milisegundos
-
-            Aquí podemos cambiar el tiempo.
-        */
-
-        const tiempoEspera = 60 * 1000;
-
-
-        return diferencia >= tiempoEspera;
+        return usuario;
     }
 
     // ========================================================
     // ENVIAR FORMULARIO
     // ========================================================
 
-    formulario.addEventListener("submit", function (evento) {
+    formulario.addEventListener("submit", async function (evento) {
 
         /*
             MUY IMPORTANTE:
@@ -598,29 +615,13 @@ document.addEventListener("DOMContentLoaded", function () {
             volvemos a validar aquí.
         */
 
+        camposFormulario.forEach((campo) => tocados.add(campo));
+
         if (!validarFormulario()) {
 
             alert(
                 "Debes completar correctamente todos los campos antes de enviar."
             );
-
-            return;
-        }
-
-
-        // ====================================================
-        // VERIFICAR TIEMPO DE ESPERA
-        // ====================================================
-
-        if (!puedeEnviar()) {
-
-            alert(
-                "Ya enviaste el formulario recientemente. " +
-                "Espera un momento antes de volver a enviarlo.\n" +
-                "Tiempo de espera restante " + revisarTiempoEspera() + " segundos!"
-            );
-
-            bloquearFormulario();
 
             return;
         }
@@ -648,62 +649,33 @@ document.addEventListener("DOMContentLoaded", function () {
         };
 
 
-        // ====================================================
-        // GUARDAR HORA DEL ENVÍO
-        // ====================================================
-        // !! Esta linea se debe retirar!
-        //7localStorage.setItem(
-        // "ultimoEnvio",
-        //Date.now()
-        // );
-
-        // Todo Esta linea guarda en local storage todo lo que el usuario registra!! paso 16.
-        localStorage.setItem("datosUsuario", JSON.stringify(datos));
-
-
-        // ====================================================
-        // MOSTRAR DATOS
-        // ====================================================
-
-        Swal.fire({
-            title: "¡Registro exitoso!",
-            text: `${datos.nombre} y ${datos.mascota} ya forman parte de Boupetique.`,
-            icon: "success",
-            draggable: true
-        });
-
-
-        // ====================================================
-        // LIMPIAR FORMULARIO
-        // ====================================================
-
-        // alert("hoa");
-        formulario.reset();
-
-
-        // Quitamos las clases visuales
-        nombre.classList.remove("is-valid", "campo-valido");
-
-        correo.classList.remove("is-valid", "campo-valido");
-
-        telefono.classList.remove("is-valid", "campo-valido");
-
-        // Cambiar 'mensaje' por 'checkMensaje' (o el ID correcto que tengas)
-        const checkMensaje = document.getElementById("checkMensaje");
-        if (checkMensaje) {
-            checkMensaje.classList.remove("is-valid");
+        let usuario;
+        try {
+            usuario = await registrarUsuario(datos);
+        } catch (error) {
+            Swal.fire({
+                title: "No se pudo completar el registro",
+                text: error.message,
+                icon: "error"
+            });
+            return;
         }
 
-        checkMensaje.classList.remove("mostrar");
 
+        // ====================================================
+        // ====================================================
 
-        // Reiniciamos contador
-        contador.textContent = "0 / 30";
+        guardarSesion(usuario);
 
+        await Swal.fire({
+            title: `¡Bienvenido, ${datos.nombre}!`,
+            text: `${datos.nombre} y ${datos.mascota} ya forman parte de Boupetique.`,
+            icon: "success",
+            timer: 2200,
+            showConfirmButton: false
+        });
 
-        // Deshabilitamos nuevamente el botón
-        btnEnviar.disabled = true;
-
+        window.location.href = sitePath(`/${destinoTrasLogin()}`);
 
     });
 
@@ -729,53 +701,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-            checkMensaje.classList.remove("mostrar");
+            document.getElementById("checkMensaje")?.classList.remove("mostrar");
 
             contador.textContent = "0 / 08";
+
+            tocados.clear();
+            camposFormulario.forEach((campo) => campo.classList.remove("is-invalid", "is-valid", "campo-valido"));
 
             btnEnviar.disabled = true;
 
         }, 10);
 
     });
-
-    function revisarTiempoEspera() {
-
-        const ultimoEnvio = localStorage.getItem("ultimoEnvio");
-
-        // Si nunca ha enviado, no hay nada que bloquear
-        if (!ultimoEnvio) {
-            return;
-        }
-
-        const ahora = Date.now();
-
-        const tiempoAnterior = Number(ultimoEnvio);
-
-        // 60 segundos
-        const tiempoEspera = 60 * 1000;
-
-        const diferencia = ahora - tiempoAnterior;
-
-
-        // Si ya pasó el tiempo
-        if (diferencia >= tiempoEspera) {
-
-            // Volvemos a validar
-            validarFormulario();
-
-        } else {
-
-            // Todavía no puede enviar
-            // btnEnviar.disabled = true;
-        }
-        const tiempoRestante = tiempoEspera - diferencia;
-        const segundosRestantes = Math.ceil(tiempoRestante / 1000);
-        return segundosRestantes;
-    }
-
-    revisarTiempoEspera();
-
 
     // =================================
     // MODAL TERMINOS Y CONDICIONES

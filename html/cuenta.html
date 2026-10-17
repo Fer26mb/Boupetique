@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boupetique - Mi cuenta</title>
+    <link rel="icon" type="image/png" href="../assets/logo-img/pinguino.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/cuenta.css">
+</head>
+
+<body data-page="cuenta">
+
+    <header id="site-header">
+        <div data-include="../partials/navbar.html"></div>
+        <div class="techo-banner"></div>
+    </header>
+
+    <main class="flex-grow-1 container py-4">
+        <div class="row g-4">
+
+            <aside class="col-12 col-lg-3">
+                <div class="cuenta-card text-center mb-3">
+                    <div class="cuenta-avatar mx-auto mb-2" id="cuentaAvatar">?</div>
+                    <h1 class="h5 fw-bold mb-0" id="cuentaNombre">Mi cuenta</h1>
+                    <p class="small text-muted mb-0 text-truncate" id="cuentaCorreo"></p>
+                </div>
+                <ul class="nav nav-pills cuenta-tabs flex-nowrap flex-lg-column" id="cuentaTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#perfil" type="button"
+                            role="tab"><i class="bi bi-person-circle"></i> Mi perfil</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#mascotas" type="button"
+                            role="tab"><i class="fa-solid fa-paw"></i> Mis mascotas</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#pedidos" type="button"
+                            role="tab"><i class="bi bi-bag-check"></i> Mis pedidos</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="pill" data-bs-target="#pagos" type="button"
+                            role="tab"><i class="bi bi-credit-card"></i> Métodos de pago</button>
+                    </li>
+                </ul>
+            </aside>
+
+            <section class="col-12 col-lg-9">
+                <div class="tab-content">
+
+                    <div class="tab-pane fade show active" id="perfil" role="tabpanel">
+                        <div class="cuenta-card mb-4">
+                            <h2 class="cuenta-titulo">Mi información</h2>
+                            <form id="perfilForm" class="row g-3" novalidate>
+                                <div class="col-md-6">
+                                    <label for="perfilNombre" class="form-label">Nombre</label>
+                                    <input type="text" class="form-control" id="perfilNombre" required minlength="2" maxlength="100">
+                                    <div class="invalid-feedback">Escribe tu nombre.</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="perfilApellidos" class="form-label">Apellidos</label>
+                                    <input type="text" class="form-control" id="perfilApellidos" required minlength="2" maxlength="100">
+                                    <div class="invalid-feedback">Escribe tus apellidos.</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="perfilCorreo" class="form-label">Correo</label>
+                                    <input type="email" class="form-control" id="perfilCorreo" required maxlength="50">
+                                    <div class="invalid-feedback">Escribe un correo válido.</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="perfilTelefono" class="form-label">Teléfono</label>
+                                    <input type="tel" class="form-control" id="perfilTelefono" required pattern="\d{10}" maxlength="10">
+                                    <div class="invalid-feedback">El teléfono debe tener 10 dígitos.</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="perfilNacimiento" class="form-label">Fecha de nacimiento</label>
+                                    <input type="date" class="form-control" id="perfilNacimiento" required>
+                                    <div class="invalid-feedback">Selecciona tu fecha de nacimiento.</div>
+                                </div>
+                                <div class="col-12 d-flex justify-content-end">
+                                    <button type="submit" class="btn btn-boupetique px-4" id="btnGuardarPerfil" disabled>Guardar cambios</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="cuenta-card">
+                            <h2 class="cuenta-titulo">Cambiar contraseña</h2>
+                            <form id="passwordForm" class="row g-3" novalidate>
+                                <div class="col-md-4">
+                                    <label for="pwdActual" class="form-label">Contraseña actual</label>
+                                    <input type="password" class="form-control" id="pwdActual" required autocomplete="current-password">
+                                    <div class="invalid-feedback">Escribe tu contraseña actual.</div>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="pwdNueva" class="form-label">Nueva contraseña</label>
+                                    <input type="password" class="form-control" id="pwdNueva" required minlength="8" maxlength="50" autocomplete="new-password">
+                                    <div class="invalid-feedback">Mínimo 8 caracteres.</div>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="pwdConfirmar" class="form-label">Confirmar contraseña</label>
+                                    <input type="password" class="form-control" id="pwdConfirmar" required autocomplete="new-password">
+                                    <div class="invalid-feedback">Las contraseñas no coinciden.</div>
+                                </div>
+                                <div class="col-12 d-flex justify-content-end">
+                                    <button type="submit" class="btn btn-boupetique px-4">Actualizar contraseña</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="mascotas" role="tabpanel">
+                        <div class="cuenta-card">
+                            <div class="d-flex justify-content-between align-items-center mb-3 gap-2">
+                                <h2 class="cuenta-titulo mb-0">Mis mascotas</h2>
+                                <button type="button" class="btn btn-naranja-cuenta" id="btnAgregarMascota">
+                                    <i class="bi bi-plus-lg"></i> Agregar mascota
+                                </button>
+                            </div>
+                            <div class="row g-3" id="mascotasGrid"></div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="pedidos" role="tabpanel">
+                        <div class="cuenta-card">
+                            <h2 class="cuenta-titulo">Mis pedidos</h2>
+                            <div class="accordion" id="pedidosAccordion"></div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="pagos" role="tabpanel">
+                        <div class="cuenta-card">
+                            <div class="d-flex justify-content-between align-items-center mb-3 gap-2">
+                                <h2 class="cuenta-titulo mb-0">Métodos de pago</h2>
+                                <button type="button" class="btn btn-naranja-cuenta" id="btnAgregarMetodo">
+                                    <i class="bi bi-plus-lg"></i> Agregar método
+                                </button>
+                            </div>
+                            <div id="metodosPagoList" class="d-flex flex-column gap-2"></div>
+                            <p class="small text-muted mt-3 mb-0"><i class="bi bi-shield-lock"></i> Por tu seguridad solo
+                                guardamos los últimos 4 dígitos de tus tarjetas; nunca tu CVV.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div class="modal fade" id="modalMascota" tabindex="-1" aria-labelledby="modalMascotaTitulo" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <form class="modal-content cuenta-modal" id="mascotaForm" novalidate>
+                <div class="modal-header border-0">
+                    <h2 class="modal-title h5 fw-bold" id="modalMascotaTitulo">Agregar mascota</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body row g-3">
+                    <input type="hidden" id="mascotaId">
+                    <div class="col-md-6">
+                        <label for="mascotaNombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="mascotaNombre" required minlength="2" maxlength="100">
+                        <div class="invalid-feedback">Escribe el nombre de tu mascota.</div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="mascotaTipo" class="form-label">Tipo</label>
+                        <select class="form-select" id="mascotaTipo" required></select>
+                        <div class="invalid-feedback">Selecciona el tipo.</div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="mascotaEdad" class="form-label">Edad</label>
+                        <select class="form-select" id="mascotaEdad" required></select>
+                        <div class="invalid-feedback">Selecciona la edad.</div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="mascotaTamano" class="form-label">Tamaño</label>
+                        <select class="form-select" id="mascotaTamano" required></select>
+                        <div class="invalid-feedback">Selecciona el tamaño.</div>
+                    </div>
+                    <div class="col-12">
+                        <label for="mascotaPeso" class="form-label">Peso</label>
+                        <select class="form-select" id="mascotaPeso" required></select>
+                        <div class="invalid-feedback">Selecciona el peso.</div>
+                    </div>
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-boupetique px-4">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalMetodoPago" tabindex="-1" aria-labelledby="modalMetodoTitulo" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <form class="modal-content cuenta-modal" id="metodoPagoForm" novalidate>
+                <div class="modal-header border-0">
+                    <h2 class="modal-title h5 fw-bold" id="modalMetodoTitulo">Agregar método de pago</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body row g-3">
+                    <input type="hidden" id="mpId">
+                    <div class="col-12">
+                        <label for="mpTipo" class="form-label">Tipo</label>
+                        <select class="form-select" id="mpTipo">
+                            <option value="Tarjeta">Tarjeta de crédito o débito</option>
+                            <option value="PayPal">PayPal</option>
+                            <option value="OXXO">Pago en efectivo OXXO</option>
+                        </select>
+                    </div>
+                    <div class="col-12" data-mp-tipo="Tarjeta">
+                        <label for="mpTitular" class="form-label">Titular</label>
+                        <input type="text" class="form-control" id="mpTitular" maxlength="100" autocomplete="cc-name">
+                        <div class="invalid-feedback">Escribe el nombre como aparece en la tarjeta.</div>
+                    </div>
+                    <div class="col-md-8" data-mp-tipo="Tarjeta">
+                        <label for="mpNumero" class="form-label">Número de tarjeta</label>
+                        <input type="text" class="form-control" id="mpNumero" inputmode="numeric" autocomplete="cc-number"
+                            placeholder="1234 5678 9012 3456">
+                        <div class="invalid-feedback">Número de tarjeta no válido (Visa, Mastercard o Amex).</div>
+                    </div>
+                    <div class="col-md-4" data-mp-tipo="Tarjeta">
+                        <label for="mpVencimiento" class="form-label">Vence</label>
+                        <input type="text" class="form-control" id="mpVencimiento" inputmode="numeric" placeholder="MM/AA"
+                            autocomplete="cc-exp">
+                        <div class="invalid-feedback">Fecha MM/AA vigente.</div>
+                    </div>
+                    <div class="col-12" data-mp-tipo="PayPal">
+                        <label for="mpPaypalEmail" class="form-label">Correo de PayPal</label>
+                        <input type="email" class="form-control" id="mpPaypalEmail" maxlength="100">
+                        <div class="invalid-feedback">Escribe un correo válido.</div>
+                    </div>
+                    <div class="col-12" data-mp-tipo="OXXO">
+                        <p class="small text-muted mb-0">Al pagar recibirás una referencia para pagar en cualquier tienda OXXO.</p>
+                    </div>
+                    <div class="col-12">
+                        <label for="mpAlias" class="form-label">Alias (opcional)</label>
+                        <input type="text" class="form-control" id="mpAlias" maxlength="50" placeholder="Ej. Tarjeta de nómina">
+                    </div>
+                    <div class="col-12 form-check ms-1">
+                        <input class="form-check-input" type="checkbox" id="mpPredeterminado">
+                        <label class="form-check-label" for="mpPredeterminado">Usar como método predeterminado</label>
+                    </div>
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-boupetique px-4">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer id="site-footer" class="text-light py-5" data-include="../partials/footer.html"></footer>
+
+    <script src="../js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" src="../js/cuenta.js"></script>
+</body>
+
+</html>

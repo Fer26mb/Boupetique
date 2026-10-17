@@ -41,7 +41,7 @@
                                 tu
                                 mascota
                                 la calidad que merece.</p>
-                            <a href="#productos" class="btn btn-banner">Ver ofertas exclusivas</a>
+                            <a href="productos.html?promo=ofertas" class="btn btn-banner">Ver ofertas exclusivas</a>
                         </div>
                     </div>
                 </div>
@@ -97,12 +97,11 @@
                                 todos</button>
                         </div>
 
+                        <input type="search" id="searchInput" class="form-control mb-3" placeholder="Buscar productos…"
+                            aria-label="Buscar productos">
+
                         <!-- Filtros Activos -->
-                        <div class="d-flex flex-wrap gap-2 mb-4">
-                            <span class="active-filter-tag">
-                                En existencia <i class="fa-solid fa-xmark ms-1"></i>
-                            </span>
-                        </div>
+                        <div id="activeFilters" class="d-flex flex-wrap gap-2 mb-4"></div>
 
                         <!-- Sección: Especie -->
                         <div class="filter-section mb-4">
@@ -130,44 +129,16 @@
                             <h6 class="filter-title d-flex justify-content-between align-items-center">
                                 Categorías <i class="fa-solid fa-chevron-down small"></i>
                             </h6>
-                            <div class="form-check mt-2">
-                                <input class="form-check-input" type="checkbox" id="catCroquetas">
-                                <label class="form-check-label d-flex justify-content-between" for="catCroquetas">
-                                    <span>Accesorios</span> <span class="text-muted"></span>
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="catSnacks">
-                                <label class="form-check-label d-flex justify-content-between" for="catSnacks">
-                                    <span>Alimentos</span> <span class="text-muted"></span>
-                                </label>
-                            </div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="catSnacks">
-                                <label class="form-check-label d-flex justify-content-between" for="catSnacks">
-                                    <span>Bienestar</span> <span class="text-muted"></span>
-                                </label>
-                            </div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="catSnacks">
-                                <label class="form-check-label d-flex justify-content-between" for="catSnacks">
-                                    <span>Higiene</span> <span class="text-muted"></span>
-                                </label>
-                            </div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="catCuidados">
-                                <label class="form-check-label d-flex justify-content-between" for="catCuidados">
-                                    <span>Juguetes</span> <span class="text-muted"></span>
-                                </label>
-                            </div>
+                            <div id="categoryFilters" class="mt-2"></div>
                         </div>
                     </aside>
 
                     <!-- PRODUCTOS -->
                     <section class="col-12 col-lg-9 col-xl-10">
+                        <div id="catalogHeading" class="mb-3">
+                            <h2 id="catalogTitle" class="fw-bold mb-1">Todos los productos</h2>
+                            <p id="catalogSummary" class="text-muted mb-0"></p>
+                        </div>
                         <div id="catalogCard2" class="row g-4"></div>
                     </section>
                 </div>

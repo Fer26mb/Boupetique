@@ -1,6 +1,6 @@
 /* Color del botón principal dentro del menú desplegable */
 .btn-boupetique {
-    background-color: #0b3c26; 
+    background-color: #0b3c26;
     color: #ffffff !important;
     border-radius: 8px;
     border: none;
@@ -8,7 +8,7 @@
 
 /* Estado al pasar el cursor o dar clic */
 .btn-boupetique:hover {
-    background-color: #072719; 
+    background-color: #072719;
     color: #ffffff !important;
     outline: none;
 }
@@ -18,7 +18,7 @@
   background-color: #1e362d;
   color: #ffffff !important;
   outline: none;
-  box-shadow: none; 
+  box-shadow: none;
 }
 
 .text-boupetique {
@@ -26,34 +26,180 @@
     text-decoration: underline;
 }
 
-/* Contenedor*/
-.custom-account-dropdown {
-    position: relative !important;
+.account-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
 }
 
-/* Tarjeta flotante centrada justo debajo del boton */
+.account-toggle:hover,
+.account-toggle:focus {
+    color: #d4af37;
+}
+
+.account-avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--boupetique-chocolat, #d96b27);
+    color: #ffffff;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.account-toggle.dropdown-toggle::after {
+    margin-left: 2px;
+}
+
 .custom-account-card {
-    min-width: 230px;
+    min-width: 250px;
     border-radius: 12px !important;
     margin-top: 10px !important;
-    position: absolute !important;
-    top: 100% !important;
-    left: 50% !important; /* Mueve el borde izquierdo al centro del botón */
-    right: auto !important;
-    transform: translateX(-50%) !important; 
-    /* Empuja la tarjeta hacia la izquierda la mitad de su propio ancho para centrarla */
 }
 
-/* Flecha centrada en la tarjeta */
 .custom-account-card::before {
     content: '';
     position: absolute;
     top: -6px;
-    left: 50%;
-    transform: translateX(-50%) rotate(45deg); /* Centrado */
+    right: 18px;
+    transform: rotate(45deg);
     width: 12px;
     height: 12px;
     background: #ffffff;
-    border-top: 1px solid rgba(0,0,0,0.05); /*Borde en la flecha*/
+    border-top: 1px solid rgba(0,0,0,0.05);
     border-left: 1px solid rgba(0,0,0,0.05);
+}
+
+.custom-account-card .account-header {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 6px;
+}
+
+.custom-account-card .dropdown-item {
+    border-radius: 8px;
+    padding: 8px 10px;
+}
+
+.custom-account-card .dropdown-item i {
+    width: 20px;
+    color: var(--boupetique-olive, #3f5946);
+}
+
+.custom-account-card .dropdown-item:active {
+    background-color: var(--boupetique-olive, #3f5946);
+    color: #ffffff;
+}
+
+.nav-cart {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-cart .cart-icon {
+    position: relative;
+    margin-left: 0;
+    font-size: 1.6rem;
+    color: #ffffff;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.nav-cart .cart-icon:hover {
+    color: #d4af37;
+    transform: scale(1.1);
+}
+
+.cart-count-badge {
+    position: absolute;
+    top: -6px;
+    right: -10px;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 5px;
+    border-radius: 999px;
+    background: var(--boupetique-chocolat, #d96b27);
+    color: #ffffff;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    line-height: 20px;
+    text-align: center;
+}
+
+.cart-total-preview {
+    color: var(--boupetique-cremita, #f6f0e3);
+    font-size: 0.9rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.mini-cart {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    padding-top: 12px;
+    width: 320px;
+    z-index: 1050;
+}
+
+.mini-cart-content {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+    padding: 16px;
+    color: var(--boupetique-negro-azabache, #2f3a3d);
+}
+
+.mini-cart-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 0;
+}
+
+.mini-cart-item img {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    border-radius: 8px;
+    background: #f7f7f7;
+}
+
+.mini-cart-item .mini-cart-name {
+    font-size: 0.85rem;
+    line-height: 1.2;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.mini-cart-envio {
+    font-size: 0.8rem;
+    color: var(--boupetique-olive, #3f5946);
+}
+
+@media (hover: hover) and (min-width: 992px) {
+    .nav-cart:hover .mini-cart,
+    .nav-cart:focus-within .mini-cart {
+        display: block;
+    }
+}
+
+body[data-page="carrito"] .mini-cart {
+    display: none !important;
+}
+
+body[data-page="carrito"] .nav-cart .cart-icon {
+    color: #d4af37;
 }

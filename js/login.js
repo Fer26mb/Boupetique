@@ -4,9 +4,49 @@ document.addEventListener("DOMContentLoaded", () => {
     const emailInput = document.getElementById("emailInput");
     const passwordInput = document.getElementById("passwordInput");
     const alertContainer = document.getElementById("alertContainer");
+    const paneles = {
+        login: document.getElementById("panelLogin"),
+        registro: document.getElementById("panelRegistro")
+    };
 
     // expresion regular para validar formato estándar de correo
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    const mostrarPanel = (modo, enfocar = true) => {
+        const activo = paneles[modo] ? modo : "login";
+
+        Object.entries(paneles).forEach(([nombre, panel]) => {
+            panel.hidden = nombre !== activo;
+        });
+        document.querySelectorAll("[data-auth-tab]").forEach((tab) => {
+            const seleccionado = tab.dataset.authTab === activo;
+            tab.classList.toggle("active", seleccionado);
+            tab.setAttribute("aria-selected", String(seleccionado));
+        });
+        document.title = activo === "registro" ? "Boupetique - Crear cuenta" : "Boupetique - Iniciar sesión";
+
+        const params = new URLSearchParams(window.location.search);
+        if (activo === "registro") params.set("modo", "registro");
+        else params.delete("modo");
+        const query = params.toString();
+        history.replaceState(null, "", `${window.location.pathname}${query ? `?${query}` : ""}`);
+
+        if (enfocar) paneles[activo].querySelector("input")?.focus();
+    };
+
+    document.addEventListener("click", (e) => {
+        const control = e.target.closest("[data-auth-tab], [data-auth-switch]");
+        if (!control) return;
+        e.preventDefault();
+        mostrarPanel(control.dataset.authTab || control.dataset.authSwitch);
+    });
+
+    mostrarPanel(new URLSearchParams(window.location.search).get("modo"), false);
+
+    if (getSession()?.id) {
+        window.location.replace(sitePath(`/${destinoTrasLogin()}`));
+        return;
+    }
 
     // funcion para mostrar alertas de Bootstrap
     const showAlert = (message, type = "danger") => {
@@ -18,8 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
         `;
     };
-    // extraemos datos del formulario y los validamos, si son correctos los guardamos en el localStorage y redirigimos al index.html
-    form.addEventListener("submit", (e) => {
+    form.addEventListener("submit", async (e) => {
         e.preventDefault();
 
         const email = emailInput.value.trim();
@@ -39,28 +78,27 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        // NUEVO OBJETO: guarda la contraseña directamente en el objeto
-        const sessionData = {
-            email: email,
-            password: password
-        };
+        try {
+            const response = await fetch(`${API_URL}/users/login`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email: email, passwordSite: password })
+            });
+            if (!response.ok) {
+                showAlert("Correo o contraseña incorrectos.", "danger");
+                return;
+            }
 
-        // Este bloque oculta la contraseña en el objeto sessionData antes de guardarlo en el LocalStorage.
-        /*
-        const sessionData = {
-            email: email,
-            loginTime: new Date().toISOString(),
-            isLoggedIn: true
-        };
-        */
-
-        // guardar en el LocalStorage convertida a texto JSON
-        localStorage.setItem("userSession", JSON.stringify(sessionData));
+            guardarSesion(await response.json());
+        } catch (error) {
+            showAlert("No se pudo conectar con el servidor.", "danger");
+            return;
+        }
 
         showAlert("¡Bienvenido a Boupetique!", "success");
 
         setTimeout(() => {
-            window.location.href = "../index.html";
-            }, 3000); // tiempo de espera antes de redirigir al index.html  (3seg)
+            window.location.href = sitePath(`/${destinoTrasLogin()}`);
+        }, 1200);
     });
 });

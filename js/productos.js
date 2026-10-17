@@ -1,29 +1,7 @@
-// 0. importamos los productos del json
 import { getAllProducts } from "./json.js";
 import { contarProductosAgregados } from "./productos/counterProducts.js";
 
-// 1. Obtener los productos estáticos del JSON
-const productsFromJSON = await getAllProducts();
-
-// 2. Obtener los productos dinámicos del LocalStorage (creados desde el CRUD) [new]
-const getLocalStorageProducts = () => {
-    const stored = localStorage.getItem("cards");
-    return stored
-        ? JSON.parse(stored).map((product) => {
-            if (product.sku != null) return product;
-
-            const { id, ...productData } = product;
-            return { ...productData, sku: id };
-        })
-        : [];  //operador ternario
-};
-// 2.5 obtenemos los productos del local storage [new]
-const productsFromStorage = getLocalStorageProducts();
-
-// 3. Unir ambos arrays en una sola lista [new]
-/**(...) Es un operador de propagación (o Spread Operator en inglés). Su función principal es "desempaquetar" o descomponer los elementos de un array (o las propiedades de un objeto) dentro de otro. para fusionar arrays de forma limpia y plana, sin crear arrays dentro de arrays sin romper el cliclo for o map */
-//const allProducts = [...productsFromJSON, ...productsFromStorage];
-export const allProducts = [...productsFromJSON, ...productsFromStorage];
+export const allProducts = await getAllProducts();
 
 // 3.5 Ubicacion donde se inyecta el js con la card dinamica
 const cards = document.querySelector("#catalogCard2");
@@ -73,6 +51,10 @@ export const renderizarProductos = (producto) => {
 // 5. Limpiamos el contenedor y mapeamos la lista unificada
 cards.innerHTML = "";
 allProducts.forEach((product) => renderizarProductos(product));
+
+if (allProducts.length === 0) {
+    cards.innerHTML = '<p class="text-center text-muted py-5">No se pudieron cargar los productos.</p>';
+}
 
 cards.addEventListener("click", (e) => {
     // target.closest busca en el DOM la clase indicada
@@ -150,8 +132,7 @@ const showInfo = function (product) {
     });
 };
 
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-console.log(cart);
+let cart = leerCarrito();
 
 //Toast para mostrar cuando se agreguen productos al carrito
 const Toast = Swal.mixin({
@@ -165,6 +146,7 @@ const Toast = Swal.mixin({
 });
 
 function addToCart(product) {
+    cart = leerCarrito();
     // Verificar si el producto ya existe en el carrito
     const productId = product.id || product.sku;
     const existingProductIndex = cart.findIndex(
@@ -185,7 +167,6 @@ function addToCart(product) {
     // Guardar el estado actualizado en localStorage
     saveCartToLocalStorage();
 
-    console.log("Carrito actualizado:", cart);
     //Muestro la alerta en pantalla
     Toast.fire({
         iconHtml: '<img src="https://www.gifsanimados.org/data/media/218/pinguino-imagen-animada-0082.gif" style="width: 40px; height: 40px; border: none;" alt="pinguino" />',
@@ -201,4 +182,6 @@ function saveCartToLocalStorage() {
     contarProductosAgregados();
 }
 
-console.log(allProducts);
+const skuSolicitado = new URLSearchParams(window.location.search).get("sku");
+const productoSolicitado = allProducts.find((item) => String(item.sku) === skuSolicitado);
+if (productoSolicitado) showInfo(productoSolicitado);

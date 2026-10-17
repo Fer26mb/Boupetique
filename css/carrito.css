@@ -213,3 +213,49 @@ justify-content: center;
     border-color: #3f5946 !important;
     color: #ffffff !important;
 }
+.ticket-linea {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+}
+
+.ticket-linea p {
+  margin-bottom: 2px;
+}
+
+.ticket-envio-nota {
+  font-size: 0.8rem;
+  color: var(--boupetique-olive);
+  margin-bottom: 6px;
+}
+
+.metodo-checkout {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #dfe5e1;
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: #ffffff;
+  color: var(--boupetique-negro-azabache);
+  cursor: pointer;
+}
+
+.metodo-checkout:has(input:checked) {
+  border-color: var(--boupetique-chocolat);
+  box-shadow: 0 0 0 2px rgba(217, 107, 39, 0.2);
+}
+
+.metodo-checkout i {
+  font-size: 1.3rem;
+  color: var(--boupetique-olive);
+}
+
+.nuevo-metodo {
+  border-left: 3px solid var(--boupetique-chocolat);
+  padding-left: 12px;
+}
+
+#user-form .form-select {
+  background-color: var(--boupetique-gris-alabastro);
+}

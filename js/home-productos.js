@@ -1,9 +1,9 @@
 // home-productos.js
 import { getFavoritos } from './mis-favoritos.js';
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     const container = document.getElementById('favoritos-container');
-    const productos = getFavoritos();
+    const productos = await getFavoritos();
 
     container.innerHTML = '';
 
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     productos.forEach(prod => {
-        const imgUrl = prod.Imagen_URL || "../assets/productos-img/default.jpeg";
+        const imgUrl = prod.Imagen_URL || "assets/productos-img/default.jpeg";
 
         const precio = new Intl.NumberFormat('es-MX', {
             style: 'currency', currency: 'MXN'
@@ -92,7 +92,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (!card) return;
 
-        // Redireccionar al catálogo
-        window.location.href = 'html/productos.html';
+        window.location.href = `html/productos.html?sku=${encodeURIComponent(card.dataset.sku)}`;
     });
 });

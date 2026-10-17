@@ -56,10 +56,10 @@
                     <!-- boton mes o año-->
                     <div class="switch-wrapper">
     <div class="switch-pill" id="switchPill"></div>
-    <button type="button" class="switch-btn active" id="monthlyBtn" onclick="setBilling('monthly')">
+    <button type="button" class="switch-btn active" id="monthlyBtn">
         Mensual
     </button>
-    <button type="button" class="switch-btn" id="yearlyBtn" onclick="setBilling('yearly')">
+    <button type="button" class="switch-btn" id="yearlyBtn">
         Anual <span class="badge-save">Ahorra 20%</span>
     </button>
 </div>
@@ -99,7 +99,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <button type="button" class="plan-btn btn-dark">Empezar gratis</button>
+                        <button type="button" class="plan-btn btn-dark" data-plan="Básico">Empezar gratis</button>
                     </div>
 
                   
@@ -136,7 +136,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <button type="button" class="plan-btn btn-dark">Elegir Premiun</button>
+                        <button type="button" class="plan-btn btn-dark" data-plan="Premium">Elegir Premium</button>
                     </div>
 
                    
@@ -174,7 +174,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <button type="button" class="plan-btn btn-light">Elegir Pro</button>
+                        <button type="button" class="plan-btn btn-light" data-plan="Pro">Elegir Pro</button>
                     </div>
                 </div>
             </div>
@@ -189,6 +189,7 @@
 
     <!-- Script de Javascript -->
     <script src="../js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../js/scriptPerrito.js"></script>
     <!-- Script de BootStrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"

@@ -1,50 +1,14 @@
-import { getProductOptions } from "./json.js";
-
-/**
- * Registro local de productos.
- * Por ahora usamos localStorage para poder probar el formulario sin una base de datos.
- */
+import { getProductOptions, mapProduct } from "./json.js";
 
 // 1. Guardamos los elementos que vamos a usar varias veces.
 const formEl = document.getElementById("productForm");
 const mainEl = document.getElementById("productosContainer");
 const formErrorEl = document.getElementById("formError");
 const cancelButtonEl = document.getElementById("btnCancel");
-const productsFromJSON = getProductOptions();
-let cards = getLocalStorage("cards");
-
-// Si localStorage no tiene una lista válida, comenzamos con una lista vacía.
-if (!Array.isArray(cards)) {
-    cards = [];
-} else {
-    const highestStaticId = Math.max(0, ...productsFromJSON.map((product) => product.id));
-    const reservedStoredIds = cards
-        .filter((product) => product.sku != null)
-        .map((product) => Number(product.id))
-        .filter((id) => Number.isSafeInteger(id) && id > highestStaticId);
-    let nextId = Math.max(highestStaticId, ...reservedStoredIds) + 1;
-    const usedIds = new Set(productsFromJSON.map((product) => product.id));
-
-    cards = cards.map((product) => {
-        const { id: storedId, ...productData } = product;
-        const sku = product.sku ?? storedId;
-        const existingId = product.sku != null ? Number(storedId) : NaN;
-
-        if (Number.isSafeInteger(existingId) && existingId > highestStaticId && !usedIds.has(existingId)) {
-            usedIds.add(existingId);
-            return { ...productData, sku, id: existingId };
-        }
-
-        while (usedIds.has(nextId)) {
-            nextId += 1;
-        }
-
-        const id = nextId;
-        nextId += 1;
-        usedIds.add(id);
-        return { ...productData, sku, id };
-    });
-}
+const productsFromJSON = await getProductOptions();
+const categorias = await fetch(`${API_URL}/categories`)
+    .then((response) => response.json())
+    .catch(() => []);
 
 // 2. Tomamos las opciones del archivo json.js para no repetirlas a mano en el HTML.
 
@@ -66,7 +30,10 @@ const sinonimosCategorias = {
 
 const sinonimosSubcategorias = {
     "Alimento Seco": ["alimento seco", "seco", " seco ", "alimento  seco", "alimento especializado", "alimento  especializado", "croquetas", "alimento"],
-    "Suplementos": ["suplemento", "suplementos", "premio", "premios", "golosina"],
+    "Suplementos": ["suplemento", "suplementos"],
+    "Premios": ["premio", "premios", "golosina", "golosinas", "snack", "snacks"],
+    "Alimento Húmedo": ["alimento húmedo", "alimento humedo", "húmedo", "humedo", "lata", "sobre"],
+    "Antiparasitarios": ["antiparasitario", "antiparasitarios", "antipulgas", "desparasitante", "pipeta"],
     "Shampoo y Aseo": ["shampoo / limpieza", "shampoo y limpieza", "limpieza", "shampoo", "champú", "baño"],
     "Higiene del Hogar": ["higiene/sanitario", "higiene y sanitario", "sanitario", "arenero", "desinfectante", "limpiador"],
     "Camas y Descanso": ["camas y descanso", "cama y descanso", "cama", "colchón", "cojín"],
@@ -143,7 +110,7 @@ const dropdownFields = {
     },
     Categoria: {
         selectId: "Categoria",
-        options: cleanOptions(productsFromJSON.map((product) => product.Categoria), sinonimosCategorias),
+        options: cleanOptions(categorias.map((categoria) => categoria.categoryName), sinonimosCategorias),
         sinonimos: sinonimosCategorias
     },
     Subcategoria: {
@@ -294,8 +261,7 @@ const validateNumbers = () => {
 
 const validateProductSku = () => {
     const skuEl = document.getElementById("sku");
-    const allRegisteredProducts = [...productsFromJSON, ...cards];
-    const repeatedSku = allRegisteredProducts.some(
+    const repeatedSku = productsFromJSON.some(
         (card) => String(card.sku).toLocaleLowerCase("es-MX") ===
             skuEl.value.trim().toLocaleLowerCase("es-MX")
     );
@@ -309,7 +275,7 @@ const validateProductSku = () => {
 };
 
 const getNextProductId = () => {
-    const ids = [...productsFromJSON, ...cards]
+    const ids = productsFromJSON
         .map((product) => Number(product.id))
         .filter((id) => Number.isSafeInteger(id) && id >= 0);
     return Math.max(0, ...ids) + 1;
@@ -336,7 +302,22 @@ formEl.querySelectorAll("input, textarea, select").forEach((fieldEl) => {
 });
 
 // 6. Validamos todo antes de guardar. Si algo falla, marcamos cada casilla incorrecta.
-formEl.addEventListener("submit", (event) => {
+const obtenerMarca = async (nombre) => {
+    const marcas = await fetch(`${API_URL}/brands`).then((response) => response.json());
+    const existente = marcas.find(
+        (marca) => marca.brandName.toLocaleLowerCase("es-MX") === nombre.toLocaleLowerCase("es-MX")
+    );
+    if (existente) return existente;
+
+    const response = await fetch(`${API_URL}/brands`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ brandName: nombre })
+    });
+    return response.json();
+};
+
+formEl.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     formEl.querySelectorAll("input:not([type='hidden']), textarea").forEach((fieldEl) => {
@@ -355,30 +336,49 @@ formEl.addEventListener("submit", (event) => {
     }
 
     formErrorEl.classList.add("d-none");
-    const id = getNextProductId();
+    const categoria = categorias.find(
+        (item) => item.categoryName === document.getElementById("Categoria").value
+    );
 
-    const cardData = {
-        id,
-        sku: document.getElementById("sku").value,
-        Nombre: document.getElementById("Nombre").value,
-        Descripcion_Producto: document.getElementById("Descripcion_Producto").value,
-        Especie: document.getElementById("Especie").value,
-        Categoria: document.getElementById("Categoria").value,
-        Subcategoria: document.getElementById("Subcategoria").value,
-        Marca: document.getElementById("Marca").value,
-        Etapa_Vida: document.getElementById("Etapa_Vida").value,
-        Tamano_Raza: document.getElementById("Tamano_Raza").value,
-        Precio_Base: Number(document.getElementById("Precio_Base").value),
-        Stock: Number(document.getElementById("Stock").value),
-        Peso_Valor: Number(document.getElementById("Peso_Valor").value),
-        Peso_Unidad: document.getElementById("Peso_Unidad").value,
-        Requiere_Receta: Number(document.getElementById("Requiere_Receta").value),
-        Imagen_URL: document.getElementById("Imagen_URL").value
-    };
+    try {
+        const marca = await obtenerMarca(document.getElementById("Marca").value);
+        const productRequest = {
+            sku: document.getElementById("sku").value,
+            title: document.getElementById("Nombre").value,
+            description: document.getElementById("Descripcion_Producto").value,
+            species: document.getElementById("Especie").value,
+            subcategory: document.getElementById("Subcategoria").value,
+            lifeStage: document.getElementById("Etapa_Vida").value,
+            breedSize: document.getElementById("Tamano_Raza").value,
+            price: Number(document.getElementById("Precio_Base").value),
+            stock: Number(document.getElementById("Stock").value),
+            weight: Number(document.getElementById("Peso_Valor").value),
+            unit: document.getElementById("Peso_Unidad").value,
+            prescription: document.getElementById("Requiere_Receta").value === "1",
+            urlImg: document.getElementById("Imagen_URL").value,
+            categoryId: categoria.id,
+            brandId: marca.brandId
+        };
 
-    cards.push(cardData);
-    setLocalStorage("cards", cards);
+        const response = await fetch(`${API_URL}/products`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(productRequest)
+        });
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+        }
+
+        productsFromJSON.push(mapProduct(await response.json()));
+    } catch (error) {
+        console.error("No fue posible guardar el producto.", error);
+        formErrorEl.classList.remove("d-none");
+        formErrorEl.focus();
+        return;
+    }
+
     renderCards();
+    resetForm();
 
     const modalElement = document.getElementById("successModal");
     if (modalElement && typeof bootstrap !== "undefined") {
@@ -386,21 +386,6 @@ formEl.addEventListener("submit", (event) => {
         bootstrapModal.show();
     }
 });
-
-// 7. Estas funciones se encargan de guardar y leer los productos locales.
-function setLocalStorage(key, value) {
-    localStorage.setItem(key, JSON.stringify(value));
-}
-
-function getLocalStorage(key) {
-    try {
-        const item = localStorage.getItem(key);
-        return item ? JSON.parse(item) : [];
-    } catch (error) {
-        console.error("No fue posible leer los productos guardados.", error);
-        return [];
-    }
-}
 
 // 8. Limpiamos el formulario y sus mensajes sin borrar los productos guardados.
 function resetForm() {
@@ -429,7 +414,7 @@ const escapeHTML = (value) => {
 
 const renderCards = () => {
     mainEl.innerHTML = "";
-    cards.forEach((product) => addProductCard(product, mainEl));
+    [...productsFromJSON].reverse().forEach((product) => addProductCard(product, mainEl));
 };
 
 const addProductCard = (product, htmlElement) => {
