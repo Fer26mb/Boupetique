@@ -1,55 +1,53 @@
 async function includePartials() {
-	const includeNodes = document.querySelectorAll("[data-include]");
-	const tasks = Array.from(includeNodes).map(async (node) => {
-		const includePath = node.getAttribute("data-include");
-		if (!includePath) {
-			return;
-		}
+  const includeNodes = document.querySelectorAll("[data-include]");
+  const tasks = Array.from(includeNodes).map(async (node) => {
+    const includePath = node.getAttribute("data-include");
+    if (!includePath) {
+      return;
+    }
 
-		const includeUrl = new URL(includePath, window.location.href);
-		try {
-			const response = await fetch(includeUrl);
-			if (!response.ok) {
-				throw new Error(`HTTP ${response.status}`);
-			}
+    const includeUrl = new URL(includePath, window.location.href);
+    try {
+      const response = await fetch(includeUrl);
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
 
-			node.innerHTML = await response.text();
-		} catch (error) {
-			console.error(`No se pudo cargar ${includePath}`, error);
-		}
-	});
+      node.innerHTML = await response.text();
+    } catch (error) {
+      console.error(`No se pudo cargar ${includePath}`, error);
+    }
+  });
 
-	await Promise.all(tasks);
+  await Promise.all(tasks);
 }
 
 function setActiveNavLink() {
-	const currentPage = document.body.dataset.page;
-	if (!currentPage) {
-		return;
-	}
+  const currentPage = document.body.dataset.page;
+  if (!currentPage) {
+    return;
+  }
 
-	const activeLink = document.querySelector(`[data-nav="${currentPage}"]`);
-	if (activeLink) {
-		activeLink.classList.add("active");
-		activeLink.setAttribute("aria-current", "page");
-	}
+  const activeLink = document.querySelector(`[data-nav="${currentPage}"]`);
+  if (activeLink) {
+    activeLink.classList.add("active");
+    activeLink.setAttribute("aria-current", "page");
+  }
 }
 
 function setGitHubPagesBasePath() {
-	const currentPath = window.location.pathname;
-	const htmlDirectory = currentPath.indexOf("/html/");
-	const siteRoot = htmlDirectory >= 0
-		? currentPath.slice(0, htmlDirectory + 1)
-		: currentPath.slice(0, currentPath.lastIndexOf("/") + 1);
+  const currentPath = window.location.pathname;
+  const htmlDirectory = currentPath.indexOf("/html/");
+  const siteRoot = htmlDirectory >= 0
+    ? currentPath.slice(0, htmlDirectory + 1)
+    : currentPath.slice(0, currentPath.lastIndexOf("/") + 1);
 
-	document.querySelectorAll('[href^="/"], [src^="/"]').forEach((element) => {
-		const attribute = element.hasAttribute("href") ? "href" : "src";
-		const path = element.getAttribute(attribute);
-		element.setAttribute(attribute, `${siteRoot}${path.slice(1)}`);
-	});
+  document.querySelectorAll('[href^="/"], [src^="/"]').forEach((element) => {
+    const attribute = element.hasAttribute("href") ? "href" : "src";
+    const path = element.getAttribute(attribute);
+    element.setAttribute(attribute, `${siteRoot}${path.slice(1)}`);
+  });
 }
-
-
 
 function initializeAutoHideHeader() {
     const header = document.getElementById("site-header");
@@ -100,8 +98,6 @@ function initializeAutoHideHeader() {
         { passive: true }
     );
 }
-
-/*aqui inicia la cajita de los precios de subscripción */
 
 function animateCount(el, start, end, duration = 300) {
     const startTime = performance.now();
@@ -161,7 +157,6 @@ function setBilling(mode) {
     });
 }
 
-
 window.setBilling = setBilling;
 
 function initializePricing() {
@@ -174,7 +169,6 @@ function initializePricing() {
     }
 }
 
-
 document.addEventListener("DOMContentLoaded", async () => {
     await includePartials();
     setGitHubPagesBasePath();
@@ -182,9 +176,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     initializeAutoHideHeader();
     initializePricing();
     setBilling("monthly");
-    initializePasswordToggle(); // 
+    initializePasswordToggle(); 
 });
-
 
 function initializePasswordToggle() {
     const toggleBtn = document.getElementById("togglePassword");
@@ -266,7 +259,6 @@ const reviewsRow2 = [
   }
 ];
 
-
 function createReviewCard(review) {
   return `
     <div class="review-card">
@@ -309,4 +301,167 @@ document.addEventListener('DOMContentLoaded', () => {
     setupTrack(track1, reviewsRow1, dirTrack1, speedTrack1);
     setupTrack(track2, reviewsRow2, dirTrack2, speedTrack2);
   }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const track = document.getElementById("track");
+    if (!track) return;
+
+    let cards = Array.from(track.querySelectorAll(".fp-card"));
+    
+    const firstClone = cards[0].cloneNode(true);
+    const lastClone = cards[cards.length - 1].cloneNode(true);
+    track.appendChild(firstClone);
+    track.insertBefore(lastClone, cards[0]);
+
+    cards = Array.from(track.querySelectorAll(".fp-card"));
+    const BLUR_AMOUNT = 7; 
+
+    function focusOf(d, blur) {
+        const a = Math.min(Math.abs(d), 1);
+        return {
+            scale: 1 - 0.14 * a,
+            blur: Math.min(Math.abs(d), 2) * blur,
+            opacity: 1 - 0.5 * a,
+            saturate: 1 - 0.45 * a,
+        };
+    }
+
+    function paint() {
+        if (!track || !cards.length) return;
+        const mid = track.scrollLeft + track.clientWidth / 2;
+        const w = cards[0].offsetWidth || 1;
+        const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const currentBlur = reduce ? 0 : BLUR_AMOUNT;
+
+        cards.forEach((c) => {
+            const center = c.offsetLeft + c.offsetWidth / 2;
+            const d = (center - mid) / w; 
+            const f = focusOf(d, currentBlur);
+
+            c.style.transform = `scale(${f.scale.toFixed(4)})`;
+            c.style.filter = f.blur > 0.05 
+                ? `blur(${f.blur.toFixed(2)}px) saturate(${f.saturate.toFixed(3)})` 
+                : "none";
+            c.style.opacity = f.opacity.toFixed(3);
+        });
+    }
+
+    function checkLoop() {
+        if (track.scrollLeft === 0) {
+            track.classList.add("dragging");
+            track.scrollLeft = cards[cards.length - 2].offsetLeft + cards[cards.length - 2].offsetWidth / 2 - track.clientWidth / 2;
+            track.classList.remove("dragging");
+        } else if (track.scrollLeft >= track.scrollWidth - track.clientWidth - 1) {
+            track.classList.add("dragging");
+            track.scrollLeft = cards[1].offsetLeft + cards[1].offsetWidth / 2 - track.clientWidth / 2;
+            track.classList.remove("dragging");
+        }
+    }
+
+    let raf = 0;
+    track.addEventListener("scroll", () => {
+        if (!raf) {
+            raf = requestAnimationFrame(() => {
+                raf = 0;
+                paint();
+                checkLoop();
+            });
+        }
+    }, { passive: true });
+
+    window.addEventListener("resize", () => {
+        requestAnimationFrame(paint);
+    });
+
+    setTimeout(() => {
+        track.classList.add("dragging");
+        track.scrollLeft = cards[1].offsetLeft + cards[1].offsetWidth / 2 - track.clientWidth / 2;
+        track.classList.remove("dragging");
+        paint();
+    }, 50);
+
+    let isDragging = false;
+    let startX;
+    let scrollLeft;
+
+    track.addEventListener("pointerdown", (e) => {
+        if (e.pointerType === "mouse" && e.button !== 0) return;
+        isDragging = true;
+        track.classList.add("dragging");
+        startX = e.pageX - track.offsetLeft;
+        scrollLeft = track.scrollLeft;
+        track.setPointerCapture(e.pointerId);
+    });
+
+    track.addEventListener("pointermove", (e) => {
+        if (!isDragging) return;
+        e.preventDefault();
+        const x = e.pageX - track.offsetLeft;
+        const walk = (x - startX);
+        track.scrollLeft = scrollLeft - walk;
+    });
+
+    const stopDragging = () => {
+        isDragging = false;
+        track.classList.remove("dragging");
+    };
+
+    track.addEventListener("pointerup", stopDragging);
+    track.addEventListener("pointercancel", stopDragging);
+
+
+    let autoplayTimer;
+    let currentIndex = 1;
+
+    function getActiveIndex() {
+        const mid = track.scrollLeft + track.clientWidth / 2;
+        let closest = 0;
+        let minDiff = Infinity;
+        cards.forEach((c, i) => {
+            const center = c.offsetLeft + c.offsetWidth / 2;
+            const diff = Math.abs(center - mid);
+            if (diff < minDiff) {
+                minDiff = diff;
+                closest = i;
+            }
+        });
+        return closest;
+    }
+
+    function step(direction) {
+        let active = getActiveIndex();
+        currentIndex = active + direction;
+        
+        if (currentIndex < 0) currentIndex = 0;
+        if (currentIndex >= cards.length) currentIndex = cards.length - 1;
+        
+        const card = cards[currentIndex];
+        track.scrollTo({
+            left: card.offsetLeft + card.offsetWidth / 2 - track.clientWidth / 2,
+            behavior: "smooth"
+        });
+        
+        resetAutoplay();
+    }
+
+    const prevBtn = document.getElementById("fp-prev");
+    const nextBtn = document.getElementById("fp-next");
+
+    if (prevBtn) prevBtn.addEventListener("click", () => step(-1));
+    if (nextBtn) nextBtn.addEventListener("click", () => step(1));
+
+    function startAutoplay() {
+        autoplayTimer = setInterval(() => {
+            if (isDragging || !track || !cards.length) return;
+            step(1);
+        }, 4500);
+    }
+
+    function resetAutoplay() {
+        clearInterval(autoplayTimer);
+        startAutoplay();
+    }
+
+    startAutoplay();
 });
