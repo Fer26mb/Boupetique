@@ -250,3 +250,29 @@ function actualizarFechaHora() {
 
 //Cuando veamos el ticket por primera vez se cargará la fecha y hora al entrar.
 window.onload = actualizarFechaHora;
+
+
+/*
+! 
+*/
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const deliveryInputs = document.querySelectorAll("#user-form .form-control");
+
+    // Escuchar cada vez que el usuario escribe en los campos de entrega
+    deliveryInputs.forEach(input => {
+        input.addEventListener("input", () => {
+            // checkValidity() verifica si el input cumple con el atributo 'required' y su tipo (email, text, etc.)
+            if (input.checkValidity()) {
+                input.classList.remove("is-invalid");
+                input.classList.add("is-valid");
+            } else {
+                input.classList.remove("is-valid");
+                input.classList.add("is-invalid");
+            }
+        });
+    });
+});
+
