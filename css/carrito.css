@@ -100,3 +100,116 @@ justify-content: center;
   background-color: #315c43;
   border-color: #315c43;
 }
+
+
+/*!---------------------*/
+/* =========================================================
+   ESTILOS Y VALIDACIÓN DEL FORMULARIO DE ENTREGA (CARRITO)
+   ========================================================= */
+
+/* Estilo base de los inputs */
+#user-form .form-control {
+    background-color: var(--boupetique-gris-alabastro, #d9e1de) !important;
+    border: 2px solid transparent;
+    border-radius: 12px !important;
+    color: var(--boupetique-negro-azabache, #2f3a3d);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Mantener el fondo siempre claro al enfocar/escribir */
+#user-form .form-control:focus {
+    background-color: var(--boupetique-gris-alabastro, #d9e1de) !important;
+    box-shadow: none;
+}
+
+/* --- ESTADO INVÁLIDO (Borde rojo) --- */
+#user-form .form-control.is-invalid {
+    border-color: #dc3545 !important;
+    background-color: var(--boupetique-gris-alabastro, #d9e1de) !important;
+}
+
+/* --- ESTADO VÁLIDO (Borde verde + Palomita) --- */
+#user-form .form-control.is-valid {
+    border-color: #198754 !important;
+    background-color: var(--boupetique-gris-alabastro, #d9e1de) !important;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 12px center !important;
+    background-size: 16px 16px !important;
+    padding-right: 40px;
+}
+
+/* Estilo del botón naranja */
+.btn-naranja {
+    background-color: #d96b27 !important;
+    border-color: #d96b27 !important;
+    border-radius: 12px !important;
+    font-weight: 600;
+}
+
+.btn-naranja:hover {
+    background-color: #be5b1d !important;
+    border-color: #be5b1d !important;
+}
+/* =========================================================
+   ESTILOS DE VALIDACIÓN OPTIMIZADOS (CONTACTO Y CARRITO)
+   ========================================================= */
+
+/* Fondo verdoso compartido para todos los estados del input */
+#user-form .form-control,
+#user-form .form-control:focus,
+#user-form .form-control.is-valid,
+#user-form .form-control.is-invalid {
+    background-color: var(--boupetique-gris-alabastro, #d9e1de) !important;
+}
+
+/* Estilo base de los inputs */
+#user-form .form-control {
+    border: 2px solid transparent !important;
+    border-radius: 16px !important;
+    padding: 12px 18px !important;
+    color: var(--boupetique-negro-azabache, #2f3a3d) !important;
+    transition: all 0.25s ease-in-out;
+}
+
+/* Color de borde al enfocar */
+#user-form .form-control:focus {
+    border-color: var(--boupetique-olive, #3f5946) !important;
+    box-shadow: none !important;
+}
+
+/* --- ESTADO VÁLIDO: Borde Verde + Palomita --- */
+#user-form .form-control.is-valid {
+    border-color: #81c784 !important;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%233f5946' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 16px center !important;
+    background-size: 16px 16px !important;
+    padding-right: 44px !important;
+}
+
+/* --- ESTADO INVÁLIDO: Borde Rojo + Exclamación --- */
+#user-form .form-control.is-invalid {
+    border-color: #ff6b6b !important;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ff6b6b'%3e%3cpath d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z'/%3e%3cpath d='M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z'/%3e%3c/svg%3e") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 16px center !important;
+    background-size: 18px 18px !important;
+    padding-right: 44px !important;
+}
+
+/* Estado normal del botón de envío en el carrito */
+.btn-naranja {
+    background-color: #d96b27 !important;
+    border-color: #d96b27 !important;
+    border-radius: 12px !important;
+    font-weight: 600;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Efecto hover: pasa a color verde corporativo al colocar el puntero */
+.btn-naranja:hover {
+    background-color: #3f5946 !important; /* Color verde oliva institucional de Boupetique */
+    border-color: #3f5946 !important;
+    color: #ffffff !important;
+}
