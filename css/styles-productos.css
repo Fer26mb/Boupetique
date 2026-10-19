@@ -181,3 +181,24 @@ body[data-page="productos"] main > .inicio {
     color: #ffffff !important;
     border: none !important;
 }
+.active-filter-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    border: 1px solid var(--boupetique-olive-clear);
+    background: #ffffff;
+    color: var(--boupetique-olive);
+    border-radius: 999px;
+    padding: 4px 12px;
+    font-size: 0.85rem;
+}
+
+.active-filter-tag:hover {
+    background: var(--boupetique-olive);
+    color: #ffffff;
+}
+
+#catalogTitle {
+    font-family: var(--font-titulo);
+    color: var(--boupetique-olive);
+}

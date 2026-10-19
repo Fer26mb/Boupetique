@@ -1,3 +1,8 @@
+const API_URL =
+  location.port === "8000" || location.hostname.endsWith(".trycloudflare.com")
+    ? "/api"
+    : "http://localhost:8080/api";
+
 async function includePartials() {
   const includeNodes = document.querySelectorAll("[data-include]");
   const tasks = Array.from(includeNodes).map(async (node) => {
@@ -35,12 +40,180 @@ function setActiveNavLink() {
   }
 }
 
-function setGitHubPagesBasePath() {
+function getSiteRoot() {
   const currentPath = window.location.pathname;
   const htmlDirectory = currentPath.indexOf("/html/");
-  const siteRoot = htmlDirectory >= 0
+  return htmlDirectory >= 0
     ? currentPath.slice(0, htmlDirectory + 1)
     : currentPath.slice(0, currentPath.lastIndexOf("/") + 1);
+}
+
+function sitePath(path) {
+  return `${getSiteRoot()}${path.replace(/^\//, "")}`;
+}
+
+function escaparHTML(value) {
+  const temporaryEl = document.createElement("div");
+  temporaryEl.textContent = String(value ?? "");
+  return temporaryEl.innerHTML;
+}
+
+function formatoMXN(valor) {
+  return new Intl.NumberFormat("es-MX", { style: "currency", currency: "MXN" }).format(Number(valor) || 0);
+}
+
+function getSession() {
+  try {
+    return JSON.parse(localStorage.getItem("userSession"));
+  } catch {
+    return null;
+  }
+}
+
+function guardarSesion(usuario) {
+  localStorage.setItem("userSession", JSON.stringify({
+    id: usuario.id,
+    userName: usuario.userName,
+    email: usuario.email
+  }));
+}
+
+function cerrarSesion() {
+  localStorage.removeItem("userSession");
+  if (document.body.dataset.page === "cuenta") {
+    window.location.href = sitePath("/index.html");
+  } else {
+    window.location.reload();
+  }
+}
+
+function rutaActual() {
+  const ruta = window.location.pathname.slice(getSiteRoot().length) || "index.html";
+  return `${ruta}${window.location.search}${window.location.hash}`;
+}
+
+function loginUrl(modo) {
+  const params = new URLSearchParams();
+  if (document.body.dataset.page !== "login") params.set("redirect", rutaActual());
+  if (modo === "registro") params.set("modo", "registro");
+  const query = params.toString();
+  return sitePath(`/html/login.html${query ? `?${query}` : ""}`);
+}
+
+function destinoTrasLogin() {
+  const destino = new URLSearchParams(window.location.search).get("redirect") || "";
+  return /^(index\.html|html\/[\w-]+\.html)([?#][\w=&#%.-]*)?$/.test(destino) ? destino : "index.html";
+}
+
+function renderUserSession() {
+  const session = getSession();
+  const accountMenu = document.getElementById("accountMenu");
+  const avatar = document.getElementById("accountAvatar");
+  const greeting = document.getElementById("accountGreeting");
+  if (!accountMenu || !avatar || !greeting) {
+    return;
+  }
+
+  if (!session?.id) {
+    avatar.innerHTML = '<i class="bi bi-person"></i>';
+    greeting.textContent = "Entrar";
+    accountMenu.innerHTML = `
+      <a href="${loginUrl()}" class="btn btn-boupetique w-100 fw-semibold mb-2">Inicia sesión</a>
+      <p class="text-center small text-muted mb-0">
+        ¿Nuevo en Boupetique? <a href="${loginUrl("registro")}" class="fw-semibold text-boupetique">Regístrate</a>
+      </p>
+    `;
+    return;
+  }
+
+  const nombre = escaparHTML(session.userName);
+  avatar.textContent = String(session.userName || "?").charAt(0).toUpperCase();
+  greeting.textContent = `Hola, ${session.userName}`;
+  accountMenu.innerHTML = `
+    <div class="account-header">
+      <p class="fw-semibold mb-0">${nombre}</p>
+      <p class="small text-muted mb-0 text-truncate">${escaparHTML(session.email)}</p>
+    </div>
+    <a class="dropdown-item" href="${sitePath("/html/cuenta.html#perfil")}"><i class="bi bi-person-circle"></i> Mi cuenta</a>
+    <a class="dropdown-item" href="${sitePath("/html/cuenta.html#mascotas")}"><i class="bi bi-heart"></i> Mis mascotas</a>
+    <a class="dropdown-item" href="${sitePath("/html/cuenta.html#pedidos")}"><i class="bi bi-bag-check"></i> Mis pedidos</a>
+    <a class="dropdown-item" href="${sitePath("/html/cuenta.html#pagos")}"><i class="bi bi-credit-card"></i> Métodos de pago</a>
+    <hr class="dropdown-divider">
+    <button type="button" class="dropdown-item text-danger" id="btnLogout"><i class="bi bi-box-arrow-right text-danger"></i> Cerrar sesión</button>
+  `;
+  document.getElementById("btnLogout").addEventListener("click", cerrarSesion);
+}
+
+const ENVIO_GRATIS_DESDE = 899;
+
+function leerCarrito() {
+  try {
+    return JSON.parse(localStorage.getItem("cart")) || [];
+  } catch {
+    return [];
+  }
+}
+
+function renderCartIndicator() {
+  const countEl = document.getElementById("cartCount");
+  const totalEl = document.getElementById("cartTotalPreview");
+  const miniCart = document.getElementById("miniCart");
+  if (!countEl || !totalEl || !miniCart) {
+    return;
+  }
+
+  const cart = leerCarrito();
+  const piezas = cart.reduce((sum, item) => sum + (Number(item.quantity) || 0), 0);
+  const total = cart.reduce((sum, item) => sum + (Number(item.Precio_Base) || 0) * (Number(item.quantity) || 0), 0);
+
+  countEl.textContent = piezas > 9 ? "9+" : String(piezas);
+  countEl.classList.toggle("d-none", piezas === 0);
+  totalEl.textContent = formatoMXN(total);
+  totalEl.classList.toggle("d-none", piezas === 0);
+  totalEl.classList.toggle("d-lg-inline", piezas > 0);
+
+  if (cart.length === 0) {
+    miniCart.innerHTML = `
+      <div class="mini-cart-content text-center">
+        <p class="mb-2">Tu carrito está vacío</p>
+        <a href="${sitePath("/html/productos.html")}" class="btn btn-boupetique btn-sm w-100">Ver productos</a>
+      </div>
+    `;
+    return;
+  }
+
+  const items = cart.slice(0, 3).map((item) => `
+    <div class="mini-cart-item">
+      <img src="${escaparHTML(item.Imagen_URL || sitePath("/assets/productos-img/default.jpeg"))}" alt="">
+      <div class="flex-grow-1">
+        <div class="mini-cart-name">${escaparHTML(item.Nombre)}</div>
+        <small class="text-muted">${item.quantity} × ${formatoMXN(item.Precio_Base)}</small>
+      </div>
+    </div>
+  `).join("");
+  const restantes = cart.length - 3;
+  const faltante = ENVIO_GRATIS_DESDE - total;
+
+  miniCart.innerHTML = `
+    <div class="mini-cart-content">
+      ${items}
+      ${restantes > 0 ? `<p class="small text-muted mb-1">y ${restantes} producto${restantes > 1 ? "s" : ""} más</p>` : ""}
+      <div class="d-flex justify-content-between fw-semibold border-top pt-2 mt-1">
+        <span>Subtotal (${piezas} pza${piezas > 1 ? "s" : ""})</span><span>${formatoMXN(total)}</span>
+      </div>
+      <p class="mini-cart-envio mb-2">${faltante > 0 ? `Te faltan ${formatoMXN(faltante)} para envío gratis` : "¡Tienes envío gratis!"}</p>
+      <a href="${sitePath("/html/carrito.html")}" class="btn btn-boupetique btn-sm w-100">Ver carrito</a>
+    </div>
+  `;
+}
+
+window.addEventListener("storage", (e) => {
+  if (e.key === "cart") renderCartIndicator();
+  if (e.key === "userSession") renderUserSession();
+});
+
+function setGitHubPagesBasePath() {
+  const siteRoot = getSiteRoot();
 
   document.querySelectorAll('[href^="/"], [src^="/"]').forEach((element) => {
     const attribute = element.hasAttribute("href") ? "href" : "src";
@@ -167,12 +340,30 @@ function initializePricing() {
         monthlyBtn.addEventListener("click", () => setBilling("monthly"));
         yearlyBtn.addEventListener("click", () => setBilling("yearly"));
     }
+
+    document.querySelectorAll("[data-plan]").forEach((boton) => {
+        boton.addEventListener("click", () => {
+            const plan = boton.dataset.plan;
+            if (plan === "Básico") {
+                window.location.href = getSession()?.id ? sitePath("/html/cuenta.html") : loginUrl("registro");
+                return;
+            }
+            Swal.fire({
+                icon: "info",
+                title: "¡Muy pronto!",
+                text: `El plan ${plan} estará disponible muy pronto. Te avisaremos por correo cuando puedas suscribirte.`,
+                confirmButtonColor: "#d96b27"
+            });
+        });
+    });
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
     await includePartials();
+    renderUserSession();
     setGitHubPagesBasePath();
     setActiveNavLink();
+    renderCartIndicator();
     initializeAutoHideHeader();
     initializePricing();
     setBilling("monthly");
@@ -311,6 +502,10 @@ document.addEventListener("DOMContentLoaded", () => {
     
     const firstClone = cards[0].cloneNode(true);
     const lastClone = cards[cards.length - 1].cloneNode(true);
+    [firstClone, lastClone].forEach((clone) => {
+        clone.setAttribute("tabindex", "-1");
+        clone.setAttribute("aria-hidden", "true");
+    });
     track.appendChild(firstClone);
     track.insertBefore(lastClone, cards[0]);
 
@@ -382,14 +577,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 50);
 
     let isDragging = false;
+    let moved = false;
     let startX;
+    let startClientX;
     let scrollLeft;
 
     track.addEventListener("pointerdown", (e) => {
         if (e.pointerType === "mouse" && e.button !== 0) return;
         isDragging = true;
+        moved = false;
         track.classList.add("dragging");
         startX = e.pageX - track.offsetLeft;
+        startClientX = e.clientX;
         scrollLeft = track.scrollLeft;
         track.setPointerCapture(e.pointerId);
     });
@@ -397,9 +596,27 @@ document.addEventListener("DOMContentLoaded", () => {
     track.addEventListener("pointermove", (e) => {
         if (!isDragging) return;
         e.preventDefault();
+        if (Math.abs(e.clientX - startClientX) > 5) moved = true;
         const x = e.pageX - track.offsetLeft;
         const walk = (x - startX);
         track.scrollLeft = scrollLeft - walk;
+    });
+
+    track.addEventListener("click", (e) => {
+        if (moved) return;
+        const card = document.elementFromPoint(e.clientX, e.clientY)?.closest(".fp-card");
+        if (!card?.dataset.href) return;
+        const index = cards.indexOf(card);
+        if (index !== getActiveIndex()) {
+            step(index - getActiveIndex());
+            return;
+        }
+        window.location.href = card.dataset.href;
+    });
+
+    track.addEventListener("keydown", (e) => {
+        const card = e.target.closest(".fp-card");
+        if (e.key === "Enter" && card?.dataset.href) window.location.href = card.dataset.href;
     });
 
     const stopDragging = () => {

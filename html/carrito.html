@@ -11,7 +11,7 @@
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Carrito</title>
+    <title>Boupetique - Carrito</title>
     <link rel="icon" type="image/png" href="../assets/logo-img/pinguino.png">
 </head>
 
@@ -30,28 +30,25 @@
         <div class="techo-banner"></div>
     </header>
 
-    <main class="p-3">
+    <main class="p-3 flex-grow-1">
         <section class="row">
 
             <!-- Sección del carrito con los productos seleccionados -->
             <section class="col-12 col-md-6  p-4 mt-4">
-                <!-- <h1 class="text-center">Carrito</h1> -->
                 <div id="cartItemsContainer" class="row g-3"></div>
-                <!-- <div class="mt-4 p-3 bg-light rounded-4">
-                    <h4>Total: $<span id="cartTotal">0.00</span></h4>
-                    <button id="btnClearCart" class="btn btn-outline-danger btn-sm mt-2">Vaciar Carrito</button>
-                </div> -->
+                <div class="text-end mt-3">
+                    <button type="button" id="btnClearCart" class="btn btn-outline-danger btn-sm d-none">
+                        <i class="bi bi-trash"></i> Vaciar carrito
+                    </button>
+                </div>
             </section>
-    
-    
+
+
             <section class="col-12 col-md-6 cart-section">
-    
-                <!-- Resumen del pedido y formulario de entrega 
-                
-                        <h1 class="cart-title">Ticket de venta</h1> -->
+
                 <!-- Resumen del pedido y formulario de entrega -->
                 <div id="payment-container" class="m-0 p-0 rounded p-4 m-4">
-    
+
                     <div class="receipt">
                         <p class="shop-name">Ticket de venta</p>
 
@@ -61,7 +58,7 @@
                         Fecha: <span id="ticketFecha"></span><br />
                         Hora: <span id="ticketHora"></span>
                        </p>
-    
+
                         <table>
                             <thead>
                                 <tr>
@@ -74,24 +71,33 @@
                                 <!-- Aquí se agregarán los productos del carrito dinámicamente -->
                             </tbody>
                         </table>
-    
+
+                        <div class="ticket-linea">
+                            <p>Subtotal:</p>
+                            <p id="ticketSubtotal">$0.00</p>
+                        </div>
+                        <div class="ticket-linea">
+                            <p>Envío:</p>
+                            <p id="ticketEnvio">$0.00</p>
+                        </div>
+                        <p class="ticket-envio-nota" id="ticketEnvioNota"></p>
                         <div class="total">
                             <p>Total:</p>
-                            <p>$<span id="cartTotal">0.00</span> MXN</p>
+                            <p><span id="cartTotal">$0.00</span> MXN</p>
                         </div>
                         <div class="d-flex justify-content-center gap-3" id="submit-btns">
                             <button type="button" class="btn btn-dark p-3 btn-change-option" id="btn-pagar" data-action="Pagar">Pagar</button>
                             <button type="button" class="btn btn-danger p-3 btn-change-option d-none" id="btn-cancelar" data-action="Cancelar">Cancelar</button>
                         </div>
                         <p class="thanks">¡ Muchas Gracias por comprar con nosotros !</p>
- 
+
 <div id="user-form" class="hide">
     <!-- Formulario para introducir los datos de entrega -->
     <h3 class="text fw-bold mb-3">Datos de entrega</h3>
 
     <!-- Añadimos la clase .form para darle el estilo de tarjeta y fondo -->
     <div class="form p-4 shadow-sm">
-        <form>
+        <form id="checkoutForm" novalidate>
             <div class="mb-3">
                 <label for="email" class="form-label">Correo electrónico</label>
                 <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
@@ -105,34 +111,81 @@
             <div class="mb-3">
                 <label for="direccion" class="form-label">Dirección</label>
                 <input type="text" class="form-control" id="direccion" name="address"
-                    placeholder="Escribe tu dirección" required>
+                    placeholder="Calle, número, colonia, CP" required>
+            </div>
+
+            <h4 class="h6 fw-bold mt-4 mb-2">Método de pago</h4>
+            <div id="metodosPagoCheckout" class="d-flex flex-column gap-2 mb-3"></div>
+
+            <div id="nuevoMetodo" class="nuevo-metodo d-none">
+                <div class="mb-3">
+                    <label for="nmTipo" class="form-label">Tipo</label>
+                    <select class="form-select" id="nmTipo">
+                        <option value="Tarjeta">Tarjeta de crédito o débito</option>
+                        <option value="PayPal">PayPal</option>
+                        <option value="OXXO">Pago en efectivo OXXO</option>
+                    </select>
+                </div>
+                <div data-nm-tipo="Tarjeta">
+                    <div class="mb-3">
+                        <label for="nmTitular" class="form-label">Titular</label>
+                        <input type="text" class="form-control" id="nmTitular" autocomplete="cc-name">
+                        <div class="invalid-feedback">Escribe el nombre como aparece en la tarjeta.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="nmNumero" class="form-label">Número de tarjeta</label>
+                        <input type="text" class="form-control" id="nmNumero" inputmode="numeric" autocomplete="cc-number"
+                            placeholder="1234 5678 9012 3456">
+                        <div class="invalid-feedback">Número de tarjeta no válido (Visa, Mastercard o Amex).</div>
+                    </div>
+                    <div class="row g-2 mb-3">
+                        <div class="col-6">
+                            <label for="nmVencimiento" class="form-label">Vence</label>
+                            <input type="text" class="form-control" id="nmVencimiento" inputmode="numeric" placeholder="MM/AA" autocomplete="cc-exp">
+                            <div class="invalid-feedback">Fecha MM/AA vigente.</div>
+                        </div>
+                        <div class="col-6">
+                            <label for="nmCvv" class="form-label">CVV</label>
+                            <input type="password" class="form-control" id="nmCvv" inputmode="numeric" maxlength="4" autocomplete="cc-csc">
+                            <div class="invalid-feedback">3 o 4 dígitos.</div>
+                        </div>
+                    </div>
+                </div>
+                <div data-nm-tipo="PayPal" class="mb-3">
+                    <label for="nmPaypalEmail" class="form-label">Correo de PayPal</label>
+                    <input type="email" class="form-control" id="nmPaypalEmail">
+                    <div class="invalid-feedback">Escribe un correo válido.</div>
+                </div>
+                <p data-nm-tipo="OXXO" class="small mb-3">Recibirás tu referencia de pago por correo para pagar en cualquier OXXO.</p>
+                <div class="form-check mb-3" id="guardarMetodoGrupo">
+                    <input class="form-check-input" type="checkbox" id="guardarMetodo">
+                    <label class="form-check-label" for="guardarMetodo">Guardar este método para mis próximas compras</label>
+                </div>
             </div>
 
             <div class="d-flex justify-content-center gap-3 mt-4" id="shipping-btns">
                 <!-- Botón de enviar con estilo naranja -->
                 <button type="button"
                     class="btn btn-naranja p-3 btn-change-option text-white w-100"
-                    data-action="Enviar">Enviar</button>
+                    data-action="Enviar">Confirmar compra</button>
             </div>
         </form>
     </div>
 </div>
-                        </div>
                     </div>
                 </div>
             </section>
         </section>
     </main>
 
-
-
+    <footer id="site-footer" class="text-light py-5" data-include="../partials/footer.html"></footer>
 
     <!-- Scripts para cargar el carrito y gestionar sus acciones -->
     <script src="../js/app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    <script type="module" src="../js/carrito.js"></script>
     <!-- Scripts SweetAlert-->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" src="../js/carrito.js"></script>
 </body>
 
 </html>

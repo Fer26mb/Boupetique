@@ -1,0 +1,186 @@
+.cuenta-card {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(63, 89, 70, 0.08);
+}
+
+.cuenta-titulo {
+    font-family: var(--font-titulo);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--boupetique-olive);
+    margin-bottom: 1rem;
+}
+
+.cuenta-avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--boupetique-chocolat);
+    color: #ffffff;
+    font-family: "Poppins", sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.cuenta-tabs {
+    gap: 6px;
+    overflow-x: auto;
+}
+
+.cuenta-tabs .nav-link {
+    color: var(--boupetique-negro-azabache) !important;
+    font-weight: 500;
+    background: #ffffff;
+    border-radius: 12px;
+    text-align: left;
+    white-space: nowrap;
+    padding: 10px 14px;
+}
+
+.cuenta-tabs .nav-link i {
+    width: 22px;
+    color: var(--boupetique-olive);
+}
+
+.cuenta-tabs .nav-link.active {
+    background: var(--boupetique-olive);
+    color: #ffffff !important;
+}
+
+.cuenta-tabs .nav-link.active i,
+.cuenta-tabs .nav-link.active i.fa-solid {
+    color: #ffffff !important;
+}
+
+.mascota-card .btn,
+.metodo-pago .btn {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    border: 1px solid currentColor;
+    white-space: nowrap;
+}
+
+.mascota-icono i.fa-solid {
+    color: var(--boupetique-chocolat) !important;
+}
+
+#perfil .form-control,
+.cuenta-modal .form-control,
+.cuenta-modal .form-select {
+    background-color: #f7f9f8;
+}
+
+.btn-naranja-cuenta {
+    background: var(--boupetique-chocolat);
+    color: #ffffff;
+    border-radius: 999px;
+    padding: 6px 16px;
+    white-space: nowrap;
+}
+
+.btn-naranja-cuenta:hover {
+    background: var(--boupetique-olive);
+    color: #ffffff;
+}
+
+.mascota-card {
+    border: 1px solid #e7ece9;
+    border-radius: 18px;
+    padding: 18px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.mascota-icono {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--boupetique-cremita);
+    color: var(--boupetique-chocolat);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+}
+
+.mascota-dato {
+    font-size: 0.85rem;
+    color: #5f6b66;
+}
+
+#pedidosAccordion .accordion-item {
+    border: 1px solid #e7ece9;
+    border-radius: 16px !important;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+#pedidosAccordion .accordion-button:not(.collapsed) {
+    background: var(--boupetique-cremita);
+    color: var(--boupetique-negro-azabache);
+    box-shadow: none;
+}
+
+.pedido-item img {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+    border-radius: 10px;
+    background: #f7f7f7;
+}
+
+.estado-pedido {
+    font-size: 0.75rem;
+    border-radius: 999px;
+    padding: 4px 10px;
+    font-weight: 600;
+}
+
+.estado-ENTREGADO { background: #d1e7dd; color: #0f5132; }
+.estado-ENVIADO { background: #cff4fc; color: #055160; }
+.estado-PAGADO { background: #e2ebe4; color: var(--boupetique-olive); }
+.estado-PENDIENTE { background: #fff3cd; color: #664d03; }
+.estado-CANCELADO { background: #e9ecef; color: #495057; }
+
+.metodo-pago {
+    border: 1px solid #e7ece9;
+    border-radius: 16px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.metodo-pago .metodo-icono {
+    font-size: 1.8rem;
+    color: var(--boupetique-olive);
+}
+
+.badge-predeterminado {
+    background: var(--boupetique-chocolat);
+    color: #ffffff;
+    font-size: 0.7rem;
+    border-radius: 999px;
+    padding: 3px 8px;
+}
+
+.cuenta-vacio {
+    text-align: center;
+    padding: 32px 12px;
+    color: #6c757d;
+}
+
+.cuenta-vacio i {
+    font-size: 2.4rem;
+    color: var(--boupetique-olive-clear);
+    display: block;
+    margin-bottom: 8px;
+}

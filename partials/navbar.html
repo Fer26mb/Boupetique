@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../css/styles-btn-cuenta.css">
     <div class="container-fluid">
-        <a id="logo-home" class="navbar-brand d-none d-lg-flex align-items-center gap-2" href="/index.html">
-            <!-- <img src="/assets/logo-img/logo-boupetique.png" alt="Logo Boupetique" width="40" height="40" class="rounded-2 shadow-sm object-fit-cover"> -->
+        <a id="logo-home" class="navbar-brand d-none d-lg-flex align-items-center gap-2 order-lg-0" href="/index.html">
             <img src="/assets/logo-img/logo-boupetique.png" alt="Boupetique" height="40" class="d-inline-block">
             <span class="fw-semibold fs-5 text-white">Boupetique</span>
         </a>
@@ -22,8 +21,35 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
         </div>
-        <div class="collapse navbar-collapse" id="navbarScroll">
-            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+
+        <div class="nav-actions d-flex align-items-center gap-3 ms-auto order-lg-2">
+            <div class="nav-cart" id="navCart">
+                <a href="/html/carrito.html" class="cart-icon" data-nav="carrito" aria-label="Carrito">
+                    <i class="bi bi-cart4"></i>
+                    <span id="cartCount" class="cart-count-badge d-none"></span>
+                </a>
+                <span id="cartTotalPreview" class="cart-total-preview d-none"></span>
+                <div id="miniCart" class="mini-cart"></div>
+            </div>
+
+            <div class="dropdown" id="accountDropdown">
+                <a class="account-toggle dropdown-toggle" href="#" id="navbarDropdownAccount" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="account-avatar" id="accountAvatar"><i class="bi bi-person"></i></span>
+                    <span class="account-greeting d-none d-md-inline" id="accountGreeting">Entrar</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-end custom-account-card p-3 shadow-sm border-0"
+                    id="accountMenu" aria-labelledby="navbarDropdownAccount">
+                    <a href="/html/login.html" class="btn btn-boupetique w-100 fw-semibold mb-2">Inicia Sesión</a>
+                    <p class="text-center small text-muted mb-0">
+                        ¿Nuevo en Boupetique? <a href="/html/login.html?modo=registro" class="fw-semibold text-boupetique">Regístrate</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="collapse navbar-collapse order-lg-1" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0">
                 <li class="nav-item">
                     <a class="nav-link" data-nav="inicio" href="/index.html">Inicio</a>
                 </li>
@@ -36,45 +62,10 @@
                 <li class="nav-item">
                     <a class="nav-link" data-nav="contacto" href="/html/contacto.html">Contacto</a>
                 </li>
-                <!--
-                <li class="nav-item">
-                    <a class="nav-link" data-nav="login" href="/html/login.html">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-nav="registro" href="/html/registro.html">Registro</a>
-                </li>
-                 -->
-                <li class="nav-item dropdown ">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAccount" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <span>Tu cuenta</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-end custom-account-card p-3 shadow-sm border-0" aria-labelledby="navbarDropdownAccount">
-                        <a href="/html/login.html" class="btn btn-boupetique w-100 fw-semibold mb-2">Inicia Sesión</a>
-                        <p class="text-center small text-muted mb-0">
-                            ¿Nuevo en Boupetique? <a href="/html/registro.html" class="fw-semibold text-boupetique">Regístrate</a>
-                        </p>
-                    </div>
-                </li>
-                
                 <li class="nav-item">
                     <a class="nav-link" data-nav="proximamente" href="/html/proximamente.html">Próximamente</a>
-                    <!--
-                    <a class="nav-link" data-nav="proximamente" href="#" target="_blank" rel="noopener noreferrer">
-                        Proximamente
-                    </a>
-                    -->
                 </li>
             </ul>
-            <form class="d-flex" role="search">
-                <!-- <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search" />
-                <button class="btn btn-mi-color" type="submit">Buscar</button> -->
-                <!----Se agrega simbolo de carrito se podria meter un coontador????  -->
-                <a href="/html/carrito.html" class="cart-icon position-relative d-inline-block" data-nav="carrito">
-                    <i class="bi bi-cart4 text-white fs-4"></i>
-                    <small id="contado"></small>
-                </a>
-            </form>
         </div>
     </div>
  </nav>
- 
