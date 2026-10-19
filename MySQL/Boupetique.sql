@@ -94,7 +94,6 @@ product_id INT NOT NULL,
 PRIMARY KEY (detail_order_id, product_id),
 FOREIGN KEY (detail_order_id) REFERENCES orders(order_id),
 FOREIGN KEY (product_id) REFERENCES products(product_id),
-state VARCHAR(100) NOT NULL,
 quantity INT NOT NULL,
 unit_price_historical INT  
 );
@@ -182,17 +181,17 @@ VALUES
 (9, 'BankTransfer', 3200.00);
 
 -- tabla product_details
-INSERT INTO product_details (detail_order_id, product_id, state, quantity, unit_price_historical) 
-VALUES (1, 3, 'Entregado', 1, 850),
-(1, 7, 'Enviado', 2, 450), 
-(3, 3, 'Enviado', 1, 150), 
-(2, 5, 'Procesando', 3, 850), 
-(2, 4, 'Procesando', 1, 200), 
-(3, 5, 'Entregado', 4, 50), 
-(4, 4, 'Cancelado', 1, 450), 
-(4, 6, 'Cancelado', 2, 120), 
-(5, 7, 'Entregado', 1, 900), 
-(5, 8, 'Entregado', 5, 30);
+INSERT INTO product_details (detail_order_id, product_id, quantity, unit_price_historical) 
+VALUES (1, 3, 1, 850),
+(1, 7, 2, 450), 
+(3, 3, 1, 150), 
+(2, 5, 3, 850), 
+(2, 4, 1, 200), 
+(3, 5, 4, 50), 
+(4, 4, 1, 450), 
+(4, 6, 2, 120), 
+(5, 7, 1, 900), 
+(5, 8, 5, 30);
 
 -- CONSULTAS
 SELECT product_id, title
