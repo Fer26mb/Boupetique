@@ -18,7 +18,15 @@ async function includePartials() {
         throw new Error(`HTTP ${response.status}`);
       }
 
-      node.innerHTML = await response.text();
+      const partial = document.createElement("template");
+      partial.innerHTML = await response.text();
+      partial.content.querySelectorAll('link[href^="../"]').forEach((link) => {
+        const href = link.getAttribute("href");
+        if (href) {
+          link.setAttribute("href", new URL(href, includeUrl).href);
+        }
+      });
+      node.replaceChildren(partial.content);
     } catch (error) {
       console.error(`No se pudo cargar ${includePath}`, error);
     }
