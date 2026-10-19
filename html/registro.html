@@ -27,10 +27,9 @@
         <div class="techo-banner"></div>
     </header>
 
-    <main class="flex-grow-1">
-        <section class="inicio">
-            <!-- Inicio de registro de usuario  -->
-            <br>
+<main class="container my-4">              <!-- Inicio de registro de usuario Main repetido abajo  -->
+     <!-- Añadimos 'container' para dar márgenes automáticos de seguridad en los costados -->
+
             <br>
             <div class="text-center mb-4">
               <!--  <span class="text-uppercase fw-bold">Registro de Cuenta</span>
@@ -49,10 +48,11 @@
     <a href="registro.html" class="toggle-btn active">Registrarme</a>
 </div>
 
-        <main class="container my-4"> <!-- Añadimos 'container' para dar márgenes automáticos de seguridad en los costados Se corrigue que en vista de IphoneSe este pegadoo -->
+            <!-- Inicio de row para la tabla de registro de usuario.   -->
         <section class="row justify-content-center">
-            <div class="col-12 col-md-8 col-lg-6 px-3 px-md-0"> <!-- px-3 util para pantallas pequeñas -->
-                    <form id="formulario" action="#" method="POST"> <!-- ,form se usa en css-->
+            <div class="col-12 col-md-8 col-lg-6 px-3 px-md-0"> <!-- px-3 asegura el respiro en pantallas pequeñas de móviles -->
+                <div class="form"> <!-- Si usas .centrate aquí, puedes mantener tu clase -->
+                    <form id="formulario" action="#" method="POST">
                         <p class="titleR">Registro </p>
                         <p class="messageR">Registrate y obten grandes beneficios para ti y tu mascotita </p>
                         <!-- Inicio de form  -->
@@ -315,7 +315,7 @@
                                 </div>
                 </div>
             </div>
-        </section>
+     </section>
     </main>
     <footer id="site-footer" class="text-light py-5" data-include="../partials/footer.html"></footer>
     <!-- Scripts SweetAlert-->
